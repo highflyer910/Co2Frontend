@@ -21,7 +21,6 @@ function App() {
       <QueryClientProvider client={queryClient}>
         <ReactQueryDevtools initialIsOpen={false} />
         <RouterCustom />
-        CIAO
       </QueryClientProvider>
     </MainProvider>
   );
