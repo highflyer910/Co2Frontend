@@ -1,7 +1,7 @@
 // src/components/DropdownMenu.tsx
 import { useState } from "react";
 import Modal from "../components/LogoutModal";
-import { Link } from "react-router-dom";
+
 import { User } from "../types/User"; // Assumendo che User.ts si trovi in src/types
 import { useMain } from "../contexts/MainContext";
 
