@@ -50,11 +50,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
           <span className="mb-2 font-body font-bold text-green-900">
             {user.userNick}
           </span>
-          <Link to="/donate">
-            <button className="font-body text-green-900 hover:text-green-950">
-              Donate
-            </button>
-          </Link>
+
           <button
             onClick={handleLogoutClick}
             className="font-body text-green-900 hover:text-green-950"
