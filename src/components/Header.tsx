@@ -38,7 +38,7 @@ const Header = () => {
     <header className="relative w-full z-10" role="banner">
       <div className="relative w-full h-82 md:h-60 flex justify-between items-center">
         <img
-          src={`/header.svg`}
+          src={`/header.webp`}
           alt="GoGreen Header"
           className="w-full h-full object-cover"
           style={{ objectFit: "cover", objectPosition: "center" }}

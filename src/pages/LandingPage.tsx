@@ -17,7 +17,7 @@ const LandingPage: React.FC = () => {
   return (
     <div className="relative bg-gray-100 min-h-screen">
       <img
-        src={`/background.svg`}
+        src={`/background.webp`}
         alt=""
         className="absolute inset-0 w-full h-full object-cover z-0"
         aria-hidden="true"

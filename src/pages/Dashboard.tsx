@@ -17,7 +17,7 @@ const Dashboard = () => {
     return (
       <div className="relative bg-gray-100 flex flex-col min-h-screen overflow-auto">
         <img
-          src={`/background.svg`}
+          src={`/background.webp`}
           alt="Background"
           className="absolute inset-0 w-full h-full object-cover z-0"
           aria-hidden="true"
@@ -41,7 +41,7 @@ const Dashboard = () => {
               aria-label="Track emissions for 1 month"
             >
               <img
-                src={`/icon.png`}
+                src={`/icon.webp`}
                 alt=""
                 className="absolute left-2 w-6 h-6"
                 aria-hidden="true"
@@ -53,7 +53,7 @@ const Dashboard = () => {
               aria-label="Track emissions for 3 months"
             >
               <img
-                src={`/icon.png`}
+                src={`/icon.webp`}
                 alt=""
                 className="absolute left-2 w-6 h-6"
                 aria-hidden="true"
@@ -65,7 +65,7 @@ const Dashboard = () => {
               aria-label="Track emissions for 6 months"
             >
               <img
-                src={`/icon.png`}
+                src={`/icon.webp`}
                 alt=""
                 className="absolute left-2 w-6 h-6"
                 aria-hidden="true"
@@ -77,7 +77,7 @@ const Dashboard = () => {
               aria-label="Track emissions for 1 year"
             >
               <img
-                src={`/icon.png`}
+                src={`/icon.webp`}
                 alt=""
                 className="absolute left-2 w-6 h-6"
                 aria-hidden="true"

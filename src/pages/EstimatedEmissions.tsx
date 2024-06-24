@@ -15,7 +15,7 @@ const EstimatedEmissions: React.FC = () => {
   return (
     <div className="relative bg-gray-100 min-h-screen overflow-auto flex flex-col">
       <img
-        src={`/background.svg`}
+        src={`//background.webp`}
         alt="Background"
         className="absolute inset-0 w-full h-full object-cover z-0"
         aria-hidden="true"
@@ -30,7 +30,7 @@ const EstimatedEmissions: React.FC = () => {
 
         <div className="relative font-body text-3xl bg-yellow-300 font-bold text-green-800 my-4 sm:w-full text-center border-2 border-green-800 py-3 px-4 w-full max-w-xs">
           <img
-            src={`/icon.png`}
+            src={`/icon.webp`}
             alt=""
             className="absolute left-2 w-10 h-10"
             aria-hidden="true"
