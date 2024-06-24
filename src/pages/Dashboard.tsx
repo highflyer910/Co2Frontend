@@ -3,7 +3,7 @@ import Header from "../components/Header";
 import Loading from "../elements/Loading";
 import { useMain } from "../contexts/MainContext";
 
-const Dashboard = () => {
+const Groups = () => {
   const navigate = useNavigate();
   const { isAuth } = useMain();
   console.log("isAuth in dashboard", isAuth);
@@ -91,4 +91,4 @@ const Dashboard = () => {
   }
 };
 
-export default Dashboard;
+export default Groups;

@@ -37,7 +37,7 @@ const TelegramLoginButton: React.FC = () => {
 
       try {
         const response = await fetch(
-          `${import.meta.env.VITE_APP_BASE_URL_BE}/api/v1/callback`,
+          `${import.meta.env.VITE_APP_BASE_URL_BE}/callback`,
           {
             method: "POST",
             headers: {
@@ -70,7 +70,7 @@ const TelegramLoginButton: React.FC = () => {
               userNick: user.username ?? undefined,
             },
           });
-          navigate("/dashboard");
+          navigate("/groups");
         } else {
           console.error("Login failed");
         }

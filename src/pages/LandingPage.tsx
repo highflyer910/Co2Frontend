@@ -11,7 +11,7 @@ const LandingPage: React.FC = () => {
   console.log("isAuth in landing page", isAuth);
   if (isAuth) {
     console.log("User is authenticated, redirecting to dashboard");
-    navigate("/dashboard");
+    navigate("/groups");
   }
 
   return (
