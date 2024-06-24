@@ -23,12 +23,12 @@ function RouterCustom() {
         <Route index element={<Navigate replace to="landingPage" />} />
         {/* Rotte protette per utenti autenticati */}
         <Route
-          path="dashboard"
+          path="/dashboard"
           element={realAuth ? <Dashboard /> : <Navigate to="/" />}
         />
 
         <Route
-          path="estimatedemissions"
+          path="/estimatedemissions"
           element={realAuth ? <EstimatedEmissions /> : <Navigate to="/" />}
         />
 
