@@ -7,6 +7,7 @@ import PlantTree from "./pages/PlantTree";
 import Donate from "./pages/Donate";
 import PageNotFound from "./pages/PageNotFound";
 import LandingPage from "./pages/LandingPage";
+import DonationCallback from "./pages/DonationCallback";
 
 function RouterCustom() {
   const { isAuth, userId } = useMain() || {};
@@ -43,13 +44,9 @@ function RouterCustom() {
 
         <Route
           path="donatecallback"
-          element={realAuth ? <Donate /> : <Navigate to="/" />}
+          element={realAuth ? <DonationCallback /> : <Navigate to="/" />}
         />
 
-        <Route
-          path="auth/telegram/callback"
-          element={realAuth ? <Donate /> : <Navigate to="/" />}
-        />
         {/* Rotte pubbliche accessibili solo agli utenti non autenticati */}
         <Route
           path="landingPage"
