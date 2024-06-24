@@ -29,10 +29,10 @@ const Donate: React.FC = () => {
     return <Loading />;
   }
 
-  const handleLogout = () => {
-    localStorage.removeItem("telegram_user");
-    navigate("/");
-  };
+  // const handleLogout = () => {
+  //   localStorage.removeItem("telegram_user");
+  //   navigate("/");
+  // };
 
   const handleDonate = () => {
     const projectId = "mgnus-lucus-it";
@@ -53,7 +53,7 @@ const Donate: React.FC = () => {
         aria-hidden="true"
       />
 
-      <Header handleLogout={handleLogout} />
+      <Header />
 
       <main className="relative flex flex-col items-center justify-center py-10 md:pt-0 pt-0">
         <h1 className="text-3xl font-poppins font-bold text-center bg-green-700 text-yellow-200 py-3 shadow-lg">

@@ -3,6 +3,7 @@ import { useState } from "react";
 import Modal from "../components/LogoutModal";
 import { Link } from "react-router-dom";
 import { User } from "../types/User"; // Assumendo che User.ts si trovi in src/types
+import { useMain } from "../contexts/MainContext";
 
 interface DropdownMenuProps {
   isLoggedIn: boolean;
@@ -16,8 +17,11 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
   isDropdownOpen,
 }) => {
   const [isModalOpen, setModalOpen] = useState(false);
+  const { dispatch } = useMain();
 
-  const handleLogout = () => {};
+  const handleLogout = () => {
+    dispatch({ type: "LOGOUT" });
+  };
 
   const handleLogoutClick = () => {
     setModalOpen(true);

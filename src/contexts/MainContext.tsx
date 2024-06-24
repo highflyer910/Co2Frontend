@@ -1,9 +1,9 @@
-// MainContext.tsx
 import React, { createContext, useContext, useReducer } from "react";
+import Cookies from "js-cookie";
 
 // Interface for User state
 export interface UserState {
-  userId: string;
+  userId: number;
   userName: string;
   userNick: string;
   isAuth: boolean;
@@ -14,14 +14,16 @@ export interface UserState {
 interface Action {
   type: string;
   payload?: {
-    userId?: string;
+    userId?: number;
     userName?: string;
     userNick?: string;
   };
 }
 
+// Funzione per ottenere lo stato iniziale basato sul token JWT
+
 const initialState: UserState = {
-  userId: "",
+  userId: -1,
   userName: "",
   userNick: "",
   isAuth: false,
@@ -45,6 +47,7 @@ function reducer(state: UserState, action: Action): UserState {
       };
     }
     case "LOGOUT": {
+      Cookies.remove("jwt-co2"); // Rimuovi il cookie al logout
       return {
         ...initialState,
         dispatch: state.dispatch, // Preserve dispatch function
