@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Header from "../components/Header";
 import Cookies from "js-cookie";
 import { useGetGroups } from "../hooks/useGetAllGroups";
