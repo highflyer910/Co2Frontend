@@ -61,6 +61,10 @@ function reducer(state: UserState, action: Action): UserState {
     }
     case "SET_GROUP": {
       const { groupId } = action.payload!;
+      console.log("--------------------");
+      console.log("Setting group ID");
+      console.log({ groupId });
+      console.log("--------------------");
       return {
         ...state,
         groupId: groupId || state.groupId,
