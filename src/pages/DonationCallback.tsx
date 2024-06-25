@@ -54,6 +54,8 @@ const DonationCallback: React.FC = () => {
 
   console.log({ context });
   console.log({ don_status });
+  console.log({ userId });
+  console.log({ groupId });
 
   useEffect(() => {
     const fetchDonationData = async () => {
@@ -66,7 +68,7 @@ const DonationCallback: React.FC = () => {
 
           const donationDetails: DonationDetails = {
             userId: userId + "", // Assegna userId dalla risposta
-            groupId: groupId, // Assegna groupId dalla risposta
+            groupId: groupId + "", // Assegna groupId dalla risposta
             units: data.units,
             code: data.code,
             project: {
