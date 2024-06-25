@@ -6,6 +6,8 @@ const DonationCallback: React.FC = () => {
     context?: string;
     don_status?: string;
   }>();
+  console.log({ context });
+  console.log({ don_status });
   const navigate = useNavigate();
 
   const handleReturnHome = () => {
