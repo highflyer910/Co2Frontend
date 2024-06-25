@@ -61,7 +61,7 @@ const TelegramLoginButton: React.FC = () => {
           dispatch({
             type: "SET_USER",
             payload: {
-              userId: user.id,
+              userId: user.id + "",
               userName: user.first_name ?? undefined,
               userNick: user.username ?? undefined,
               jwt: tokenJwt,

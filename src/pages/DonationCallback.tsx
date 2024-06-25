@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
+import { useMain } from "../contexts/MainContext";
 
 // Definizione dell'interfaccia per i dati della donazione
 interface DonationDetails {
+  userId: string; // Aggiunto userId per identificare l'utente che fa la donazione
+  groupId: string; // Aggiunto groupId per identificare il gruppo relativo alla donazione
   units: number;
   code: string;
   project: {
@@ -42,6 +45,7 @@ const DonationCallback: React.FC = () => {
   const [donationData, setDonationData] = useState<DonationDetails | null>(
     null
   );
+  const { userId, groupId, jwt } = useMain(); // Assuming jwtToken is obtained from useMain()
 
   // Parse dei parametri di query
   const queryParams = new URLSearchParams(location.search);
@@ -61,6 +65,8 @@ const DonationCallback: React.FC = () => {
           const data = await response.json();
 
           const donationDetails: DonationDetails = {
+            userId: userId + "", // Assegna userId dalla risposta
+            groupId: groupId, // Assegna groupId dalla risposta
             units: data.units,
             code: data.code,
             project: {
@@ -96,6 +102,25 @@ const DonationCallback: React.FC = () => {
 
           setDonationData(donationDetails);
           console.log(donationDetails); // Stampa l'oggetto in console
+
+          // Invio dell'oggetto della donazione al backend con JWT token
+          const backendUrl = `${import.meta.env.VITE_APP_BASE_URL_BE}/donation`;
+
+          const donationResponse = await fetch(backendUrl, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${jwt}`, // Token JWT come Authorization header
+              "X-Custom-Origin": "secretorginipasswordtomorrowdevfromfe",
+            },
+            body: JSON.stringify(donationDetails),
+          });
+
+          if (donationResponse.ok) {
+            console.log("Donation data sent to backend successfully");
+          } else {
+            console.error("Failed to send donation data to backend");
+          }
         } catch (error) {
           console.error("Error fetching donation data:", error);
         }
@@ -103,7 +128,7 @@ const DonationCallback: React.FC = () => {
     };
 
     fetchDonationData();
-  }, [context, don_status]);
+  }, [context, don_status, userId, groupId, jwt]);
 
   const handleReturnHome = () => {
     navigate("/");

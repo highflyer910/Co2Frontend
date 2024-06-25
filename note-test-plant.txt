@@ -1,0 +1,10 @@
+https://donate.plant-for-the-planet.org/?units=4&frequency=once&callback_url=https%3A%2F%2F3b25-5-90-138-124.ngrok-free.app%2Fdonation%2Fcallback&callback_method=api
+
+
+
+risposta callback
+https://3b25-5-90-138-124.ngrok-free.app/donation/callback?context=don_1iou8Ct9dJe4hElBTymASeHM&don_status=success
+
+chiedere se possibile risalire dettagli donazione con il don_ e dove finito s=tastclaudio che avevo inserito grazie
+
+/donate/callback?context=don_1iou8Ct9dJe4hElBTymASeHM&don_status=success

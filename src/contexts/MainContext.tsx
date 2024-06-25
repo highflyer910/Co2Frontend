@@ -3,9 +3,10 @@ import Cookies from "js-cookie";
 
 // Interface for User state
 export interface UserState {
-  userId: number;
+  userId: string;
   userName: string;
   userNick: string;
+  groupId: string;
   jwt: string;
   dispatch: React.Dispatch<Action>;
 }
@@ -14,10 +15,11 @@ export interface UserState {
 interface Action {
   type: string;
   payload?: {
-    userId?: number;
+    userId?: string;
     userName?: string;
     userNick?: string;
     jwt?: string;
+    groupId?: string;
   };
 }
 
@@ -25,10 +27,12 @@ interface Action {
 const jwtTokenInit = Cookies.get("jwt-co2") || "";
 
 const initialState: UserState = {
-  userId: -1,
+  userId: "",
   userName: "",
   userNick: "",
+  groupId: "",
   jwt: jwtTokenInit,
+
   dispatch: () => {
     throw new Error("Dispatch called before initialization");
   },
@@ -53,6 +57,13 @@ function reducer(state: UserState, action: Action): UserState {
       return {
         ...initialState,
         dispatch: state.dispatch, // Preserve dispatch function
+      };
+    }
+    case "SET_GROUP": {
+      const { groupId } = action.payload!;
+      return {
+        ...state,
+        groupId: groupId || state.groupId,
       };
     }
     default:
