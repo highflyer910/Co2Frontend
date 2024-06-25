@@ -11,7 +11,7 @@ import Groups from "./pages/Groups";
 
 function RouterCustom() {
   const { isAuth, userId } = useMain() || {};
-  const [realAuth, setRealAuth] = useState(false);
+  const [realAuth, setRealAuth] = useState(true);
 
   useEffect(() => {
     setRealAuth(isAuth && userId !== -1);
@@ -41,7 +41,7 @@ function RouterCustom() {
         />
         <Route
           path="/donate/callback/:context?/:status?"
-          element={<DonationCallback />}
+          element={realAuth ? <DonationCallback /> : <Navigate to="/" />}
         />
         {/* <Route
           path="/donate/callback/:context?/:status?"
