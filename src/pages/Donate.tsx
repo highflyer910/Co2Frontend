@@ -6,13 +6,14 @@ const Donate: React.FC = () => {
     groupId: string;
     groupName: string;
   }>();
+  console.log({ groupId });
+  console.log({ groupName });
   const [treeCount, setTreeCount] = useState(1);
   const navigate = useNavigate();
 
   const frequency = "once"; // Frequenza costante
   const callbackUrl = `${import.meta.env.VITE_APP_BASE_URL_FE}/donate/callback`; // URL di callback (usando una variabile d'ambiente)
   const callbackMethod = "api"; // Metodo di callback costante
-
   const handleTreeCountChange = (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
