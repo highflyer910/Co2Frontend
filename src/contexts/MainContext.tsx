@@ -68,7 +68,7 @@ function MainProvider({ children }: { children: React.ReactNode }) {
       if (state.jwt) {
         try {
           const response = await fetch(
-            `${import.meta.env.VITE_APP_BASE_URL_BE}/verify-token`,
+            `${import.meta.env.VITE_APP_BASE_URL_BE}/verify-jwt`,
             {
               method: "GET",
               headers: {
