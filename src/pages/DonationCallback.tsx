@@ -2,9 +2,9 @@ import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 const DonationCallback: React.FC = () => {
-  const { context, status } = useParams<{
+  const { context, don_status } = useParams<{
     context?: string;
-    status?: string;
+    don_status?: string;
   }>();
   const navigate = useNavigate();
 
@@ -13,16 +13,16 @@ const DonationCallback: React.FC = () => {
   };
 
   // Verifica dei parametri e rendering dei messaggi appropriati
-  if (context && status === "success") {
+  if (context && don_status === "success") {
     return <div>Success donation da checkare</div>;
-  } else if (!context || !status) {
+  } else if (!context || !don_status) {
     return (
       <div>
         <p>Transazione non completata o con errori</p>
         <button onClick={handleReturnHome}>Torna alla Home</button>
       </div>
     );
-  } else if (context && status !== "success") {
+  } else if (context && don_status !== "success") {
     return <div>Donazione ricevuta ma ancora non completata</div>;
   }
 
