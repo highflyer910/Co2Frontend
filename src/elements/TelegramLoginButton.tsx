@@ -49,18 +49,14 @@ const TelegramLoginButton: React.FC = () => {
         );
 
         const result = await response.json();
-        console.log("result :", result);
-        console.log("status :", result.success);
-        console.log("token  :", result.token);
-        console.log("data   :", result.data);
 
         if (result.status === "success") {
           const tokenJwt = result.token; // Assuming the JWT token is returned in the result
-          console.log("Token JWT 2:", tokenJwt);
+
           // Set JWT token in a secure cookie
           Cookies.set("jwt-co2", tokenJwt, {
             secure: true,
-            sameSite: "strict",
+            sameSite: "None",
           });
           dispatch({
             type: "SET_USER",
