@@ -85,25 +85,34 @@ const DonationCallback: React.FC = () => {
     navigate("/");
   };
 
-  if (context && don_status === "success") {
-    return (
-      <div>
-        <h2>Success donation da checkare</h2>
-        {donationData && <pre>{JSON.stringify(donationData, null, 2)}</pre>}
-      </div>
-    );
-  } else if (!context || !don_status) {
-    return (
-      <div>
-        <p>Transazione non completata o con errori</p>
-        <button onClick={handleReturnHome}>Torna alla Home</button>
-      </div>
-    );
-  } else if (context && don_status !== "success") {
-    return <div>Donazione ricevuta ma ancora non completata</div>;
-  }
-
-  return null;
+  return (
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-4">
+      {context && don_status === "success" ? (
+        <>
+          <h2 className="font-poppins text-3xl font-bold text-green-800 py-3 px-4 shadow-lg mb-4">
+            Successo nella donazione!
+          </h2>
+          {donationData && (
+            <pre className="bg-white text-green-800 font-body py-2 px-4 rounded border-2 border-green-800 shadow-md mb-4">
+              {JSON.stringify(donationData, null, 2)}
+            </pre>
+          )}
+        </>
+      ) : (
+        <div>
+          <p className="font-poppins text-xl font-bold text-red-800 py-3 px-4 shadow-lg mb-4">
+            Transazione non completata o con errori
+          </p>
+        </div>
+      )}
+      <button
+        onClick={handleReturnHome}
+        className="bg-yellow-400 hover:bg-yellow-500 text-green-900 font-bold py-2 px-4 rounded"
+      >
+        Torna alla Home
+      </button>
+    </div>
+  );
 };
 
 export default DonationCallback;
