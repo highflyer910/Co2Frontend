@@ -115,7 +115,7 @@ const Groups = () => {
                 <p>Emissions (One Byte): {group.totalEmissionsOneByte}</p>
                 <p>Emissions (SWD): {group.totalEmissionsSWD}</p>
                 <p>
-                  Last Report:{" "}
+                  Last Report:
                   {new Date(group.lastReportTimestamp).toLocaleString()}
                 </p>
                 <p>Admins: {group.adminNames.join(", ")}</p>
@@ -128,7 +128,7 @@ const Groups = () => {
                   Donate
                 </button>
                 <button className="my-4 bg-yellow-400 hover:bg-yellow-500 text-green-900 font-bold py-2 px-4 rounded">
-                  Filter
+                  Limit
                 </button>
               </div>
             </div>
