@@ -36,7 +36,7 @@ function RouterCustom() {
           element={jwt ? <Donate /> : <Navigate to="/landingPage" />}
         />
         <Route
-          path="/donate/callback/:context?/:status?"
+          path="/donate/callback/:context?/:don_status?"
           element={jwt ? <DonationCallback /> : <Navigate to="/landingPage" />}
         />
 
