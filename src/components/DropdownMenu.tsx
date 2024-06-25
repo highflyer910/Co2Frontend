@@ -21,6 +21,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
 
   const handleLogout = () => {
     dispatch({ type: "LOGOUT" });
+    window.location.reload();
   };
 
   const handleLogoutClick = () => {
