@@ -2,21 +2,24 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useMain } from "../contexts/MainContext";
 
-interface DonationDetails {
+interface DonationDetailsOut {
   userId: string;
   groupId: string;
   units: number;
-  code: string;
+  donationId: string;
   paymentDate: string;
   amount: string;
   currency: string;
   unitType: string;
+  locationProject: string;
+  nameProject: string;
+  idProject: string;
 }
 
 const DonationCallback: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const [donationData, setDonationData] = useState<DonationDetails | null>(
+  const [donationData, setDonationData] = useState<DonationDetailsOut | null>(
     null
   );
   const { userId } = useMain(); // Assuming jwtToken is obtained from useMain()
@@ -36,15 +39,18 @@ const DonationCallback: React.FC = () => {
           // Retrieve groupId from localStorage
           const groupId = localStorage.getItem("groupId") || "";
 
-          const donationDetails: DonationDetails = {
+          const donationDetails: DonationDetailsOut = {
             userId: userId || "",
             groupId,
             units: data.units,
-            code: data.code,
+            donationId: context,
             paymentDate: data.paymentDate,
             amount: data.amount,
             currency: data.currency,
             unitType: data.unitType,
+            locationProject: data.project.country,
+            idProject: data.project.id,
+            nameProject: data.project.name,
           };
 
           setDonationData(donationDetails);
