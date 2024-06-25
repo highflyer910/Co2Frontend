@@ -41,9 +41,12 @@ function RouterCustom() {
         />
         <Route
           path="/donate/callback/:context?/:status?"
-          element={realAuth ? <DonationCallback /> : <Navigate to="/" />}
+          element={<DonationCallback />}
         />
-
+        {/* <Route
+          path="/donate/callback/:context?/:status?"
+          element={realAuth ? <DonationCallback /> : <Navigate to="/" />}
+        /> */}
         {/* Rotte pubbliche accessibili solo agli utenti non autenticati */}
         <Route
           path="/landingPage"
