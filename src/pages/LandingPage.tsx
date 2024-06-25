@@ -1,18 +1,18 @@
 // LandingPage.tsx
 import React from "react";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import TelegramLoginButton from "../elements/TelegramLoginButton";
 import Header from "../components/Header";
 import { useMain } from "../contexts/MainContext"; // Assumendo che MainContext.tsx si trovi in src/contexts
 
 const LandingPage: React.FC = () => {
-  const navigate = useNavigate();
-  const { isAuth } = useMain();
-  console.log("isAuth in landing page", isAuth);
-  if (isAuth) {
-    console.log("User is authenticated, redirecting to dashboard");
-    navigate("/groups");
-  }
+  // const navigate = useNavigate();
+  const { jwt } = useMain();
+  console.log("jwt in landing page", jwt);
+  // if (jwt) {
+  //   console.log("User is authenticated, redirecting to dashboard");
+  //   navigate("/groups");
+  // }
 
   return (
     <div className="relative bg-gray-100 min-h-screen">

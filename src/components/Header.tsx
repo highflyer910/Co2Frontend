@@ -6,7 +6,7 @@ import { useMain } from "../contexts/MainContext"; // Assumendo che MainContext.
 
 const Header = () => {
   const mainContext = useMain();
-  const { userName, userNick, isAuth } = mainContext || {};
+  const { userName, userNick, jwt } = mainContext || {};
   const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false);
   const dropdownRef = useRef<HTMLDivElement | null>(null);
 
@@ -30,9 +30,10 @@ const Header = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
 
-  const user = isAuth
-    ? { userId: "", userName: userName!, userNick: userNick! }
-    : null; // Costruiamo l'oggetto user
+  const user =
+    jwt && userName && userNick
+      ? { userId: "", userName: userName!, userNick: userNick! }
+      : null; // Costruiamo l'oggetto user
 
   return (
     <header className="relative w-full z-10" role="banner">
@@ -51,7 +52,7 @@ const Header = () => {
           />
         </Link>
         <div className="absolute top-4 right-4">
-          {isAuth && (
+          {jwt && (
             <button
               onClick={toggleDropdown}
               className="bg-transparent border-0 p-0"
@@ -59,10 +60,10 @@ const Header = () => {
               <img src={`/user-yellow.svg`} alt="Logo" className="w-8 h-8" />
             </button>
           )}
-          {isAuth && (
+          {jwt && (
             <div ref={dropdownRef}>
               <DropdownMenu
-                isLoggedIn={isAuth}
+                isLoggedIn={jwt ? true : false}
                 user={user}
                 isDropdownOpen={isDropdownOpen}
               />

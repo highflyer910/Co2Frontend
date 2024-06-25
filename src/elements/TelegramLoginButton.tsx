@@ -68,6 +68,7 @@ const TelegramLoginButton: React.FC = () => {
               userId: user.id,
               userName: user.first_name ?? undefined,
               userNick: user.username ?? undefined,
+              jwt: tokenJwt,
             },
           });
           navigate("/groups");

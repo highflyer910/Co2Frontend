@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useReducer } from "react";
+import React, { createContext, useContext, useReducer, useEffect } from "react";
 import Cookies from "js-cookie";
 
 // Interface for User state
@@ -6,7 +6,7 @@ export interface UserState {
   userId: number;
   userName: string;
   userNick: string;
-  isAuth: boolean;
+  jwt: string;
   dispatch: React.Dispatch<Action>;
 }
 
@@ -17,16 +17,18 @@ interface Action {
     userId?: number;
     userName?: string;
     userNick?: string;
+    jwt?: string;
   };
 }
 
 // Funzione per ottenere lo stato iniziale basato sul token JWT
+const jwtTokenInit = Cookies.get("jwt-co2") || "";
 
 const initialState: UserState = {
   userId: -1,
   userName: "",
   userNick: "",
-  isAuth: false,
+  jwt: jwtTokenInit,
   dispatch: () => {
     throw new Error("Dispatch called before initialization");
   },
@@ -37,13 +39,13 @@ const QueryContext = createContext<UserState>(initialState);
 function reducer(state: UserState, action: Action): UserState {
   switch (action.type) {
     case "SET_USER": {
-      const { userId, userName, userNick } = action.payload!;
+      const { userId, userName, userNick, jwt } = action.payload!;
       return {
         ...state,
         userId: userId || state.userId,
         userName: userName || state.userName,
         userNick: userNick || state.userNick,
-        isAuth: true,
+        jwt: jwt || state.jwt,
       };
     }
     case "LOGOUT": {
@@ -60,6 +62,43 @@ function reducer(state: UserState, action: Action): UserState {
 
 function MainProvider({ children }: { children: React.ReactNode }) {
   const [state, dispatch] = useReducer(reducer, initialState);
+
+  useEffect(() => {
+    async function verifyToken() {
+      if (state.jwt) {
+        try {
+          const response = await fetch(
+            `${import.meta.env.VITE_APP_BASE_URL_BE}/verify-token`,
+            {
+              method: "GET",
+              headers: {
+                Authorization: `Bearer ${state.jwt}`,
+              },
+            }
+          );
+
+          if (response.ok) {
+            const data = await response.json();
+            dispatch({
+              type: "SET_USER",
+              payload: {
+                userId: data.userId,
+                userName: data.userName,
+                userNick: data.userNick,
+                jwt: state.jwt,
+              },
+            });
+          } else {
+            dispatch({ type: "LOGOUT" });
+          }
+        } catch (error) {
+          dispatch({ type: "LOGOUT" });
+        }
+      }
+    }
+
+    verifyToken();
+  }, [state.jwt]);
 
   return (
     <QueryContext.Provider value={{ ...state, dispatch }}>
