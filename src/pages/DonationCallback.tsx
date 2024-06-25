@@ -19,7 +19,7 @@ const DonationCallback: React.FC = () => {
 
   // Verifica dei parametri e rendering dei messaggi appropriati
   if (context && don_status === "success") {
-    return <div>Success donation da checkare con id : ${context}</div>;
+    return <div>Success donation da checkare con id : {context}</div>;
   } else if (!context || !don_status) {
     return (
       <div>
