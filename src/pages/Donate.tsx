@@ -25,8 +25,11 @@ const Donate: React.FC = () => {
       callbackUrl
     )}&callback_method=${callbackMethod}`;
 
-    // Apertura del widget esterno per la donazione
-    window.open(donationUrl, "_blank");
+    // // Apertura del widget esterno per la donazione
+    // window.open(donationUrl, "_blank");
+
+    // Apertura del widget esterno per la donazione nella stessa finestra
+    window.open(donationUrl, "_self");
 
     // Navigazione indietro dopo aver completato la donazione (opzionale)
     navigate(-1);
