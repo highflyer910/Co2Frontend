@@ -3,8 +3,8 @@ import { useNavigate, useParams } from "react-router-dom";
 
 const DonationCallback: React.FC = () => {
   const { context, don_status } = useParams<{
-    context?: string;
-    don_status?: string;
+    context: string;
+    don_status: string;
   }>();
   console.log({ context });
   console.log({ don_status });
