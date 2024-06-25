@@ -1,25 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { useMain } from "../contexts/MainContext";
 
 const Donate: React.FC = () => {
   const { groupId, groupName } = useParams<{
     groupId: string;
     groupName: string;
   }>();
-  const { dispatch } = useMain();
-
-  useEffect(() => {
-    // Dispatch solo se groupId è definito
-    if (groupId) {
-      dispatch({
-        type: "SET_GROUP",
-        payload: {
-          groupId,
-        },
-      });
-    }
-  }, [dispatch, groupId]);
+  localStorage.setItem("groupId", groupId ?? "");
 
   console.log({ groupId });
   console.log({ groupName });

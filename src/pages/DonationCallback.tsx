@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import { useMain } from "../contexts/MainContext";
 
 // Definizione dell'interfaccia per i dati della donazione
 interface DonationDetails {
@@ -45,7 +44,6 @@ const DonationCallback: React.FC = () => {
   const [donationData, setDonationData] = useState<DonationDetails | null>(
     null
   );
-  const { userId, groupId, jwt } = useMain(); // Assuming jwtToken is obtained from useMain()
 
   // Parse dei parametri di query
   const queryParams = new URLSearchParams(location.search);
@@ -54,8 +52,6 @@ const DonationCallback: React.FC = () => {
 
   console.log({ context });
   console.log({ don_status });
-  console.log({ userId });
-  console.log({ groupId });
 
   useEffect(() => {
     const fetchDonationData = async () => {
@@ -66,9 +62,12 @@ const DonationCallback: React.FC = () => {
           );
           const data = await response.json();
 
+          // Recupero del groupId da localStorage
+          const groupId = localStorage.getItem("groupId");
+
           const donationDetails: DonationDetails = {
-            userId: userId + "", // Assegna userId dalla risposta
-            groupId: groupId + "", // Assegna groupId dalla risposta
+            userId: localStorage.getItem("userId") || "", // Assumendo che userId sia salvato in localStorage
+            groupId: groupId || "", // Utilizzo del groupId da localStorage
             units: data.units,
             code: data.code,
             project: {
@@ -105,14 +104,14 @@ const DonationCallback: React.FC = () => {
           setDonationData(donationDetails);
           console.log(donationDetails); // Stampa l'oggetto in console
 
-          // Invio dell'oggetto della donazione al backend con JWT token
+          // Invio dell'oggetto della donazione al backend
           const backendUrl = `${import.meta.env.VITE_APP_BASE_URL_BE}/donation`;
 
           const donationResponse = await fetch(backendUrl, {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
-              Authorization: `Bearer ${jwt}`, // Token JWT come Authorization header
+              Authorization: `Bearer ${localStorage.getItem("jwt")}`, // Token JWT come Authorization header da localStorage
               "X-Custom-Origin": "secretorginipasswordtomorrowdevfromfe",
             },
             body: JSON.stringify(donationDetails),
@@ -130,7 +129,7 @@ const DonationCallback: React.FC = () => {
     };
 
     fetchDonationData();
-  }, [context, don_status, userId, groupId, jwt]);
+  }, [context, don_status]);
 
   const handleReturnHome = () => {
     navigate("/");
