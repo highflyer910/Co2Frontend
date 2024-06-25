@@ -6,7 +6,7 @@ import { useMain } from "../contexts/MainContext"; // Assumendo che MainContext.
 
 const Header = () => {
   const mainContext = useMain();
-  const { userName, userNick, jwt } = mainContext || {};
+  const { userName, userNick, userId, jwt } = mainContext || {};
   const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false);
   const dropdownRef = useRef<HTMLDivElement | null>(null);
 
@@ -30,9 +30,11 @@ const Header = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
 
+  const userIdString = userId + "";
+
   const user =
-    jwt && userName && userNick
-      ? { userId: "", userName: userName!, userNick: userNick! }
+    jwt && userNick && userName && userId
+      ? { userId: userIdString, userName, userNick }
       : null; // Costruiamo l'oggetto user
 
   return (
