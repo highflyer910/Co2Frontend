@@ -1,15 +1,14 @@
 import { useState } from "react";
 import Header from "../components/Header";
-import Cookies from "js-cookie";
 import { useGetGroups } from "../hooks/useGetAllGroups";
 import { Group } from "../types/Group";
 import { useLocalStorageState } from "../hooks/useLocalStorage";
 import GroupCard from "../components/GroupCard";
-
-const jwtToken = Cookies.get("jwt-co2") || "";
+import { useMain } from "../contexts/MainContext";
 
 const Groups = () => {
-  const { groups = [], isLoading, error } = useGetGroups(jwtToken);
+  const { jwt } = useMain();
+  const { groups = [], isLoading, error } = useGetGroups(jwt);
   const [onlyFavourite, setOnlyFavourite] = useState(false);
 
   // Utilizza il tuo hook useLocalStorageState per gestire i preferiti
