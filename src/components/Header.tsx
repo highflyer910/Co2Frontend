@@ -1,7 +1,7 @@
 // src/components/Header.tsx
 import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import DropdownMenu from "../elements/DropdownMenu";
+import DropdownMenu from "./DropdownMenu";
 import { useMain } from "../contexts/MainContext"; // Assumendo che MainContext.tsx si trovi in src/contexts
 
 const Header = () => {

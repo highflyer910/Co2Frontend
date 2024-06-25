@@ -26,19 +26,16 @@ function RouterCustom() {
           path="/groups"
           element={realAuth ? <Groups /> : <Navigate to="/" />}
         />
-
         <Route
           path="/estimatedemissions"
           element={realAuth ? <EstimatedEmissions /> : <Navigate to="/" />}
         />
-
         <Route
           path="planttree"
           element={realAuth ? <PlantTree /> : <Navigate to="/" />}
         />
-
         <Route
-          path="donate"
+          path="donate/:groupId/:groupName"
           element={realAuth ? <Donate /> : <Navigate to="/" />}
         />
 
@@ -46,7 +43,6 @@ function RouterCustom() {
           path="donatecallback"
           element={realAuth ? <DonationCallback /> : <Navigate to="/" />}
         />
-
         {/* Rotte pubbliche accessibili solo agli utenti non autenticati */}
         <Route
           path="landingPage"

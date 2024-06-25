@@ -1,10 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Header from "../components/Header";
 import Cookies from "js-cookie";
 import { useGetGroups } from "../hooks/useGetAllGroups";
 import { Group } from "../types/Group";
-import { AiOutlineStar, AiFillStar } from "react-icons/ai";
 import { useLocalStorageState } from "../hooks/useLocalStorage";
+import GroupCard from "../components/GroupCard";
 
 const jwtToken = Cookies.get("jwt-co2") || "";
 
@@ -17,32 +17,6 @@ const Groups = () => {
     {}, // Stato iniziale
     "favourites" // Chiave per localStorage
   );
-
-  // Funzione per gestire il caricamento dei preferiti da localStorage
-  const loadFavourites = () => {
-    const savedFavourites = localStorage.getItem("favourites");
-    console.log("Loaded from localStorage:", savedFavourites);
-    if (savedFavourites) {
-      try {
-        const parsedFavourites = JSON.parse(savedFavourites);
-        console.log("Parsed favourites:", parsedFavourites);
-        setFavourites(parsedFavourites);
-      } catch (e) {
-        console.error("Error parsing favourites from localStorage:", e);
-      }
-    }
-  };
-
-  // Effetto per caricare i preferiti al montaggio del componente
-  useEffect(() => {
-    loadFavourites();
-  }, []);
-
-  // Effetto per salvare i preferiti in localStorage quando cambiano
-  useEffect(() => {
-    console.log("Saving to localStorage:", favourites);
-    localStorage.setItem("favourites", JSON.stringify(favourites));
-  }, [favourites]);
 
   // Funzione per gestire il click sul pulsante "Show All" / "Show Favourites"
   const handleOnlyFavouriteClick = () => {
@@ -61,6 +35,21 @@ const Groups = () => {
   const filteredGroups = onlyFavourite
     ? groups.filter((group) => favourites[group.groupId])
     : groups;
+
+  // Funzioni per gestire i click sui bottoni "Stat", "Limit"
+  const handleStatClick = (groupId: string) => {
+    console.log(`Clicked "Stat" for group ${groupId}`);
+    // Implementa la logica desiderata per il pulsante "Stat"
+  };
+  // // Funzioni per gestire i click sui bottoni "Stat", "Limit"
+  // const handleDonateClick = (groupId: string) => {
+  //   console.log(`Clicked "Stat" for group ${groupId}`);
+  //   // Implementa la logica desiderata per il pulsante "Stat"
+  // };
+  const handleLimitClick = (groupId: string) => {
+    console.log(`Clicked "Limit" for group ${groupId}`);
+    // Implementa la logica desiderata per il pulsante "Limit"
+  };
 
   // Renderizzazione del componente principale dei gruppi
   if (isLoading) return <div>Loading...</div>;
@@ -91,47 +80,14 @@ const Groups = () => {
 
         <div className="flex flex-col items-center space-y-3 w-full px-4 mb-8">
           {filteredGroups.map((group: Group) => (
-            <div
+            <GroupCard
               key={group.groupId}
-              className="my-5 relative w-full max-w-xs bg-white text-green-800 font-body py-2 px-4 rounded border-2 border-green-800 shadow-md hover:bg-gray-100 flex flex-col items-start"
-            >
-              <div className="flex justify-between items-center w-full">
-                <h2 className="font-bold text-xl">{group.groupName}</h2>
-                <button
-                  onClick={() => toggleFavourite(group.groupId)}
-                  className="text-2xl focus:outline-none"
-                >
-                  {favourites[group.groupId] ? (
-                    <AiFillStar className="text-green-500" />
-                  ) : (
-                    <AiOutlineStar className="text-gray-500" />
-                  )}
-                </button>
-              </div>
-              <div className="m-2">
-                <p>Participants: {group.participantsCount}</p>
-                <p>Total Messages: {group.totalMessages}</p>
-                <p>Total Size (KB): {group.totalSizeKB}</p>
-                <p>Emissions (One Byte): {group.totalEmissionsOneByte}</p>
-                <p>Emissions (SWD): {group.totalEmissionsSWD}</p>
-                <p>
-                  Last Report:
-                  {new Date(group.lastReportTimestamp).toLocaleString()}
-                </p>
-                <p>Admins: {group.adminNames.join(", ")}</p>
-              </div>
-              <div className="flex flex-row justify-around w-full">
-                <button className="my-4 bg-yellow-400 hover:bg-yellow-500 text-green-900 font-bold py-2 px-4 rounded">
-                  Stats
-                </button>
-                <button className="my-4 bg-yellow-400 hover:bg-yellow-500 text-green-900 font-bold py-2 px-4 rounded">
-                  Donate
-                </button>
-                <button className="my-4 bg-yellow-400 hover:bg-yellow-500 text-green-900 font-bold py-2 px-4 rounded">
-                  Limit
-                </button>
-              </div>
-            </div>
+              group={group}
+              isFavourite={!!favourites[group.groupId]}
+              toggleFavourite={toggleFavourite}
+              handleStatClick={handleStatClick}
+              handleLimitClick={handleLimitClick}
+            />
           ))}
         </div>
       </main>
