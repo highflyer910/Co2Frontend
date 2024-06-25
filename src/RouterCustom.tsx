@@ -21,6 +21,7 @@ function RouterCustom() {
     <BrowserRouter>
       <Routes>
         <Route index element={<Navigate replace to="landingPage" />} />
+
         {/* Rotte protette per utenti autenticati */}
         <Route
           path="/groups"
@@ -31,21 +32,21 @@ function RouterCustom() {
           element={realAuth ? <EstimatedEmissions /> : <Navigate to="/" />}
         />
         <Route
-          path="planttree"
+          path="/planttree"
           element={realAuth ? <PlantTree /> : <Navigate to="/" />}
         />
         <Route
-          path="donate/:groupId/:groupName"
+          path="/donate/:groupId/:groupName"
           element={realAuth ? <Donate /> : <Navigate to="/" />}
         />
-
         <Route
-          path="donatecallback"
+          path="/donate/callback/:context?/:status?"
           element={realAuth ? <DonationCallback /> : <Navigate to="/" />}
         />
+
         {/* Rotte pubbliche accessibili solo agli utenti non autenticati */}
         <Route
-          path="landingPage"
+          path="/landingPage"
           element={!realAuth ? <LandingPage /> : <Navigate to="/groups" />}
         />
         <Route path="*" element={<PageNotFound />} />
