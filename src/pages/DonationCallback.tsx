@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
+import { useMain } from "../contexts/MainContext";
 
 // Definizione dell'interfaccia per i dati della donazione
 interface DonationDetails {
@@ -44,15 +45,14 @@ const DonationCallback: React.FC = () => {
   const [donationData, setDonationData] = useState<DonationDetails | null>(
     null
   );
-
+  const { userId } = useMain(); // Assuming jwtToken is obtained from useMain()
   // Parse dei parametri di query
   const queryParams = new URLSearchParams(location.search);
   const context = queryParams.get("context");
   const don_status = queryParams.get("don_status");
-
   console.log({ context });
   console.log({ don_status });
-
+  console.log({ userId });
   useEffect(() => {
     const fetchDonationData = async () => {
       if (context && don_status === "success") {
@@ -66,8 +66,8 @@ const DonationCallback: React.FC = () => {
           const groupId = localStorage.getItem("groupId");
 
           const donationDetails: DonationDetails = {
-            userId: localStorage.getItem("userId") || "", // Assumendo che userId sia salvato in localStorage
-            groupId: groupId || "", // Utilizzo del groupId da localStorage
+            userId: userId, // Assumendo che userId sia salvato in localStorage
+            groupId: groupId ?? "", // Utilizzo del groupId da localStorage with a default value of an empty string
             units: data.units,
             code: data.code,
             project: {
