@@ -8,21 +8,8 @@ export interface Group {
   totalEmissionsSWD: number;
   lastReportTimestamp: string; // use string if this is coming as an ISO date string
   adminNames: string[];
+  groupLimits: string;
   totalDonations: {
     // Define the structure of donationSchema if needed
   }[];
-  limits: {
-    hour: number;
-    day: number;
-    week: number;
-    month: number;
-    year: number;
-  };
-  lastReportLimitsCounter: {
-    hour: number;
-    day: number;
-    week: number;
-    month: number;
-    year: number;
-  };
 }

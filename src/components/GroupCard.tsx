@@ -19,8 +19,14 @@ const GroupCard: React.FC<GroupCardProps> = ({
   const navigateToDonatePage = (groupId: string, groupName: string) => {
     navigate(`/donate/${groupId}/${encodeURIComponent(groupName)}`);
   };
-  const navigateToLimitPage = (groupId: string, groupName: string) => {
-    navigate(`/limit/${groupId}/${encodeURIComponent(groupName)}`);
+  const navigateToLimitPage = (
+    groupId: string,
+    groupName: string,
+    groupLimits: string
+  ) => {
+    navigate(
+      `/limit/${groupId}/${encodeURIComponent(groupName)}/${groupLimits}`
+    );
   };
 
   return (
@@ -39,11 +45,12 @@ const GroupCard: React.FC<GroupCardProps> = ({
         </button>
       </div>
       <div className="m-2">
-        <p>Participants: {group.participantsCount}</p>
-        <p>Total Messages: {group.totalMessages}</p>
+        <p>Participants : {group.participantsCount}</p>
+        <p>Total Messages : {group.totalMessages}</p>
         <p>Total Size (KB): {group.totalSizeKB}</p>
-        <p>Emissions (One Byte-g): {group.totalEmissionsOneByte}</p>
-        <p>Emissions (SWD-g): {group.totalEmissionsSWD}</p>
+        <p>Emissions OneByte (g): {group.totalEmissionsOneByte}</p>
+        <p>Emissions SWD (g): {group.totalEmissionsSWD}</p>
+        <p>limits (KB): {group.groupLimits}</p>
         <p>
           Last Report: {new Date(group.lastReportTimestamp).toLocaleString()}
         </p>
@@ -63,7 +70,13 @@ const GroupCard: React.FC<GroupCardProps> = ({
           Donate
         </button>
         <button
-          onClick={() => navigateToLimitPage(group.groupId, group.groupName)}
+          onClick={() =>
+            navigateToLimitPage(
+              group.groupId,
+              group.groupName,
+              group.groupLimits
+            )
+          }
           className="my-4 bg-yellow-400 hover:bg-yellow-500 text-green-900 font-bold py-2 px-4 rounded"
         >
           Limit

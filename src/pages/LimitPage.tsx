@@ -2,14 +2,17 @@ import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
 const Limit: React.FC = () => {
-  const { groupId, groupName } = useParams<{
+  const { groupId, groupName, groupLimits } = useParams<{
     groupId: string;
     groupName: string;
+    groupLimits: string;
   }>();
   const navigate = useNavigate();
 
   // State per gestire il valore del limite in KB
-  const [limitValue, setLimitValue] = useState<number | null>(null);
+  const [limitValue, setLimitValue] = useState<number | null>(
+    groupLimits ? +groupLimits : null
+  );
   // State per gestire i messaggi di risposta
   const [responseMessage, setResponseMessage] = useState<string | null>(null);
 
@@ -30,6 +33,7 @@ const Limit: React.FC = () => {
       );
       const data = await response.json();
       setResponseMessage(data.success); // Mostra il messaggio di successo
+      setLimitValue(limitValue); // Aggiorna il valore del limite
     } catch (error) {
       console.error("Error setting limit:", error);
       setResponseMessage("Error setting limit"); // Gestione dell'errore
@@ -49,6 +53,7 @@ const Limit: React.FC = () => {
       );
       const data = await response.json();
       setResponseMessage(data.success); // Mostra il messaggio di successo
+      setLimitValue(null); // Resetta il valore del limite
     } catch (error) {
       console.error("Error deleting limit:", error);
       setResponseMessage("Error deleting limit"); // Gestione dell'errore
@@ -78,6 +83,7 @@ const Limit: React.FC = () => {
             type="number"
             className="rounded-l-lg p-2 border-t mr-0 border-b border-l text-gray-800 border-gray-200 bg-white"
             placeholder="Enter limit value in KB"
+            value={limitValue ?? ""}
             onChange={(e) => setLimitValue(Number(e.target.value))}
           />
           <button
@@ -111,6 +117,10 @@ const Limit: React.FC = () => {
           {responseMessage}
         </div>
       )}
+      <div className="my-4 text-center font-bold text-gray-800">
+        Current Limit:{" "}
+        {limitValue !== null ? `${limitValue} KB` : "No limit set"}
+      </div>
       <p className="text-center text-gray-600 mt-2">
         Please enter the limit value in kilobytes (KB).
       </p>
