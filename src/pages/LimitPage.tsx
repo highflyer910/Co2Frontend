@@ -7,6 +7,7 @@ const Limit: React.FC = () => {
     groupName: string;
     groupLimits: string;
   }>();
+
   const navigate = useNavigate();
 
   // State per gestire il valore del limite in KB
@@ -61,8 +62,9 @@ const Limit: React.FC = () => {
     }
   };
 
-  const refreshPage = () => {
-    navigate(0); // Ricarica la pagina corrente
+  const navigateToHome = () => {
+    navigate("/");
+    window.location.reload(); // Forza il refresh della pagina corrente
   };
 
   useEffect(() => {
@@ -105,7 +107,7 @@ const Limit: React.FC = () => {
           Delete Limit
         </button>
         <button
-          onClick={refreshPage} // Utilizza la funzione refreshPage per ricaricare la pagina
+          onClick={navigateToHome} // Utilizza la funzione per navigare alla home e refreshare
           className="bg-gray-400 hover:bg-gray-500 text-white font-bold py-2 px-4 rounded ml-2"
         >
           Torna Alla Home
