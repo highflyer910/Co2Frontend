@@ -61,6 +61,10 @@ const Limit: React.FC = () => {
     }
   };
 
+  const refreshPage = () => {
+    navigate(0); // Ricarica la pagina corrente
+  };
+
   useEffect(() => {
     // Esempio di utilizzo dei parametri
     console.log(`Group ID: ${groupId}, Group Name: ${groupName}`);
@@ -101,7 +105,7 @@ const Limit: React.FC = () => {
           Delete Limit
         </button>
         <button
-          onClick={() => navigate(-1)} // Utilizza navigate per tornare alla home
+          onClick={refreshPage} // Utilizza la funzione refreshPage per ricaricare la pagina
           className="bg-gray-400 hover:bg-gray-500 text-white font-bold py-2 px-4 rounded ml-2"
         >
           Torna Alla Home
