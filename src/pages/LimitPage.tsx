@@ -35,6 +35,10 @@ const Limit: React.FC = () => {
       const data = await response.json();
       setResponseMessage(data.success); // Mostra il messaggio di successo
 
+      if (data.success) {
+        navigateToHome(); // Naviga alla home solo se l'operazione è stata completata con successo
+      }
+
       setLimitValue(limitValue); // Aggiorna il valore del limite
     } catch (error) {
       console.error("Error setting limit:", error);
@@ -55,6 +59,11 @@ const Limit: React.FC = () => {
       );
       const data = await response.json();
       setResponseMessage(data.success); // Mostra il messaggio di successo
+
+      if (data.success) {
+        navigateToHome(); // Naviga alla home solo se l'operazione è stata completata con successo
+      }
+
       setLimitValue(-1); // Resetta il valore del limite a -1 (valore di default)
     } catch (error) {
       console.error("Error deleting limit:", error);
@@ -107,7 +116,7 @@ const Limit: React.FC = () => {
           Delete Limit
         </button>
         <button
-          onClick={navigateToHome} // Utilizza la funzione per navigare alla home e refreshare
+          onClick={() => navigate(-1)} // Torna alla home senza refresh
           className="bg-gray-400 hover:bg-gray-500 text-white font-bold py-2 px-4 rounded ml-2"
         >
           Torna Alla Home
