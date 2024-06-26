@@ -28,7 +28,7 @@ const GroupCard: React.FC<GroupCardProps> = ({
       `/limit/${groupId}/${encodeURIComponent(groupName)}/${groupLimits}`
     );
   };
-
+  const limitToPass = group.groupLimits ? group.groupLimits : "no-limit";
   return (
     <div className="my-5 relative w-full max-w-xs bg-white text-green-800 font-body py-2 px-4 rounded border-2 border-green-800 shadow-md hover:bg-gray-100 flex flex-col items-start">
       <div className="flex justify-between items-center w-full">
@@ -50,7 +50,7 @@ const GroupCard: React.FC<GroupCardProps> = ({
         <p>Total Size (KB): {group.totalSizeKB}</p>
         <p>Emissions OneByte (g): {group.totalEmissionsOneByte}</p>
         <p>Emissions SWD (g): {group.totalEmissionsSWD}</p>
-        <p>limits (KB): {group.groupLimits}</p>
+        <p>limits (KB): {group.groupLimits ? group.groupLimits : "no limit"}</p>
         <p>
           Last Report: {new Date(group.lastReportTimestamp).toLocaleString()}
         </p>
@@ -69,13 +69,10 @@ const GroupCard: React.FC<GroupCardProps> = ({
         >
           Donate
         </button>
+
         <button
           onClick={() =>
-            navigateToLimitPage(
-              group.groupId,
-              group.groupName,
-              group.groupLimits
-            )
+            navigateToLimitPage(group.groupId, group.groupName, limitToPass)
           }
           className="my-4 bg-yellow-400 hover:bg-yellow-500 text-green-900 font-bold py-2 px-4 rounded"
         >

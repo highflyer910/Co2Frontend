@@ -11,7 +11,7 @@ const Limit: React.FC = () => {
 
   // State per gestire il valore del limite in KB
   const [limitValue, setLimitValue] = useState<number | null>(
-    groupLimits ? +groupLimits : null
+    groupLimits && groupLimits != "no-limits" ? +groupLimits : null
   );
   // State per gestire i messaggi di risposta
   const [responseMessage, setResponseMessage] = useState<string | null>(null);
