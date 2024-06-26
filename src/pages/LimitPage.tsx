@@ -86,9 +86,7 @@ const Limit: React.FC = () => {
       <h1 className="font-poppins text-3xl font-bold text-center bg-yellow-200 text-green-800 py-3 px-4 shadow-lg">
         Limit Group Name: {groupName}
       </h1>
-      <h2 className="font-poppins text-3xl font-bold text-center bg-yellow-200 text-green-800 py-3 px-4 shadow-lg">
-        Group ID: {groupId}
-      </h2>
+
       <div className="my-4">
         <div className="flex items-center mb-4">
           <input
