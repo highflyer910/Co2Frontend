@@ -8,10 +8,11 @@ const Limit: React.FC = () => {
   }>();
   const navigate = useNavigate();
 
-  // State per gestire il valore del limite
+  // State per gestire il valore del limite in KB
   const [limitValue, setLimitValue] = useState<number | null>(null);
+  // State per gestire i messaggi di risposta
+  const [responseMessage, setResponseMessage] = useState<string | null>(null);
 
-  // Funzione per impostare il limite generico
   const handleSetLimit = async () => {
     try {
       const response = await fetch(
@@ -23,20 +24,18 @@ const Limit: React.FC = () => {
           },
           body: JSON.stringify({
             chatId: groupId,
-            limit: limitValue,
+            limit: limitValue, // Assumiamo che il valore sia già in KB
           }),
         }
       );
       const data = await response.json();
-      console.log(data); // Puoi gestire la risposta come preferisci
-      // Aggiornare l'UI o mostrare un messaggio di successo
+      setResponseMessage(data.success); // Mostra il messaggio di successo
     } catch (error) {
       console.error("Error setting limit:", error);
-      // Gestire eventuali errori
+      setResponseMessage("Error setting limit"); // Gestione dell'errore
     }
   };
 
-  // Funzione per cancellare il limite generico
   const handleDeleteLimit = async () => {
     try {
       const response = await fetch(
@@ -49,11 +48,10 @@ const Limit: React.FC = () => {
         }
       );
       const data = await response.json();
-      console.log(data); // Puoi gestire la risposta come preferisci
-      // Aggiornare l'UI o mostrare un messaggio di successo
+      setResponseMessage(data.success); // Mostra il messaggio di successo
     } catch (error) {
       console.error("Error deleting limit:", error);
-      // Gestire eventuali errori
+      setResponseMessage("Error deleting limit"); // Gestione dell'errore
     }
   };
 
@@ -69,17 +67,17 @@ const Limit: React.FC = () => {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
       <h1 className="font-poppins text-3xl font-bold text-center bg-yellow-200 text-green-800 py-3 px-4 shadow-lg">
-        Limit Group Name {groupName}
+        Limit Group Name: {groupName}
       </h1>
       <h2 className="font-poppins text-3xl font-bold text-center bg-yellow-200 text-green-800 py-3 px-4 shadow-lg">
-        Limit ID {groupId}
+        Group ID: {groupId}
       </h2>
       <div className="my-4">
         <div className="flex items-center mb-4">
           <input
             type="number"
             className="rounded-l-lg p-2 border-t mr-0 border-b border-l text-gray-800 border-gray-200 bg-white"
-            placeholder="Enter limit value"
+            placeholder="Enter limit value in KB"
             onChange={(e) => setLimitValue(Number(e.target.value))}
           />
           <button
@@ -102,6 +100,20 @@ const Limit: React.FC = () => {
           Cancel
         </button>
       </div>
+      {responseMessage && (
+        <div
+          className={`my-4 text-center font-bold ${
+            responseMessage.includes("Error")
+              ? "text-red-600"
+              : "text-green-600"
+          }`}
+        >
+          {responseMessage}
+        </div>
+      )}
+      <p className="text-center text-gray-600 mt-2">
+        Please enter the limit value in kilobytes (KB).
+      </p>
     </div>
   );
 };
