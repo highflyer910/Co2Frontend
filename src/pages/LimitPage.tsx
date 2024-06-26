@@ -84,7 +84,11 @@ const Limit: React.FC = () => {
             type="number"
             className="rounded-l-lg p-2 border-t mr-0 border-b border-l text-gray-800 border-gray-200 bg-white"
             placeholder="Enter limit value in KB"
-            value={limitValue !== -1 ? limitValue.toString() : ""}
+            value={
+              limitValue !== null && limitValue !== -1
+                ? limitValue.toString()
+                : ""
+            }
             onChange={(e) => setLimitValue(Number(e.target.value))}
           />
           <button
