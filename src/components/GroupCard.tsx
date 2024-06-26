@@ -7,21 +7,20 @@ interface GroupCardProps {
   group: Group;
   isFavourite: boolean;
   toggleFavourite: (groupId: string) => void;
-  handleStatClick: (groupId: string) => void;
-  handleLimitClick: (groupId: string) => void;
 }
 
 const GroupCard: React.FC<GroupCardProps> = ({
   group,
   isFavourite,
   toggleFavourite,
-  handleStatClick,
-  handleLimitClick,
 }) => {
   const navigate = useNavigate();
 
   const navigateToDonatePage = (groupId: string, groupName: string) => {
     navigate(`/donate/${groupId}/${encodeURIComponent(groupName)}`);
+  };
+  const navigateToLimitPage = (groupId: string, groupName: string) => {
+    navigate(`/limit/${groupId}/${encodeURIComponent(groupName)}`);
   };
 
   return (
@@ -52,7 +51,7 @@ const GroupCard: React.FC<GroupCardProps> = ({
       </div>
       <div className="flex flex-row justify-around w-full">
         <button
-          onClick={() => handleStatClick(group.groupId)}
+          // onClick={() => handleStatClick(group.groupId)}
           className="my-4 bg-yellow-400 hover:bg-yellow-500 text-green-900 font-bold py-2 px-4 rounded"
         >
           Stats
@@ -64,7 +63,7 @@ const GroupCard: React.FC<GroupCardProps> = ({
           Donate
         </button>
         <button
-          onClick={() => handleLimitClick(group.groupId)}
+          onClick={() => navigateToLimitPage(group.groupId, group.groupName)}
           className="my-4 bg-yellow-400 hover:bg-yellow-500 text-green-900 font-bold py-2 px-4 rounded"
         >
           Limit

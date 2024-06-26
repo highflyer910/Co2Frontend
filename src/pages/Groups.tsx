@@ -36,19 +36,12 @@ const Groups = () => {
     : groups;
 
   // Funzioni per gestire i click sui bottoni "Stat", "Limit"
-  const handleStatClick = (groupId: string) => {
-    console.log(`Clicked "Stat" for group ${groupId}`);
-    // Implementa la logica desiderata per il pulsante "Stat"
-  };
+
   // // Funzioni per gestire i click sui bottoni "Stat", "Limit"
   // const handleDonateClick = (groupId: string) => {
   //   console.log(`Clicked "Stat" for group ${groupId}`);
   //   // Implementa la logica desiderata per il pulsante "Stat"
   // };
-  const handleLimitClick = (groupId: string) => {
-    console.log(`Clicked "Limit" for group ${groupId}`);
-    // Implementa la logica desiderata per il pulsante "Limit"
-  };
 
   // Renderizzazione del componente principale dei gruppi
   if (isLoading) return <div>Loading...</div>;
@@ -84,8 +77,6 @@ const Groups = () => {
               group={group}
               isFavourite={!!favourites[group.groupId]}
               toggleFavourite={toggleFavourite}
-              handleStatClick={handleStatClick}
-              handleLimitClick={handleLimitClick}
             />
           ))}
         </div>
