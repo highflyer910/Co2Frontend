@@ -32,7 +32,7 @@ const GroupCard: React.FC<GroupCardProps> = ({
 
   // Determina il testo da visualizzare per il limite
   const limitText =
-    group.groupLimits !== "-1" ? `${group.groupLimits} KB` : "Nessun limite";
+    group.groupLimits != "-1" ? `${group.groupLimits}` : "Nessun limite";
 
   return (
     <div className="my-5 relative w-full max-w-xs bg-white text-green-800 font-body py-2 px-4 rounded border-2 border-green-800 shadow-md hover:bg-gray-100 flex flex-col items-start">
