@@ -10,6 +10,11 @@ chiedere se possibile risalire dettagli donazione con il don_ e dove finito s=ta
 /donate/callback?context=don_1iou8Ct9dJe4hElBTymASeHM&don_status=success
 
 
--- quando inserisco una donation creo la scheda donation ma non aggiorno i gruppi -da fare
--- quando riento dentro la pagina limit non mi aggiorna la scritta current : limit sotto i bottoni
--- fare che solo gli admin abbianii la facolta di mettere il limite
+-- quando inserisco una donation creo la scheda donation ma non aggiorno i gruppi nel campo doonazione -da fare
+
+-- fare che solo gli admin abbiano la facolta di mettere il limite
+
+-- verifica tutte le rotte ed auth
+
+-- grafici
+

@@ -19,6 +19,7 @@ const GroupCard: React.FC<GroupCardProps> = ({
   const navigateToDonatePage = (groupId: string, groupName: string) => {
     navigate(`/donate/${groupId}/${encodeURIComponent(groupName)}`);
   };
+
   const navigateToLimitPage = (
     groupId: string,
     groupName: string,
@@ -28,7 +29,11 @@ const GroupCard: React.FC<GroupCardProps> = ({
       `/limit/${groupId}/${encodeURIComponent(groupName)}/${groupLimits}`
     );
   };
-  const limitToPass = group.groupLimits ? group.groupLimits : "no-limit";
+
+  // Determina il testo da visualizzare per il limite
+  const limitText =
+    group.groupLimits !== "-1" ? `${group.groupLimits} KB` : "Nessun limite";
+
   return (
     <div className="my-5 relative w-full max-w-xs bg-white text-green-800 font-body py-2 px-4 rounded border-2 border-green-800 shadow-md hover:bg-gray-100 flex flex-col items-start">
       <div className="flex justify-between items-center w-full">
@@ -50,17 +55,14 @@ const GroupCard: React.FC<GroupCardProps> = ({
         <p>Total Size (KB): {group.totalSizeKB}</p>
         <p>Emissions OneByte (g): {group.totalEmissionsOneByte}</p>
         <p>Emissions SWD (g): {group.totalEmissionsSWD}</p>
-        <p>limits (KB): {group.groupLimits ? group.groupLimits : "no-limit"}</p>
+        <p>Limits (KB): {limitText}</p>
         <p>
           Last Report: {new Date(group.lastReportTimestamp).toLocaleString()}
         </p>
         <p>Admins: {group.adminNames.join(", ")}</p>
       </div>
       <div className="flex flex-row justify-around w-full">
-        <button
-          // onClick={() => handleStatClick(group.groupId)}
-          className="my-4 bg-yellow-400 hover:bg-yellow-500 text-green-900 font-bold py-2 px-4 rounded"
-        >
+        <button className="my-4 bg-yellow-400 hover:bg-yellow-500 text-green-900 font-bold py-2 px-4 rounded">
           Stats
         </button>
         <button
@@ -69,10 +71,13 @@ const GroupCard: React.FC<GroupCardProps> = ({
         >
           Donate
         </button>
-
         <button
           onClick={() =>
-            navigateToLimitPage(group.groupId, group.groupName, limitToPass)
+            navigateToLimitPage(
+              group.groupId,
+              group.groupName,
+              group.groupLimits
+            )
           }
           className="my-4 bg-yellow-400 hover:bg-yellow-500 text-green-900 font-bold py-2 px-4 rounded"
         >
