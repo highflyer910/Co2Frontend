@@ -33,6 +33,7 @@ const Limit: React.FC = () => {
       );
       const data = await response.json();
       setResponseMessage(data.success); // Mostra il messaggio di successo
+
       setLimitValue(limitValue); // Aggiorna il valore del limite
     } catch (error) {
       console.error("Error setting limit:", error);
@@ -84,8 +85,12 @@ const Limit: React.FC = () => {
             className="rounded-l-lg p-2 border-t mr-0 border-b border-l text-gray-800 border-gray-200 bg-white"
             placeholder="Enter limit value in KB"
             value={limitValue ?? ""}
-            onChange={(e) => setLimitValue(Number(e.target.value))}
+            onChange={(e) => {
+              const value = Number(e.target.value);
+              setLimitValue(value >= 0 ? value : 0); // Imposta il valore a 0 se è inferiore a 0
+            }}
           />
+
           <button
             onClick={handleSetLimit}
             className="px-4 bg-blue-500 p-2 rounded-r-lg text-white border border-blue-500 border-r-0 hover:bg-blue-400"
