@@ -25,7 +25,7 @@ const Limit: React.FC = () => {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
       <h1 className="font-poppins text-3xl font-bold text-center bg-yellow-200 text-green-800 py-3 px-4 shadow-lg">
-        Limit Group {groupName}
+        Limit Group Name {groupName}
       </h1>
       <h2 className="font-poppins text-3xl font-bold text-center bg-yellow-200 text-green-800 py-3 px-4 shadow-lg">
         Limit ID {groupId}
