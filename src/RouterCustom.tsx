@@ -7,6 +7,7 @@ import PageNotFound from "./pages/PageNotFound";
 import LandingPage from "./pages/LandingPage";
 import DonationCallback from "./pages/DonationCallback";
 import Groups from "./pages/Groups";
+import Limit from "./pages/LimitPage";
 
 function RouterCustom() {
   const { jwt } = useMain();
@@ -30,6 +31,10 @@ function RouterCustom() {
         <Route
           path="/planttree"
           element={jwt ? <PlantTree /> : <Navigate to="/landingPage" />}
+        />
+        <Route
+          path="/limit/:groupId/:groupName"
+          element={jwt ? <Limit /> : <Navigate to="/landingPage" />}
         />
         <Route
           path="/donate/:groupId/:groupName"
