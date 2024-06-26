@@ -135,7 +135,7 @@ const Limit: React.FC = () => {
       )}
       <div className="my-4 text-center font-bold text-gray-800">
         Current Limit:{" "}
-        {groupLimits !== "-1" ? `${limitValue} KB` : "No limit set"}
+        {groupLimits !== "-1" ? `${groupLimits} KB` : "No limit set"}
       </div>
       <p className="text-center text-gray-600 mt-2">
         Please enter the limit value in kilobytes (KB).
