@@ -87,7 +87,7 @@ const Limit: React.FC = () => {
             value={limitValue ?? ""}
             onChange={(e) => {
               const value = Number(e.target.value);
-              setLimitValue(value >= 0 ? value : 0); // Imposta il valore a 0 se è inferiore a 0
+              setLimitValue(value < 0 ? value : 0); // Imposta il valore a 0 se è inferiore a 0
             }}
           />
 
