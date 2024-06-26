@@ -61,10 +61,6 @@ const Limit: React.FC = () => {
     }
   };
 
-  const handleCancelClick = () => {
-    navigate(-1); // Torna indietro di una pagina
-  };
-
   useEffect(() => {
     // Esempio di utilizzo dei parametri
     console.log(`Group ID: ${groupId}, Group Name: ${groupName}`);
@@ -105,10 +101,10 @@ const Limit: React.FC = () => {
           Delete Limit
         </button>
         <button
-          onClick={handleCancelClick}
+          onClick={() => navigate(-1)} // Utilizza navigate per tornare alla home
           className="bg-gray-400 hover:bg-gray-500 text-white font-bold py-2 px-4 rounded ml-2"
         >
-          Cancel
+          Torna Alla Home
         </button>
       </div>
       {responseMessage && (
