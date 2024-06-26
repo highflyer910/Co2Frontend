@@ -11,7 +11,7 @@ const Limit: React.FC = () => {
   const navigate = useNavigate();
 
   // State per gestire il valore del limite in KB
-  const [limitValue, setLimitValue] = useState<number>(
+  const [limitValue, setLimitValue] = useState<number | null>(
     groupLimits && groupLimits !== "-1" ? +groupLimits : -1
   );
   // State per gestire i messaggi di risposta
@@ -38,6 +38,8 @@ const Limit: React.FC = () => {
       if (data.success) {
         navigateToHome(); // Naviga alla home solo se l'operazione è stata completata con successo
       }
+
+      setLimitValue(limitValue); // Aggiorna il valore del limite
     } catch (error) {
       console.error("Error setting limit:", error);
       setResponseMessage("Error setting limit"); // Gestione dell'errore
@@ -93,7 +95,11 @@ const Limit: React.FC = () => {
             type="number"
             className="rounded-l-lg p-2 border-t mr-0 border-b border-l text-gray-800 border-gray-200 bg-white"
             placeholder="Enter limit value in KB"
-            value={limitValue !== null ? limitValue.toString() : ""}
+            value={
+              limitValue !== null && limitValue !== -1
+                ? limitValue.toString()
+                : ""
+            }
             onChange={(e) => setLimitValue(Number(e.target.value))}
           />
           <button
@@ -128,7 +134,8 @@ const Limit: React.FC = () => {
         </div>
       )}
       <div className="my-4 text-center font-bold text-gray-800">
-        Current Limit: {limitValue !== -1 ? `${limitValue} KB` : "No limit set"}
+        Current Limit:{" "}
+        {groupLimits !== "-1" ? `${groupLimits} KB` : "No limit set"}
       </div>
       <p className="text-center text-gray-600 mt-2">
         Please enter the limit value in kilobytes (KB).
