@@ -33,7 +33,7 @@ function RouterCustom() {
           element={jwt ? <PlantTree /> : <Navigate to="/landingPage" />}
         />
         <Route
-          path="/limit/:groupId/:groupName"
+          path="/limit/:groupId/:groupName/:groupLimits"
           element={jwt ? <Limit /> : <Navigate to="/landingPage" />}
         />
         <Route
