@@ -97,13 +97,13 @@ const Limit: React.FC = () => {
           onClick={handleDeleteLimit}
           className="bg-red-400 hover:bg-red-500 text-white font-bold py-2 px-4 rounded"
         >
-          Indietro
+          Elimina Limit
         </button>
         <button
           onClick={handleGoBack}
           className="bg-gray-400 hover:bg-gray-500 text-white font-bold py-2 px-4 rounded ml-2"
         >
-          Annulla
+          Torna alla Home
         </button>
       </div>
       {responseMessage && (
