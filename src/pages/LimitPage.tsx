@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 const Limit: React.FC = () => {
   const { groupId, groupName, groupLimits } = useParams<{
@@ -7,10 +7,11 @@ const Limit: React.FC = () => {
     groupName: string;
     groupLimits: string;
   }>();
+  const navigate = useNavigate();
 
   // State per gestire il valore del limite in KB
   const [limitValue, setLimitValue] = useState<number | null>(
-    groupLimits && groupLimits !== "no-limits" ? +groupLimits : null
+    groupLimits && groupLimits !== "-1" ? +groupLimits : -1
   );
   // State per gestire i messaggi di risposta
   const [responseMessage, setResponseMessage] = useState<string | null>(null);
@@ -53,15 +54,15 @@ const Limit: React.FC = () => {
       );
       const data = await response.json();
       setResponseMessage(data.success); // Mostra il messaggio di successo
-      setLimitValue(null); // Resetta il valore del limite
+      setLimitValue(-1); // Resetta il valore del limite a -1 (valore di default)
     } catch (error) {
       console.error("Error deleting limit:", error);
       setResponseMessage("Error deleting limit"); // Gestione dell'errore
     }
   };
 
-  const handleGoBack = () => {
-    window.location.reload(); // Ricarica la pagina corrente
+  const handleCancelClick = () => {
+    navigate(-1); // Torna indietro di una pagina
   };
 
   useEffect(() => {
@@ -83,7 +84,11 @@ const Limit: React.FC = () => {
             type="number"
             className="rounded-l-lg p-2 border-t mr-0 border-b border-l text-gray-800 border-gray-200 bg-white"
             placeholder="Enter limit value in KB"
-            value={limitValue ?? ""}
+            value={
+              limitValue !== null && limitValue !== -1
+                ? limitValue.toString()
+                : ""
+            }
             onChange={(e) => setLimitValue(Number(e.target.value))}
           />
           <button
@@ -97,13 +102,13 @@ const Limit: React.FC = () => {
           onClick={handleDeleteLimit}
           className="bg-red-400 hover:bg-red-500 text-white font-bold py-2 px-4 rounded"
         >
-          Elimina Limit
+          Delete Limit
         </button>
         <button
-          onClick={handleGoBack}
+          onClick={handleCancelClick}
           className="bg-gray-400 hover:bg-gray-500 text-white font-bold py-2 px-4 rounded ml-2"
         >
-          Torna alla Home
+          Cancel
         </button>
       </div>
       {responseMessage && (
@@ -118,8 +123,7 @@ const Limit: React.FC = () => {
         </div>
       )}
       <div className="my-4 text-center font-bold text-gray-800">
-        Current Limit:{" "}
-        {limitValue !== null ? `${limitValue} KB` : "No limit set"}
+        Current Limit: {limitValue !== -1 ? `${limitValue} KB` : "No limit set"}
       </div>
       <p className="text-center text-gray-600 mt-2">
         Please enter the limit value in kilobytes (KB).
