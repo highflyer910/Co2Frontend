@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import { useGetGroups } from "../hooks/useGetAllGroups"; // Assumi che il percorso sia corretto
+import { useMain } from "../contexts/MainContext";
 
 const Limit: React.FC = () => {
   const { groupId, groupName, groupLimits } = useParams<{
@@ -9,11 +11,17 @@ const Limit: React.FC = () => {
   }>();
 
   const navigate = useNavigate();
+  const { jwt } = useMain(); // Ottieni il token JWT
+  const { refetch } = useGetGroups(jwt); // Ottieni refetch dal custom hook
 
   // State per gestire il valore del limite in KB
   const [limitValue, setLimitValue] = useState<number | null>(
     groupLimits && groupLimits !== "-1" ? +groupLimits : -1
   );
+  const [initialLimit, _] = useState<number>(
+    groupLimits && groupLimits !== "-1" ? +groupLimits : -1
+  );
+
   // State per gestire i messaggi di risposta
   const [responseMessage, setResponseMessage] = useState<string | null>(null);
 
@@ -36,6 +44,7 @@ const Limit: React.FC = () => {
       setResponseMessage(data.success); // Mostra il messaggio di successo
 
       if (data.success) {
+        await refetch(); // Effettua il refetch dei gruppi
         navigateToHome(); // Naviga alla home solo se l'operazione è stata completata con successo
       }
 
@@ -60,20 +69,11 @@ const Limit: React.FC = () => {
       const data = await response.json();
       setResponseMessage(data.success); // Mostra il messaggio di successo
 
-      if (data.success) {
-        navigateToHome(); // Naviga alla home solo se l'operazione è stata completata con successo
-      }
-
       setLimitValue(-1); // Resetta il valore del limite a -1 (valore di default)
     } catch (error) {
       console.error("Error deleting limit:", error);
       setResponseMessage("Error deleting limit"); // Gestione dell'errore
     }
-  };
-
-  const navigateToHome = () => {
-    navigate("/");
-    window.location.reload(); // Forza il refresh della pagina corrente
   };
 
   useEffect(() => {
@@ -86,7 +86,6 @@ const Limit: React.FC = () => {
       <h1 className="font-poppins text-3xl font-bold text-center bg-yellow-200 text-green-800 py-3 px-4 shadow-lg">
         Limit Group Name: {groupName}
       </h1>
-
       <div className="my-4">
         <div className="flex items-center mb-4">
           <input
@@ -102,7 +101,12 @@ const Limit: React.FC = () => {
           />
           <button
             onClick={handleSetLimit}
-            className="px-4 bg-blue-500 p-2 rounded-r-lg text-white border border-blue-500 border-r-0 hover:bg-blue-400"
+            className={`px-4 p-2 rounded-r-lg text-white border border-r-0 ${
+              limitValue === initialLimit
+                ? "bg-blue-200 cursor-not-allowed"
+                : "bg-blue-500 hover:bg-blue-400"
+            }`}
+            disabled={limitValue === initialLimit} // Disabilita il pulsante se i limiti sono uguali
           >
             Set Limit
           </button>
