@@ -3,6 +3,8 @@ import { AiOutlineStar, AiFillStar } from "react-icons/ai";
 import { Group } from "../types/Group";
 import { useNavigate } from "react-router-dom";
 
+import { useMain } from "../contexts/MainContext"; // Assumendo che MainContext.tsx si trovi in src/contexts
+
 interface GroupCardProps {
   group: Group;
   isFavourite: boolean;
@@ -16,17 +18,24 @@ const GroupCard: React.FC<GroupCardProps> = ({
 }) => {
   const navigate = useNavigate();
 
+  const mainContext = useMain();
+  const { userName } = mainContext || {};
+
   const navigateToDonatePage = (groupId: string, groupName: string) => {
     navigate(`/donate/${groupId}/${encodeURIComponent(groupName)}`);
   };
+  const isAdmin = group.adminNames.includes(userName);
 
   const navigateToLimitPage = (
     groupId: string,
     groupName: string,
-    groupLimits: string
+    groupLimits: string,
+    isAdmin: boolean
   ) => {
     navigate(
-      `/limit/${groupId}/${encodeURIComponent(groupName)}/${groupLimits}`
+      `/limit/${groupId}/${encodeURIComponent(
+        groupName
+      )}/${groupLimits}/${isAdmin}`
     );
   };
 
@@ -77,7 +86,8 @@ const GroupCard: React.FC<GroupCardProps> = ({
             navigateToLimitPage(
               group.groupId,
               group.groupName,
-              group.groupLimits
+              group.groupLimits,
+              isAdmin
             )
           }
           className="my-4 bg-yellow-400 hover:bg-yellow-500 text-green-900 font-bold py-2 px-4 rounded"
