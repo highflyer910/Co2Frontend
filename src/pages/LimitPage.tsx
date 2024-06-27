@@ -45,7 +45,6 @@ const Limit: React.FC = () => {
 
       if (data.success) {
         await refetch(); // Effettua il refetch dei gruppi
-        navigateToHome(); // Naviga alla home solo se l'operazione è stata completata con successo
       }
 
       setLimitValue(limitValue); // Aggiorna il valore del limite
