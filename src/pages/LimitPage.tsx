@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useGetGroups } from "../hooks/useGetAllGroups"; // Assumi che il percorso sia corretto
 import { useMain } from "../contexts/MainContext";
+import { FaCrown } from "react-icons/fa";
 
 const Limit: React.FC = () => {
   const { groupId, groupName, groupLimits } = useParams<{
@@ -91,21 +92,7 @@ const Limit: React.FC = () => {
         Limit Group Name: {groupName}
         {isAdmin && (
           <span className="ml-2 text-yellow-500">
-            {/* Visualizzazione della coroncina per gli amministratori */}
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6 inline"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M12 14l9-5-9-5-9 5 9 5z"
-              />
-            </svg>
+            <FaCrown />
           </span>
         )}
       </h1>

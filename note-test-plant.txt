@@ -13,7 +13,7 @@ https://co2-frontend-five.vercel.app/donate/callback?context=don_1iou8Ct9dJe4hEl
 
 
 
--- fare che solo gli admin abbiano la facolta di mettere il limite
+-- fare che solo gli admin abbiano la facolta di mettere il limite fatto fe manca be
 
 -- verifica tutte le rotte ed auth
 
