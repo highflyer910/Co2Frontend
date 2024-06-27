@@ -60,6 +60,7 @@ const GroupCard: React.FC<GroupCardProps> = ({
           Last Report: {new Date(group.lastReportTimestamp).toLocaleString()}
         </p>
         <p>Admins: {group.adminNames.join(", ")}</p>
+        <p>Donations: {group.donations.join(", ")}</p>
       </div>
       <div className="flex flex-row justify-around w-full">
         <button className="my-4 bg-yellow-400 hover:bg-yellow-500 text-green-900 font-bold py-2 px-4 rounded">
