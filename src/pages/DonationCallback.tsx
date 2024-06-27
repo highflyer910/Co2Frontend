@@ -82,7 +82,7 @@ const DonationCallback: React.FC = () => {
   }, [context, don_status, userId]);
 
   const handleReturnHome = () => {
-    navigate("/");
+    navigate("/Groups");
   };
 
   return (

@@ -12,7 +12,6 @@ https://co2-frontend-five.vercel.app/donate/callback?context=don_1iou8Ct9dJe4hEl
 
 
 
--- i due campi di report group id e 
 
 -- fare che solo gli admin abbiano la facolta di mettere il limite
 
