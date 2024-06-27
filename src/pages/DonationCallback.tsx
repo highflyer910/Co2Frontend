@@ -29,7 +29,7 @@ const DonationCallback: React.FC = () => {
 
   useEffect(() => {
     const sendDonation = async () => {
-      if (context && don_status === "success") {
+      if (context && don_status === "success" && userId) {
         try {
           const response = await fetch(
             `https://app.plant-for-the-planet.org/app/donations/${context}`
