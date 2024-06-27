@@ -89,38 +89,65 @@ const Limit: React.FC = () => {
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
       <h1 className="font-poppins text-3xl font-bold text-center bg-yellow-200 text-green-800 py-3 px-4 shadow-lg">
         Limit Group Name: {groupName}
+        {isAdmin && (
+          <span className="ml-2 text-yellow-500">
+            {/* Visualizzazione della coroncina per gli amministratori */}
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6 inline"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M12 14l9-5-9-5-9 5 9 5z"
+              />
+            </svg>
+          </span>
+        )}
       </h1>
       <div className="my-4">
-        <div className="flex items-center mb-4">
-          <input
-            type="number"
-            className="rounded-l-lg p-2 border-t mr-0 border-b border-l text-gray-800 border-gray-200 bg-white"
-            placeholder="Enter limit value in KB"
-            value={
-              limitValue !== null && limitValue !== -1
-                ? limitValue.toString()
-                : ""
-            }
-            onChange={(e) => setLimitValue(Number(e.target.value))}
-          />
+        {isAdmin ? (
+          <div className="flex items-center mb-4">
+            <input
+              type="number"
+              className="rounded-l-lg p-2 border-t mr-0 border-b border-l text-gray-800 border-gray-200 bg-white"
+              placeholder="Enter limit value in KB"
+              value={
+                limitValue !== null && limitValue !== -1
+                  ? limitValue.toString()
+                  : ""
+              }
+              onChange={(e) => setLimitValue(Number(e.target.value))}
+            />
+            <button
+              onClick={handleSetLimit}
+              className={`px-4 p-2 rounded-r-lg text-white border border-r-0 ${
+                limitValue === initialLimit
+                  ? "bg-blue-200 cursor-not-allowed"
+                  : "bg-blue-500 hover:bg-blue-400"
+              }`}
+              disabled={limitValue === initialLimit} // Disabilita il pulsante se i limiti sono uguali
+            >
+              Set Limit
+            </button>
+          </div>
+        ) : (
+          <p className="font-bold text-red-600">
+            Only admins can set limits for this group.
+          </p>
+        )}
+        {isAdmin && (
           <button
-            onClick={handleSetLimit}
-            className={`px-4 p-2 rounded-r-lg text-white border border-r-0 ${
-              limitValue === initialLimit
-                ? "bg-blue-200 cursor-not-allowed"
-                : "bg-blue-500 hover:bg-blue-400"
-            }`}
-            disabled={limitValue === initialLimit} // Disabilita il pulsante se i limiti sono uguali
+            onClick={handleDeleteLimit}
+            className="bg-red-400 hover:bg-red-500 text-white font-bold py-2 px-4 rounded"
           >
-            Set Limit
+            Delete Limit
           </button>
-        </div>
-        <button
-          onClick={handleDeleteLimit}
-          className="bg-red-400 hover:bg-red-500 text-white font-bold py-2 px-4 rounded"
-        >
-          Delete Limit
-        </button>
+        )}
         <button
           onClick={() => navigate(-1)} // Torna alla home senza refresh
           className="bg-gray-400 hover:bg-gray-500 text-white font-bold py-2 px-4 rounded ml-2"
