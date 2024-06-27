@@ -10,6 +10,10 @@ const Limit: React.FC = () => {
     groupLimits: string;
   }>();
 
+  const isAdmin = useParams<{ isAdmin: string }>().isAdmin === "true";
+
+  console.log("isAdmin:", isAdmin);
+
   const navigate = useNavigate();
   const { jwt } = useMain(); // Ottieni il token JWT
   const { refetch } = useGetGroups(jwt); // Ottieni refetch dal custom hook
