@@ -52,15 +52,15 @@ const GroupCard: React.FC<GroupCardProps> = ({
       <div className="m-2">
         <p>Participants : {group.participantsCount}</p>
         <p>Total Messages : {group.totalMessages}</p>
-        <p>Total Size (KB): {group.totalSizeKB}</p>
+        <p>Total Size (KB) : {group.totalSizeKB}</p>
         <p>Emissions OneByte (g): {group.totalEmissionsOneByte}</p>
         <p>Emissions SWD (g): {group.totalEmissionsSWD}</p>
-        <p>Limits (KB): {limitText}</p>
+        <p>Limits (KB) : {limitText}</p>
         <p>
-          Last Report: {new Date(group.lastReportTimestamp).toLocaleString()}
+          Last Report : {new Date(group.lastReportTimestamp).toLocaleString()}
         </p>
-        <p>Admins: {group.adminNames.join(", ")}</p>
-        <p>Donations: {group.donations.join(", ")}</p>
+        <p>Admins : {group.adminNames.join(", ")}</p>
+        <p>Donations : {group.donations.join(", ")}</p>
       </div>
       <div className="flex flex-row justify-around w-full">
         <button className="my-4 bg-yellow-400 hover:bg-yellow-500 text-green-900 font-bold py-2 px-4 rounded">
