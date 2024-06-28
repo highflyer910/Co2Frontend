@@ -23,11 +23,11 @@ const Limit: React.FC = () => {
   const [limitValue, setLimitValue] = useState<number | null>(
     groupLimits && groupLimits !== "-1" ? +groupLimits : -1
   );
+
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [initialLimit, _] = useState<number>(
     groupLimits && groupLimits !== "-1" ? +groupLimits : -1
   );
-
   // State per gestire i messaggi di risposta
   const [responseMessage, setResponseMessage] = useState<string | null>(null);
 
@@ -64,7 +64,7 @@ const Limit: React.FC = () => {
   const handleDeleteLimit = async () => {
     try {
       const response = await fetch(
-        `https://co2backend.onrender.com/api/v1/limit/generic/${groupId}`,
+        `https://co2backend.onrender.com/api/v1/limit/generic/${groupId}`, // Includi l'ID del gruppo nel percorso URL
         {
           method: "DELETE",
           headers: {
@@ -76,6 +76,7 @@ const Limit: React.FC = () => {
       const data = await response.json();
       console.log("data quando cancello :", data);
 
+      setResponseMessage(data.success); // Mostra il messaggio di successo se presente
       setLimitValue(-1); // Resetta il valore del limite a -1 (valore di default)
     } catch (error) {
       console.error("Error deleting limit:", error);
