@@ -18,10 +18,6 @@ const Limit: React.FC = () => {
   const [limitValue, setLimitValue] = useState<number | null>(
     groupLimits && groupLimits !== "-1" ? +groupLimits : -1
   );
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [initialLimit, _] = useState<number>(
-    groupLimits && groupLimits !== "-1" ? +groupLimits : -1
-  );
 
   // State per gestire i messaggi di risposta
   const [responseMessage, setResponseMessage] = useState<string | null>(null);
