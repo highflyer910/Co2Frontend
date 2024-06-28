@@ -66,10 +66,12 @@ const Limit: React.FC = () => {
           //   "Content-Type": "application/json",
           // },
           headers: {
+            "Content-Type": "application/json",
             Authorization: `Bearer ${jwt}`,
           },
         }
       );
+
       const data = await response.json();
       console.log("data from be after deletion :", data);
       setResponseMessage(data.success); // Mostra il messaggio di successo
