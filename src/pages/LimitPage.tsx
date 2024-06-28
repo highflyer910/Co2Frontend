@@ -72,7 +72,7 @@ const Limit: React.FC = () => {
       );
       const data = await response.json();
       setResponseMessage(data.success); // Mostra il messaggio di successo
-
+      console.log("success delete", data.success);
       setLimitValue(-1); // Resetta il valore del limite a -1 (valore di default)
     } catch (error) {
       console.error("Error deleting limit:", error);
