@@ -116,12 +116,7 @@ const Limit: React.FC = () => {
           />
           <button
             onClick={handleSetLimit}
-            className={`px-4 p-2 rounded-r-lg text-white border border-r-0 ${
-              limitValue === initialLimit
-                ? "bg-blue-200 cursor-not-allowed"
-                : "bg-blue-500 hover:bg-blue-400"
-            }`}
-            disabled={limitValue === initialLimit} // Disabilita il pulsante se i limiti sono uguali
+            className={`px-4 p-2 rounded-r-lg text-white border border-r-0  bg-blue-500 hover:bg-blue-400`}
           >
             Set Limit
           </button>
@@ -150,10 +145,7 @@ const Limit: React.FC = () => {
           {responseMessage}
         </div>
       )}
-      <div className="my-4 text-center font-bold text-gray-800">
-        Current Limit:{" "}
-        {groupLimits !== "-1" ? `${groupLimits} KB` : "No limit set"}
-      </div>
+
       <p className="text-center text-gray-600 mt-2">
         Please enter the limit value in kilobytes (KB).
       </p>
