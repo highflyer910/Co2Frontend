@@ -12,6 +12,7 @@ https://co2-frontend-five.vercel.app/donate/callback?context=don_1iou8Ct9dJe4hEl
 
 
 
+-- donazione dice successo prima del controllo per esempio duplicato o forse tutto secondo controllo
 
 -- fare che solo gli admin abbiano la facolta di mettere il limite  sia fe che be
 

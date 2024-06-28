@@ -1,0 +1,57 @@
+{
+  "treeCount": 4.0,
+  "id": "don_1iou8Ct9dJe4hElBTymASeHM",
+  "token": "BHK6SKHEBB8D",
+  "metadata": {
+    "callback_url": "https://3b25-5-90-138-124.ngrok-free.app/donation/callback",
+    "callback_method": "api",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_source": ""
+  },
+  "isRecurrent": false,
+  "units": 4.0,
+  "code": "BHK6SKHEBB8D",
+  "giftRequest": null,
+  "tenant": "ten_I9TW3ncG",
+  "project": {
+    "id": "proj_9P7TiyLqmuJ5592hAfxA8t3R",
+    "name": "Santa Rita Tlahuapan Reforestation 2023",
+    "country": "MX",
+    "purpose": "trees"
+  },
+  "donor": {
+    "firstname": "Claudio",
+    "lastname": "Dall'ara",
+    "email": "italyicp@gmail.com",
+    "address": "Via degli Abeti",
+    "city": "Civitella Roveto",
+    "zipCode": "67054",
+    "country": "IT",
+    "companyname": null,
+    "tin": null
+  },
+  "destination": {
+    "id": "proj_9P7TiyLqmuJ5592hAfxA8t3R",
+    "type": "project",
+    "country": "MX",
+    "currency": "EUR",
+    "purpose": "trees",
+    "name": "Santa Rita Tlahuapan Reforestation 2023"
+  },
+  "paymentDate": "2024-06-12 22:44:34",
+  "signupPending": false,
+  "hasPublicProfile": false,
+  "comment": null,
+  "uid": "001464258",
+  "donorAlias": null,
+  "amount": "2.64",
+  "currency": "EUR",
+  "frequency": null,
+  "gateway": "stripe",
+  "paymentStatus": "paid",
+  "taxDeductionCountry": null,
+  "unitType": "tree",
+  "quantity": 4.0,
+  "gift": null
+}

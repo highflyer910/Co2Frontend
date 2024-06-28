@@ -29,8 +29,7 @@ const GroupCard: React.FC<GroupCardProps> = ({
   const navigateToLimitPage = (
     groupId: string,
     groupName: string,
-    groupLimits: string,
-    isAdmin: boolean
+    groupLimits: string
   ) => {
     navigate(
       `/limit/${groupId}/${encodeURIComponent(
@@ -81,19 +80,20 @@ const GroupCard: React.FC<GroupCardProps> = ({
         >
           Donate
         </button>
-        <button
-          onClick={() =>
-            navigateToLimitPage(
-              group.groupId,
-              group.groupName,
-              group.groupLimits,
-              isAdmin
-            )
-          }
-          className="my-4 bg-yellow-400 hover:bg-yellow-500 text-green-900 font-bold py-2 px-4 rounded"
-        >
-          Limit
-        </button>
+        {isAdmin && (
+          <button
+            onClick={() =>
+              navigateToLimitPage(
+                group.groupId,
+                group.groupName,
+                group.groupLimits
+              )
+            }
+            className="my-4 bg-yellow-400 hover:bg-yellow-500 text-green-900 font-bold py-2 px-4 rounded"
+          >
+            Limit
+          </button>
+        )}
       </div>
     </div>
   );
