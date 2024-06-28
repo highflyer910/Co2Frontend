@@ -32,9 +32,7 @@ const GroupCard: React.FC<GroupCardProps> = ({
     groupLimits: string
   ) => {
     navigate(
-      `/limit/${groupId}/${encodeURIComponent(
-        groupName
-      )}/${groupLimits}/${isAdmin}`
+      `/limit/${groupId}/${encodeURIComponent(groupName)}/${groupLimits}`
     );
   };
 
