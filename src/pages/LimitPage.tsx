@@ -62,9 +62,6 @@ const Limit: React.FC = () => {
         `https://co2backend.onrender.com/api/v1/limit/generic/${groupId}`,
         {
           method: "DELETE",
-          // headers: {
-          //   "Content-Type": "application/json",
-          // },
           headers: {
             "Content-Type": "application/json",
             Authorization: `Bearer ${jwt}`,
@@ -72,13 +69,20 @@ const Limit: React.FC = () => {
         }
       );
 
-      const data = await response.json();
-      console.log("data from be after deletion :", data);
-      setResponseMessage(data.success); // Mostra il messaggio di successo
-      if (data.success) {
-        await refetch(); // Effettua il refetch dei gruppi
+      let data;
+      if (response.status === 204) {
+        data = { status: "success", message: "Limit deleted successfully" }; // Genera una risposta fittizia
+      } else {
+        data = await response.json();
       }
-      setLimitValue(-1); // Resetta il valore del limite a -1 (valore di default)
+
+      if (data.status === "success") {
+        setResponseMessage(data.message); // Mostra il messaggio di successo
+        await refetch(); // Effettua il refetch dei gruppi
+        setLimitValue(-1); // Resetta il valore del limite a -1 (valore di default)
+      } else {
+        setResponseMessage("Error deleting limit"); // Gestione dell'errore
+      }
     } catch (error) {
       console.error("Error deleting limit:", error);
       setResponseMessage("Error deleting limit"); // Gestione dell'errore
