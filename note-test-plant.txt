@@ -13,9 +13,15 @@ https://co2-frontend-five.vercel.app/donate/callback?context=don_1iou8Ct9dJe4hEl
 
 
 
--- fare che solo gli admin abbiano la facolta di mettere il limite fatto fe manca be
+-- fare che solo gli admin abbiano la facolta di mettere il limite  sia fe che be
 
 -- verifica tutte le rotte ed auth
 
 -- grafici
+
+-- documentazione
+
+-- info grafiche + vid per installazione bot
+
+
 
