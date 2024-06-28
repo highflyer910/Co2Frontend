@@ -33,6 +33,7 @@ const Limit: React.FC = () => {
         {
           method: "POST",
           headers: {
+            "Content-Type": "application/json",
             Authorization: `Bearer ${jwt}`,
           },
           body: JSON.stringify({
