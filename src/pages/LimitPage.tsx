@@ -33,7 +33,7 @@ const Limit: React.FC = () => {
         {
           method: "POST",
           headers: {
-            "Content-Type": "application/json",
+            Authorization: `Bearer ${jwt}`,
           },
           body: JSON.stringify({
             chatId: groupId,
@@ -61,8 +61,11 @@ const Limit: React.FC = () => {
         `https://co2backend.onrender.com/api/v1/limit/generic/${groupId}`,
         {
           method: "DELETE",
+          // headers: {
+          //   "Content-Type": "application/json",
+          // },
           headers: {
-            "Content-Type": "application/json",
+            Authorization: `Bearer ${jwt}`,
           },
         }
       );
