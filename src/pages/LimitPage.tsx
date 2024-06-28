@@ -71,6 +71,7 @@ const Limit: React.FC = () => {
         }
       );
       const data = await response.json();
+      console.log("data from be after deletion :", data);
       setResponseMessage(data.success); // Mostra il messaggio di successo
       if (data.success) {
         await refetch(); // Effettua il refetch dei gruppi
