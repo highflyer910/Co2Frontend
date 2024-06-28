@@ -64,17 +64,13 @@ const Limit: React.FC = () => {
   const handleDeleteLimit = async () => {
     try {
       const response = await fetch(
-        `https://co2backend.onrender.com/api/v1/limit/generic`,
+        `https://co2backend.onrender.com/api/v1/limit/generic/${groupId}`,
         {
-          method: "POST",
+          method: "DELETE",
           headers: {
             "Content-Type": "application/json",
             Authorization: `Bearer ${jwt}`, // Aggiungi il JWT nell'header
           },
-          body: JSON.stringify({
-            chatId: groupId,
-            limit: limitValue, // Assumiamo che il valore sia già in KB
-          }),
         }
       );
       const data = await response.json();
