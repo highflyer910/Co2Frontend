@@ -46,6 +46,7 @@ const Limit: React.FC = () => {
       setResponseMessage(data.success); // Mostra il messaggio di successo
 
       if (data.success) {
+        console.log("refetch");
         await refetch(); // Effettua il refetch dei gruppi
       }
 
@@ -79,6 +80,7 @@ const Limit: React.FC = () => {
       if (data.status === "success") {
         setResponseMessage(data.message); // Mostra il messaggio di successo
         await refetch(); // Effettua il refetch dei gruppi
+        console.log("refetch");
         setLimitValue(-1); // Resetta il valore del limite a -1 (valore di default)
       } else {
         setResponseMessage("Error deleting limit"); // Gestione dell'errore
