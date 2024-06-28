@@ -15,13 +15,19 @@ https://co2-frontend-five.vercel.app/donate/callback?context=don_1iou8Ct9dJe4hEl
 
 -- fare che solo gli admin abbiano la facolta di mettere il limite  sia fe che be
 
--- verifica tutte le rotte ed auth
+-- header fare in modo con layotut che ci sia in tutte le pagine
 
 -- grafici
 
--- documentazione
+--se non ce limite non serve il bottone delete o disabilitalo
+
+-- su planting spiegare che poi il nuemro degli alberi potra cambirare e magari dare degli esempi
 
 -- info grafiche + vid per installazione bot
 
+-- verifica tutte le rotte ed auth
 
+-- documentazione
+
+-- togliere una mare di console log
 
