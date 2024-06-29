@@ -16,7 +16,7 @@ const DonationModal: React.FC<DonationModalProps> = ({
   onRequestClose,
 }) => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unused-vars
-  const [donation, setDonation] = useState<any>(null);
+  const [donation, _] = useState<any>(null);
 
   useEffect(() => {
     const fetchDonationDetails = async () => {
