@@ -15,14 +15,15 @@ const DonationModal: React.FC<DonationModalProps> = ({
   isOpen,
   onRequestClose,
 }) => {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unused-vars
   const [donation, setDonation] = useState<any>(null);
 
   useEffect(() => {
     const fetchDonationDetails = async () => {
       try {
         const response = await axios.get(`/api/v1/donation/${donationId}`);
-        setDonation(response.data.data.doc);
+        console.log("response", response);
+        // setDonation(response.data.data.doc);
       } catch (error) {
         console.error("Error fetching donation details:", error);
       }
