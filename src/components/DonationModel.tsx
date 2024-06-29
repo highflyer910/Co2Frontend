@@ -21,7 +21,10 @@ const DonationModal: React.FC<DonationModalProps> = ({
   useEffect(() => {
     const fetchDonationDetails = async () => {
       try {
-        const response = await axios.get(`/api/v1/donation/${donationId}`);
+        // `${import.meta.env.VITE_APP_BASE_URL_BE}/verify-jwt`,
+        const response = await axios.get(
+          `${import.meta.env.VITE_APP_BASE_URL_BE}/donation/${donationId}`
+        );
         console.log("response", response);
         // setDonation(response.data.data.doc);
       } catch (error) {
