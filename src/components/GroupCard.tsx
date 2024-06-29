@@ -53,6 +53,9 @@ const GroupCard: React.FC<GroupCardProps> = ({
   };
   console.log("group.groupLimits", group.groupLimits);
   console.log("group.groupLimits type", typeof group.groupLimits);
+  const limitToShow =
+    group.groupLimits + "" === "-1" ? "No limit" : group.groupLimits + "";
+
   return (
     <div className="mt-8 relative w-full max-w-xs bg-white text-green-800 font-body py-2 px-4 rounded border-2 border-green-800 shadow-md hover:bg-gray-100 flex flex-col items-start">
       <div className="flex justify-between items-center w-full">
@@ -74,10 +77,7 @@ const GroupCard: React.FC<GroupCardProps> = ({
         <p>Total Size (KB) : {group.totalSizeKB}</p>
         <p>Emissions OneByte (g): {group.totalEmissionsOneByte}</p>
         <p>Emissions SWD (g): {group.totalEmissionsSWD}</p>
-        <p>
-          Limits (KB) :{" "}
-          {group.groupLimits === "-1" ? "No limit" : group.groupLimits}
-        </p>
+        <p>Limits (KB) : {limitToShow}</p>
 
         <p>
           Last Report : {new Date(group.lastReportTimestamp).toLocaleString()}
