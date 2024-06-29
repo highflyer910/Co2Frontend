@@ -42,10 +42,10 @@ const DonationModal: React.FC<DonationModalProps> = ({
     <Modal isOpen={isOpen} onRequestClose={onRequestClose}>
       <div className="p-4">
         <h2 className="text-xl font-bold mb-4">Donation Details</h2>
-        <p>Amount: {donation.amount}</p>
+        {/* <p>Amount: {donation.amount}</p>
         <p>Group: {donation.group}</p>
         <p>Date: {new Date(donation.createdAt).toLocaleString()}</p>
-        {/* Aggiungi ulteriori dettagli della donazione qui */}
+        Aggiungi ulteriori dettagli della donazione qui */}
         <button
           onClick={onRequestClose}
           className="mt-4 bg-yellow-400 hover:bg-yellow-500 text-green-900 font-bold py-2 px-4 rounded"
