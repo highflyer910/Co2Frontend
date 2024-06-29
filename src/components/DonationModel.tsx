@@ -54,12 +54,7 @@ const DonationModal: React.FC<DonationModalProps> = ({
   }
 
   return (
-    <Modal
-      isOpen={isOpen}
-      onRequestClose={onRequestClose}
-      className="modal-content"
-      overlayClassName="modal-overlay"
-    >
+    <Modal isOpen={isOpen} onRequestClose={onRequestClose}>
       <div className="p-4">
         <h2 className="text-xl font-bold mb-4">Donation Details</h2>
         <p>
