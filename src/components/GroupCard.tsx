@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { AiOutlineStar, AiFillStar } from "react-icons/ai";
 import { Group } from "../types/Group";
 import { useNavigate } from "react-router-dom";
-
-import { useMain } from "../contexts/MainContext"; // Assumendo che MainContext.tsx si trovi in src/contexts
+import { useMain } from "../contexts/MainContext";
+import DonationModal from "../components/DonationModel";
 
 interface GroupCardProps {
   group: Group;
@@ -17,13 +17,28 @@ const GroupCard: React.FC<GroupCardProps> = ({
   toggleFavourite,
 }) => {
   const navigate = useNavigate();
-
   const mainContext = useMain();
   const { userName } = mainContext || {};
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedDonationId, setSelectedDonationId] = useState<string | null>(
+    null
+  );
 
   const navigateToDonatePage = (groupId: string, groupName: string) => {
     navigate(`/donate/${groupId}/${encodeURIComponent(groupName)}`);
   };
+
+  const openDonationModal = (donationId: string) => {
+    setSelectedDonationId(donationId);
+    setIsModalOpen(true);
+  };
+
+  const closeDonationModal = () => {
+    setSelectedDonationId(null);
+    setIsModalOpen(false);
+  };
+
   const isAdmin = group.adminNames.includes(userName);
 
   const navigateToLimitPage = (
@@ -36,9 +51,8 @@ const GroupCard: React.FC<GroupCardProps> = ({
     );
   };
 
-  // Determina il testo da visualizzare per il limite
   const limitText =
-    group.groupLimits != "-1" ? `${group.groupLimits}` : "Nessun limite";
+    group.groupLimits !== "-1" ? `${group.groupLimits}` : "Nessun limite";
 
   return (
     <div className="mt-8 relative w-full max-w-xs bg-white text-green-800 font-body py-2 px-4 rounded border-2 border-green-800 shadow-md hover:bg-gray-100 flex flex-col items-start">
@@ -66,7 +80,18 @@ const GroupCard: React.FC<GroupCardProps> = ({
           Last Report : {new Date(group.lastReportTimestamp).toLocaleString()}
         </p>
         <p>Admins : {group.adminNames.join(", ")}</p>
-        <p>Donations : {group.donations.join(", ")}</p>
+        <p>
+          Donations :{" "}
+          {group.donations.map((donation) => (
+            <span
+              key={donation}
+              className="text-blue-500 cursor-pointer"
+              onClick={() => openDonationModal(donation)}
+            >
+              {donation}
+            </span>
+          ))}
+        </p>
       </div>
       <div className="flex flex-row justify-around w-full">
         <button className="my-4 bg-yellow-400 hover:bg-yellow-500 text-green-900 font-bold py-2 px-4 rounded">
@@ -93,6 +118,13 @@ const GroupCard: React.FC<GroupCardProps> = ({
           </button>
         )}
       </div>
+      {selectedDonationId && (
+        <DonationModal
+          donationId={selectedDonationId}
+          isOpen={isModalOpen}
+          onRequestClose={closeDonationModal}
+        />
+      )}
     </div>
   );
 };
