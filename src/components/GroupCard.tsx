@@ -76,7 +76,11 @@ const GroupCard: React.FC<GroupCardProps> = ({
         <p>Total Size (KB) : {group.totalSizeKB}</p>
         <p>Emissions OneByte (g): {group.totalEmissionsOneByte}</p>
         <p>Emissions SWD (g): {group.totalEmissionsSWD}</p>
-        <p>Limits (KB) : {limitText}</p>
+        <p>
+          Limits (KB) :{" "}
+          {group.groupLimits === "-1" ? "No limit" : group.groupLimits}
+        </p>
+
         <p>
           Last Report : {new Date(group.lastReportTimestamp).toLocaleString()}
         </p>
