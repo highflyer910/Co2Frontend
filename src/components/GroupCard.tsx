@@ -30,6 +30,7 @@ const GroupCard: React.FC<GroupCardProps> = ({
   };
 
   const openDonationModal = (donationId: string) => {
+    console.log("Donation ID:", donationId);
     setSelectedDonationId(donationId);
     setIsModalOpen(true);
   };
