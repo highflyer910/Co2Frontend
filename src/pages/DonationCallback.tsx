@@ -70,7 +70,7 @@ const DonationCallback: React.FC = () => {
             },
             body: JSON.stringify(donationDetails),
           });
-
+          console.log("donationrespone from be :", donationResponse);
           if (donationResponse.ok) {
             console.log("Donation data sent to backend successfully");
           } else {

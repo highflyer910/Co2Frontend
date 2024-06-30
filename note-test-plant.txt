@@ -18,7 +18,6 @@ https://co2-frontend-five.vercel.app/donate/callback?context=don_O1F0A0VPuk8Od4Q
 
 -- donazione dice successo prima del controllo per esempio duplicato o forse tutto secondo controllo
 
--- verifica orari su report , su last report e su donation be e fe
 
 -- header fare in modo con layotut che ci sia in tutte le pagine
 
