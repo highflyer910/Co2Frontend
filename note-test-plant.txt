@@ -14,13 +14,11 @@ https://co2-frontend-five.vercel.app/donate/callback?context=don_1iou8Ct9dJe4hEl
 
 -- donazione dice successo prima del controllo per esempio duplicato o forse tutto secondo controllo
 
--- fare che solo gli admin abbiano la facolta di mettere il limite  sia fe che be
+-- verifica orari su report , su last report e su donation be e fe
 
 -- header fare in modo con layotut che ci sia in tutte le pagine
 
 -- grafici
-
---se non ce limite non serve il bottone delete o disabilitalo
 
 -- su planting spiegare che poi il nuemro degli alberi potra cambirare e magari dare degli esempi
 
