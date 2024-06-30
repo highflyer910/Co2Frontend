@@ -95,7 +95,9 @@ const DonationCallback: React.FC = () => {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-4">
-      {context && (don_status === "success" || don_status === "pending") ? (
+      {context &&
+      (don_status === "success" || don_status === "pending") &&
+      donationResponse ? (
         <>
           <h2 className="font-poppins text-3xl font-bold text-green-800 py-3 px-4 shadow-lg mb-4">
             Successo nella donazione!
