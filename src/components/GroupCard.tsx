@@ -86,13 +86,15 @@ const GroupCard: React.FC<GroupCardProps> = ({
         <p>Admins : {group.adminNames.join(", ")}</p>
         <p>
           Donations :{" "}
-          {group.donations.map((donation) => (
+          {group.donations.map((donation, index) => (
             <span
-              key={donation}
+              key={index}
               className="text-blue-500 cursor-pointer"
               onClick={() => openDonationModal(donation)}
             >
               {donation}
+              {index !== group.donations.length - 1 && ", "}{" "}
+              {/* Aggiunge la virgola solo se non è l'ultimo elemento */}
             </span>
           ))}
         </p>

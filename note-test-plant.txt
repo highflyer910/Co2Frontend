@@ -11,6 +11,10 @@ chiedere se possibile risalire dettagli donazione con il don_ e dove finito s=ta
 https://co2-frontend-five.vercel.app/donate/callback?context=don_1iou8Ct9dJe4hElBTymASeHM&don_status=success
 
 
+con paypal e' venuta cosi
+https://co2-frontend-five.vercel.app/donate/callback?context=don_O1F0A0VPuk8Od4Q5EPbRC25z&don_status=pending
+
+
 
 -- donazione dice successo prima del controllo per esempio duplicato o forse tutto secondo controllo
 
