@@ -3,8 +3,7 @@ import { AiOutlineStar, AiFillStar } from "react-icons/ai";
 import { Group } from "../types/Group";
 import { useNavigate } from "react-router-dom";
 import { useMain } from "../contexts/MainContext";
-import DonationModal from "../components/DonationModel";
-
+import DonationModal from "./DonationModal";
 interface GroupCardProps {
   group: Group;
   isFavourite: boolean;
