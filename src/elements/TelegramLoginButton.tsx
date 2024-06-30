@@ -88,7 +88,7 @@ const TelegramLoginButton: React.FC = () => {
     document
       .getElementById("telegram-login-button-container")
       ?.appendChild(script);
-  }, [navigate]);
+  }, [dispatch, navigate]);
 
   return <div id="telegram-login-button-container"></div>;
 };
