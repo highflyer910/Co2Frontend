@@ -26,6 +26,7 @@ const DonationCallback: React.FC = () => {
   const queryParams = new URLSearchParams(location.search);
   const context = queryParams.get("context");
   const don_status = queryParams.get("don_status");
+  const [donationResponse, setDonationResponse] = useState(false);
 
   useEffect(() => {
     const sendDonation = async () => {
@@ -70,9 +71,12 @@ const DonationCallback: React.FC = () => {
             },
             body: JSON.stringify(donationDetails),
           });
+
           console.log("donationrespone from be :", donationResponse);
+
           if (donationResponse.ok) {
             console.log("Donation data sent to backend successfully");
+            setDonationResponse(true);
           } else {
             console.error("Failed to send donation data to backend");
           }
@@ -96,7 +100,7 @@ const DonationCallback: React.FC = () => {
           <h2 className="font-poppins text-3xl font-bold text-green-800 py-3 px-4 shadow-lg mb-4">
             Successo nella donazione!
           </h2>
-          {donationData && (
+          {donationData && donationResponse && (
             <pre className="bg-white text-green-800 font-body py-2 px-4 rounded border-2 border-green-800 shadow-md mb-4">
               {JSON.stringify(donationData, null, 2)}
             </pre>
