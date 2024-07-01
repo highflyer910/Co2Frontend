@@ -88,7 +88,6 @@ const GroupCard: React.FC<GroupCardProps> = ({
 
       {/* Contenuto sempre visibile */}
       <div className="m-2">
-        <p>Last Report TimeStaMP: {group.lastReportTimestamp}</p>
         <p>Limits (KB) : {limitToShow}</p>
         <p>
           Donations :{" "}
@@ -103,6 +102,7 @@ const GroupCard: React.FC<GroupCardProps> = ({
             </span>
           ))}
         </p>
+        <p>Last Report TimeStamp: {group.lastReportTimestamp}</p>
       </div>
 
       {/* Contenuto espandibile */}
