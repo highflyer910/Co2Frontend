@@ -77,6 +77,38 @@ const GroupCard: React.FC<GroupCardProps> = ({
         <p>Total Size (KB) : {group.totalSizeKB}</p>
         <p>Emissions OneByte (g): {group.totalEmissionsOneByte}</p>
         <p>Emissions SWD (g): {group.totalEmissionsSWD}</p>
+        <p>Text Messages : {group.textTotalMessages}</p>
+        <p>Text Size (KB) : {group.textTotalSize}</p>
+        <p>Text Emissions OneByte (g): {group.textEmissionsOneByteMethod}</p>
+        <p>Text Emissions SWD (g): {group.textEmissionsSWDMethod}</p>
+        <p>Photo Messages : {group.photoTotalMessages}</p>
+        <p>Photo Size (KB) : {group.photoTotalSize}</p>
+        <p>Photo Emissions OneByte (g): {group.photoEmissionsOneByteMethod}</p>
+        <p>Photo Emissions SWD (g): {group.photoEmissionsSWDMethod}</p>
+        <p>Voice Messages : {group.voiceTotalMessages}</p>
+        <p>Voice Size (KB) : {group.voiceTotalSize}</p>
+        <p>Voice Emissions OneByte (g): {group.voiceEmissionsOneByteMethod}</p>
+        <p>Voice Emissions SWD (g): {group.voiceEmissionsSWDMethod}</p>
+        <p>Video Messages : {group.videoTotalMessages}</p>
+        <p>Video Size (KB) : {group.videoTotalSize}</p>
+        <p>Video Emissions OneByte (g): {group.videoEmissionsOneByteMethod}</p>
+        <p>Video Emissions SWD (g): {group.videoEmissionsSWDMethod}</p>
+        <p>Document Messages : {group.documentTotalMessages}</p>
+        <p>Document Size (KB) : {group.documentTotalSize}</p>
+        <p>
+          Document Emissions OneByte (g): {group.documentEmissionsOneByteMethod}
+        </p>
+        <p>Document Emissions SWD (g): {group.documentEmissionsSWDMethod}</p>
+        <p>Poll Messages : {group.pollTotalMessages}</p>
+        <p>Poll Size (KB) : {group.pollTotalSize}</p>
+        <p>Poll Emissions OneByte (g): {group.pollEmissionsOneByteMethod}</p>
+        <p>Poll Emissions SWD (g): {group.pollEmissionsSWDMethod}</p>
+        <p>Sticker Messages : {group.stickerTotalMessages}</p>
+        <p>Sticker Size (KB) : {group.stickerTotalSize}</p>
+        <p>
+          Sticker Emissions OneByte (g): {group.stickerEmissionsOneByteMethod}
+        </p>
+        <p>Sticker Emissions SWD (g): {group.stickerEmissionsSWDMethod}</p>
         <p>Limits (KB) : {limitToShow}</p>
 
         <p>
