@@ -86,8 +86,6 @@ const DonationCallback: React.FC = () => {
         } finally {
           setIsLoading(false);
         }
-      } else {
-        setIsLoading(false);
       }
     };
 
