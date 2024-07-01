@@ -96,6 +96,22 @@ const DonationCallback: React.FC = () => {
     navigate("/Groups");
   };
 
+  if (don_status !== "success" && don_status !== "pending") {
+    return (
+      <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-4">
+        <p className="font-poppins text-xl font-bold text-red-800 py-3 px-4 shadow-lg mb-4">
+          Pagamento non andato a buon fine, prego riprovare.
+        </p>
+        <button
+          onClick={handleReturnHome}
+          className="bg-yellow-400 hover:bg-yellow-500 text-green-900 font-bold py-2 px-4 rounded"
+        >
+          Torna alla Home
+        </button>
+      </div>
+    );
+  }
+
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-4">
       {isLoading ? (
