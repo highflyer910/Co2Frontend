@@ -123,7 +123,7 @@ const DonationCallback: React.FC = () => {
         donationResponse ? (
         <>
           <h2 className="font-poppins text-3xl font-bold text-green-800 py-3 px-4 shadow-lg mb-4">
-            Successo nella donazione!!!
+            Successo nella donazione !!!!
           </h2>
           {donationData && donationResponse && (
             <pre className="bg-white text-green-800 font-body py-2 px-4 rounded border-2 border-green-800 shadow-md mb-4">
