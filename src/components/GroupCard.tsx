@@ -142,10 +142,10 @@ const GroupCard: React.FC<GroupCardProps> = ({
           </p>
         </div>
       )}
-      <div className="flex flex-row justify-around w-full">
+      <div className="flex flex-row justify-around w-full mt-auto">
         <button
+          onClick={toggleExpand}
           className="my-4 bg-yellow-400 hover:bg-yellow-500 text-green-900 font-bold py-2 px-4 rounded"
-          onClick={toggleExpand} // Aggiunge la funzione di toggle
         >
           {isExpanded ? "Hide Details" : "Show Details"}
         </button>
@@ -169,6 +169,11 @@ const GroupCard: React.FC<GroupCardProps> = ({
             Limit
           </button>
         )}
+      </div>
+      <div className="flex justify-around w-full">
+        <button className="my-4 bg-yellow-400 hover:bg-yellow-500 text-green-900 font-bold py-2 px-4 rounded">
+          Stats
+        </button>
       </div>
       {selectedDonationId && (
         <DonationModal
