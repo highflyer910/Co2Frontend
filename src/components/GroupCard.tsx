@@ -57,7 +57,7 @@ const GroupCard: React.FC<GroupCardProps> = ({
   };
 
   const limitToShow =
-    group.groupLimits + "" == "-1" ? "No limit" : group.groupLimits + "";
+    group.groupLimits + "" === "-1" ? "No limit" : group.groupLimits + "";
 
   return (
     <div className="mt-8 relative w-full max-w-xs bg-white text-green-800 font-body py-2 px-4 rounded border-2 border-green-800 shadow-md hover:bg-gray-100 flex flex-col items-start">
@@ -81,12 +81,44 @@ const GroupCard: React.FC<GroupCardProps> = ({
         </p>
         <p>Admins : {group.adminNames.join(", ")}</p>
       </div>
-      <div className="flex flex-row justify-between w-full mt-auto">
+      <div className="flex flex-row justify-between items-center w-full mt-auto">
         <button
-          onClick={toggleExpand}
-          className="my-4 bg-yellow-400 hover:bg-yellow-500 text-green-900 font-bold py-2 px-4 rounded"
+          onClick={() => toggleExpand()}
+          className="flex items-center justify-center my-4 bg-yellow-400 hover:bg-yellow-500 text-green-900 font-bold py-2 px-4 rounded"
         >
-          {isExpanded ? "Hide Details" : "Show Details"}
+          {isExpanded ? (
+            <>
+              Hide Details
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-4 w-4 ml-1 transform rotate-180"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M5.293 6.293a1 1 0 0 1 1.414 1.414L3.414 11H16a1 1 0 0 1 0 2H3.414l3.293 3.293a1 1 0 1 1-1.414 1.414l-5-5a1 1 0 0 1 0-1.414l5-5z"
+                  clipRule="evenodd"
+                />
+              </svg>
+            </>
+          ) : (
+            <>
+              Show Details
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-4 w-4 ml-1 transform rotate-0"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M5.293 6.293a1 1 0 0 1 1.414-1.414l5 5a1 1 0 0 1 0 1.414l-5 5a1 1 0 1 1-1.414-1.414L9.586 11H4a1 1 0 0 1 0-2h5.586L5.293 6.293z"
+                  clipRule="evenodd"
+                />
+              </svg>
+            </>
+          )}
         </button>
         <button
           onClick={() => navigateToDonatePage(group.groupId, group.groupName)}
