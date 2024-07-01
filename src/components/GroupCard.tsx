@@ -81,6 +81,34 @@ const GroupCard: React.FC<GroupCardProps> = ({
         </p>
         <p>Admins : {group.adminNames.join(", ")}</p>
       </div>
+      <div className="flex flex-row justify-between w-full mt-auto">
+        <button
+          onClick={toggleExpand}
+          className="my-4 bg-yellow-400 hover:bg-yellow-500 text-green-900 font-bold py-2 px-4 rounded"
+        >
+          {isExpanded ? "Hide Details" : "Show Details"}
+        </button>
+        <button
+          onClick={() => navigateToDonatePage(group.groupId, group.groupName)}
+          className="my-4 bg-yellow-400 hover:bg-yellow-500 text-green-900 font-bold py-2 px-4 rounded"
+        >
+          Donate
+        </button>
+        {isAdmin && (
+          <button
+            onClick={() =>
+              navigateToLimitPage(
+                group.groupId,
+                group.groupName,
+                group.groupLimits
+              )
+            }
+            className="my-4 bg-yellow-400 hover:bg-yellow-500 text-green-900 font-bold py-2 px-4 rounded"
+          >
+            Limit
+          </button>
+        )}
+      </div>
       {isExpanded && (
         <div className="m-2">
           <p>Total Messages : {group.totalMessages}</p>
@@ -142,34 +170,6 @@ const GroupCard: React.FC<GroupCardProps> = ({
           </p>
         </div>
       )}
-      <div className="flex flex-row justify-around w-full mt-auto">
-        <button
-          onClick={toggleExpand}
-          className="my-4 bg-yellow-400 hover:bg-yellow-500 text-green-900 font-bold py-2 px-4 rounded"
-        >
-          {isExpanded ? "Hide Details" : "Show Details"}
-        </button>
-        <button
-          onClick={() => navigateToDonatePage(group.groupId, group.groupName)}
-          className="my-4 bg-yellow-400 hover:bg-yellow-500 text-green-900 font-bold py-2 px-4 rounded"
-        >
-          Donate
-        </button>
-        {isAdmin && (
-          <button
-            onClick={() =>
-              navigateToLimitPage(
-                group.groupId,
-                group.groupName,
-                group.groupLimits
-              )
-            }
-            className="my-4 bg-yellow-400 hover:bg-yellow-500 text-green-900 font-bold py-2 px-4 rounded"
-          >
-            Limit
-          </button>
-        )}
-      </div>
       <div className="flex justify-around w-full">
         <button className="my-4 bg-yellow-400 hover:bg-yellow-500 text-green-900 font-bold py-2 px-4 rounded">
           Stats
