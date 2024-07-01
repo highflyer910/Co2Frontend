@@ -88,7 +88,7 @@ const GroupCard: React.FC<GroupCardProps> = ({
 
       {/* Contenuto sempre visibile */}
       <div className="m-2">
-        <p>Limits (KB) : {limitToShow}</p>
+        <p>Limit (KB) : {limitToShow}</p>
         <p>
           Donations :{" "}
           {group.donations.map((donation, index) => (
