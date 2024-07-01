@@ -62,98 +62,39 @@ const GroupCard: React.FC<GroupCardProps> = ({
   return (
     <div className="mt-8 relative w-full max-w-xs bg-white text-green-800 font-body py-2 px-4 rounded border-2 border-green-800 shadow-md hover:bg-gray-100 flex flex-col items-start">
       <div className="flex justify-between items-center w-full">
-        <h2 className="font-bold text-xl">{group.groupName}</h2>
-        <button
-          onClick={() => toggleFavourite(group.groupId)}
-          className="text-2xl focus:outline-none"
-        >
-          {isFavourite ? (
-            <AiFillStar className="text-green-500" />
-          ) : (
-            <AiOutlineStar className="text-gray-500" />
-          )}
-        </button>
-      </div>
-      <div className="m-2">
-        <p>Participants : {group.participantsCount}</p>
-        <p>
-          Last Report : {new Date(group.lastReportTimestamp).toLocaleString()}
-        </p>
-        <p>Admins : {group.adminNames.join(", ")}</p>
-        <p>Limits (KB) : {limitToShow}</p>
-        <p>
-          Donations :{" "}
-          {group.donations.map((donation, index) => (
-            <span
-              key={index}
-              className="text-blue-500 cursor-pointer"
-              onClick={() => openDonationModal(donation)}
-            >
-              {donation}
-              {index !== group.donations.length - 1 && ", "}
-            </span>
-          ))}
-        </p>
-      </div>
-      <div className="flex flex-row justify-between items-center w-full mt-auto">
-        <button
-          onClick={() => toggleExpand()}
-          className="flex items-center justify-center my-4 bg-yellow-400 hover:bg-yellow-500 text-green-900 font-bold py-2 px-4 rounded"
-        >
-          {isExpanded ? (
-            <>
-              Hide Details
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-4 w-4 ml-1 transform rotate-180"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M5.293 6.293a1 1 0 0 1 1.414 1.414L3.414 11H16a1 1 0 0 1 0 2H3.414l3.293 3.293a1 1 0 1 1-1.414 1.414l-5-5a1 1 0 0 1 0-1.414l5-5z"
-                  clipRule="evenodd"
-                />
-              </svg>
-            </>
-          ) : (
-            <>
-              Show Details
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-4 w-4 ml-1 transform rotate-0"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M5.293 6.293a1 1 0 0 1 1.414-1.414l5 5a1 1 0 0 1 0 1.414l-5 5a1 1 0 1 1-1.414-1.414L9.586 11H4a1 1 0 0 1 0-2h5.586L5.293 6.293z"
-                  clipRule="evenodd"
-                />
-              </svg>
-            </>
-          )}
-        </button>
-        <button
-          onClick={() => navigateToDonatePage(group.groupId, group.groupName)}
-          className="my-4 bg-yellow-400 hover:bg-yellow-500 text-green-900 font-bold py-2 px-4 rounded"
-        >
-          Donate
-        </button>
-        {isAdmin && (
+        <div>
+          <h2 className="font-bold text-xl">{group.groupName}</h2>
           <button
-            onClick={() =>
-              navigateToLimitPage(
-                group.groupId,
-                group.groupName,
-                group.groupLimits
-              )
-            }
-            className="my-4 bg-yellow-400 hover:bg-yellow-500 text-green-900 font-bold py-2 px-4 rounded"
+            onClick={() => toggleFavourite(group.groupId)}
+            className="text-2xl focus:outline-none"
           >
-            Limit
+            {isFavourite ? (
+              <AiFillStar className="text-green-500" />
+            ) : (
+              <AiOutlineStar className="text-gray-500" />
+            )}
           </button>
-        )}
+          <p>Limits (KB) : {limitToShow}</p>
+          <p>
+            Donations :{" "}
+            {group.donations.map((donation, index) => (
+              <span
+                key={index}
+                className="text-blue-500 cursor-pointer"
+                onClick={() => openDonationModal(donation)}
+              >
+                {donation}
+                {index !== group.donations.length - 1 && ", "}
+              </span>
+            ))}
+          </p>
+        </div>
+        <button
+          onClick={toggleExpand}
+          className="bg-yellow-400 hover:bg-yellow-500 text-green-900 font-bold py-2 px-4 rounded"
+        >
+          {isExpanded ? "Hide Details" : "Show Details"}
+        </button>
       </div>
       {isExpanded && (
         <div className="m-2">
@@ -202,10 +143,30 @@ const GroupCard: React.FC<GroupCardProps> = ({
           <p>Sticker Emissions SWD (g): {group.stickerEmissionsSWDMethod}</p>
         </div>
       )}
-      <div className="flex justify-around w-full">
+      <div className="flex flex-row justify-between w-full mt-auto">
+        <button
+          onClick={() => navigateToDonatePage(group.groupId, group.groupName)}
+          className="my-4 bg-yellow-400 hover:bg-yellow-500 text-green-900 font-bold py-2 px-4 rounded"
+        >
+          Donate
+        </button>
         <button className="my-4 bg-yellow-400 hover:bg-yellow-500 text-green-900 font-bold py-2 px-4 rounded">
           Stats
         </button>
+        {isAdmin && (
+          <button
+            onClick={() =>
+              navigateToLimitPage(
+                group.groupId,
+                group.groupName,
+                group.groupLimits
+              )
+            }
+            className="my-4 bg-yellow-400 hover:bg-yellow-500 text-green-900 font-bold py-2 px-4 rounded"
+          >
+            Limit
+          </button>
+        )}
       </div>
       {selectedDonationId && (
         <DonationModal
