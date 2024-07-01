@@ -62,11 +62,11 @@ const GroupCard: React.FC<GroupCardProps> = ({
   return (
     <div className="mt-8 relative w-full max-w-xs bg-white text-green-800 font-body py-2 px-4 rounded border-2 border-green-800 shadow-md hover:bg-gray-100 flex flex-col items-start">
       <div className="flex justify-between items-center w-full">
-        <div>
+        <div className="flex items-center">
           <h2 className="font-bold text-xl">{group.groupName}</h2>
           <button
             onClick={() => toggleFavourite(group.groupId)}
-            className="text-2xl focus:outline-none"
+            className="ml-2 text-2xl focus:outline-none"
           >
             {isFavourite ? (
               <AiFillStar className="text-green-500" />
@@ -74,27 +74,29 @@ const GroupCard: React.FC<GroupCardProps> = ({
               <AiOutlineStar className="text-gray-500" />
             )}
           </button>
-          <p>Limits (KB) : {limitToShow}</p>
-          <p>
-            Donations :{" "}
-            {group.donations.map((donation, index) => (
-              <span
-                key={index}
-                className="text-blue-500 cursor-pointer"
-                onClick={() => openDonationModal(donation)}
-              >
-                {donation}
-                {index !== group.donations.length - 1 && ", "}
-              </span>
-            ))}
-          </p>
         </div>
         <button
           onClick={toggleExpand}
-          className="bg-yellow-400 hover:bg-yellow-500 text-green-900 font-bold py-2 px-4 rounded"
+          className="ml-auto bg-yellow-400 hover:bg-yellow-500 text-green-900 font-bold py-2 px-4 rounded"
         >
           {isExpanded ? "Hide Details" : "Show Details"}
         </button>
+      </div>
+      <div className="mt-2">
+        <p>Limits (KB) : {limitToShow}</p>
+        <p>
+          Donations :{" "}
+          {group.donations.map((donation, index) => (
+            <span
+              key={index}
+              className="text-blue-500 cursor-pointer"
+              onClick={() => openDonationModal(donation)}
+            >
+              {donation}
+              {index !== group.donations.length - 1 && ", "}
+            </span>
+          ))}
+        </p>
       </div>
       {isExpanded && (
         <div className="m-2">
