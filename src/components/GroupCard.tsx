@@ -80,6 +80,20 @@ const GroupCard: React.FC<GroupCardProps> = ({
           Last Report : {new Date(group.lastReportTimestamp).toLocaleString()}
         </p>
         <p>Admins : {group.adminNames.join(", ")}</p>
+        <p>Limits (KB) : {limitToShow}</p>
+        <p>
+          Donations :{" "}
+          {group.donations.map((donation, index) => (
+            <span
+              key={index}
+              className="text-blue-500 cursor-pointer"
+              onClick={() => openDonationModal(donation)}
+            >
+              {donation}
+              {index !== group.donations.length - 1 && ", "}
+            </span>
+          ))}
+        </p>
       </div>
       <div className="flex flex-row justify-between items-center w-full mt-auto">
         <button
@@ -186,20 +200,6 @@ const GroupCard: React.FC<GroupCardProps> = ({
             Sticker Emissions OneByte (g): {group.stickerEmissionsOneByteMethod}
           </p>
           <p>Sticker Emissions SWD (g): {group.stickerEmissionsSWDMethod}</p>
-          <p>Limits (KB) : {limitToShow}</p>
-          <p>
-            Donations :{" "}
-            {group.donations.map((donation, index) => (
-              <span
-                key={index}
-                className="text-blue-500 cursor-pointer"
-                onClick={() => openDonationModal(donation)}
-              >
-                {donation}
-                {index !== group.donations.length - 1 && ", "}
-              </span>
-            ))}
-          </p>
         </div>
       )}
       <div className="flex justify-around w-full">
