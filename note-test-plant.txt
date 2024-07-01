@@ -16,14 +16,13 @@ https://co2-frontend-five.vercel.app/donate/callback?context=don_O1F0A0VPuk8Od4Q
 
 
 
--- donazione dice successo prima del controllo per esempio duplicato o forse tutto secondo controllo
+-- donazione dice successo prima del controllo per esempio duplicato o forse tutto secondo controllo 
+--- mettere qui un LOADING perche' viene la scritta errore anche quando dopo e' successo anche se per pochi secondi
 
 
--- header fare in modo con layotut che ci sia in tutte le pagine
+-- header fare in modo con layout che ci sia in tutte le pagine
 
 -- grafici
-
--- su planting spiegare che poi il nuemro degli alberi potra cambirare e magari dare degli esempi
 
 -- info grafiche + vid per installazione bot
 
