@@ -62,7 +62,7 @@ const GroupCard: React.FC<GroupCardProps> = ({
   return (
     <div className="mt-8 relative w-full max-w-xs bg-white text-green-800 font-body py-2 px-4 rounded border-2 border-green-800 shadow-md hover:bg-gray-100 flex flex-col items-start">
       <div className="flex items-center justify-between w-full">
-        <div className="flex items-center">
+        <div className="flex items-center justify-between">
           <h2 className="font-bold text-xl">{group.groupName}</h2>
           <button
             onClick={() => toggleFavourite(group.groupId)}
