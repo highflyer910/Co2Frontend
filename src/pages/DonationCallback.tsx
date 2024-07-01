@@ -27,6 +27,7 @@ const DonationCallback: React.FC = () => {
   const context = queryParams.get("context");
   const don_status = queryParams.get("don_status");
   const [donationResponse, setDonationResponse] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const sendDonation = async () => {
@@ -82,7 +83,11 @@ const DonationCallback: React.FC = () => {
           }
         } catch (error) {
           console.error("Error fetching donation data:", error);
+        } finally {
+          setIsLoading(false);
         }
+      } else {
+        setIsLoading(false);
       }
     };
 
@@ -95,9 +100,13 @@ const DonationCallback: React.FC = () => {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-4">
-      {context &&
-      (don_status === "success" || don_status === "pending") &&
-      donationResponse ? (
+      {isLoading ? (
+        <p className="font-poppins text-xl font-bold text-green-800 py-3 px-4 shadow-lg mb-4">
+          Caricamento in corso...
+        </p>
+      ) : context &&
+        (don_status === "success" || don_status === "pending") &&
+        donationResponse ? (
         <>
           <h2 className="font-poppins text-3xl font-bold text-green-800 py-3 px-4 shadow-lg mb-4">
             Successo nella donazione!
