@@ -76,10 +76,10 @@ const DonationCallback: React.FC = () => {
           console.log("donationrespone from be :", donationResponse);
 
           if (donationResponse.ok) {
-            console.log("Donation data sent to backend successfully ");
+            console.log("Donation data sent to backend successfully");
             setDonationResponse(true);
           } else {
-            console.error("Failed to send donation data to backend ");
+            console.error("Failed to send donation data to backend");
           }
         } catch (error) {
           console.error("Error fetching donation data:", error);
