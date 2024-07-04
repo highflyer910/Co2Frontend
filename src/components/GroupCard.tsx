@@ -103,6 +103,15 @@ const GroupCard: React.FC<GroupCardProps> = ({
           ))}
         </p>
         <p>Last Report TimeStamp: {group.lastReportTimestamp}</p>
+        <p>
+          Admin:{" "}
+          {group.adminNames.map((admin, index) => (
+            <span key={index}>
+              {admin}
+              {index !== group.adminNames.length - 1 && ", "}
+            </span>
+          ))}
+        </p>
       </div>
 
       {/* Contenuto espandibile */}
