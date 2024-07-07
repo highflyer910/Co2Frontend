@@ -38,12 +38,12 @@ const LandingPage: React.FC = () => {
                 <p className="font-body text-lg md:text-xl text-shadow text-bold text-green-900 text-center">
                   Start making a difference today!
                 </p>
-                {/* Adjusted arrow position */}
                 <div className="absolute top-1/4 -left-2 w-0 h-0 border-t-8 border-b-8 border-r-8 border-t-transparent border-b-transparent border-r-green-700"></div>
               </div>
             </div>
           </div>
           <TelegramLoginButton />
+          <img src="/how.png" alt="How" className="w-44 h-32 md:w-60 md:h-40 mt-4" />
         </div>
       </main>
     </div>
