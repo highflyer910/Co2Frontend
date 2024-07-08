@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "../components/Header";
 import { useGetGroups } from "../hooks/useGetAllGroups";
 import { Group } from "../types/Group";
@@ -11,11 +11,16 @@ const Groups: React.FC = () => {
   const [onlyFavourite, setOnlyFavourite] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
 
-  // Remove the type argument from useLocalStorageState
-  const [favourites, setFavourites] = useLocalStorageState(
+  // Utilize the custom hook useLocalStorageState to manage favorites
+  const [favourites, setFavourites] = useLocalStorageState<{ [key: string]: boolean }>(
     {}, // Initial state
     "favourites" // Key for localStorage
   );
+
+  // Log groups for debugging purposes
+  useEffect(() => {
+    console.log("Fetched groups:", groups);
+  }, [groups]);
 
   const handleDropdownChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setOnlyFavourite(event.target.value === "favourites");
@@ -41,6 +46,11 @@ const Groups: React.FC = () => {
     }
     return true;
   });
+
+  // Log filtered groups for debugging purposes
+  useEffect(() => {
+    console.log("Filtered groups:", filteredGroups);
+  }, [filteredGroups]);
 
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Error: {error.message}</div>;
