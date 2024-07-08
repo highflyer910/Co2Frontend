@@ -83,7 +83,7 @@ const Groups: React.FC = () => {
           {filteredGroups.map((group: Group) => (
             <div
               key={group.groupId}
-              className="bg-white rounded shadow p-4 w-full max-w-md"
+              className="bg-green-700 rounded shadow p-4 w-full max-w-md"
             >
               <div className="flex justify-between items-center">
                 <h2 className="font-poppins text-xl font-bold text-green-800">
@@ -97,13 +97,13 @@ const Groups: React.FC = () => {
                 </button>
               </div>
               <div className="flex justify-between mt-4">
-                <button className="bg-green-700 hover:bg-green-600 text-white font-bold py-2 px-4 rounded">
+                <button className="bg-green-700 hover:bg-green-800 text-white font-bold py-2 px-4 rounded">
                   Details
                 </button>
-                <button className="bg-green-700 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
+                <button className="bg-green-700 hover:bg-green-800 text-white font-bold py-2 px-4 rounded">
                   Donate
                 </button>
-                <button className="bg-green-700 hover:bg-red-600 text-white font-bold py-2 px-4 rounded">
+                <button className="bg-green-700 hover:bg-green-800 text-white font-bold py-2 px-4 rounded">
                   Limits
                 </button>
               </div>
