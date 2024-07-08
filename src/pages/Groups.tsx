@@ -89,10 +89,10 @@ const Groups = () => {
                 <button className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded">
                   Details
                 </button>
-                <button className="bg-green-700 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
+                <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
                   Donate
                 </button>
-                <button className="bg-green-700 hover:bg-red-600 text-white font-bold py-2 px-4 rounded">
+                <button className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded">
                   Limits
                 </button>
               </div>
