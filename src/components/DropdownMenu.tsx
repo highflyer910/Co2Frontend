@@ -44,7 +44,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
       }`}
     >
       {isLoggedIn && user && (
-        <div className="flex flex-col items-start p-4">
+        <div className="flex flex-col items-start p-4 mx-4">
           {/* <span className="font-body font-bold text-center text-green-900">
             {user.userName}
           </span> */}

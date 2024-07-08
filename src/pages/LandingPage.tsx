@@ -1,9 +1,15 @@
 // LandingPage.tsx
-import React from "react";
+import React, { useState } from "react";
 import TelegramLoginButton from "../elements/TelegramLoginButton";
 import Header from "../components/Header";
 
 const LandingPage: React.FC = () => {
+  const [showVideo, setShowVideo] = useState(false);
+
+  const toggleVideo = () => {
+    setShowVideo(!showVideo);
+  };
+
   return (
     <div className="relative bg-gray-100 min-h-screen">
       <img
@@ -44,8 +50,34 @@ const LandingPage: React.FC = () => {
           </div>
           <TelegramLoginButton />
           <img src="/how.png" alt="How" className="w-44 h-32 md:w-60 md:h-40 mt-4" />
+          <button
+            onClick={toggleVideo}
+            className="mt-1 bg-green-700 hover:bg-green-800 text-yellow-200 font-bold py-2 px-4 rounded-lg"
+          >
+            CLICK HERE
+          </button>
         </div>
       </main>
+
+      {/* Video Modal */}
+      {showVideo && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+          <div className="bg-yellow-200 p-4 rounded-lg shadow-lg w-full max-w-xl h-[80vh] flex flex-col">
+            <div className="flex-grow overflow-hidden rounded-lg">
+              <video className="w-full h-full object-cover" controls autoPlay>
+                <source src="/info.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <button
+              onClick={toggleVideo}
+              className="mt-4 bg-green-700 hover:bg-green-800 text-yellow-200 font-bold py-2 px-4 rounded w-full"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
