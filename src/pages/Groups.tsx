@@ -3,47 +3,42 @@ import Header from "../components/Header";
 import { useGetGroups } from "../hooks/useGetAllGroups";
 import { Group } from "../types/Group";
 import { useLocalStorageState } from "../hooks/useLocalStorage";
-import GroupCard from "../components/GroupCard";
 import { useMain } from "../contexts/MainContext";
 
 const Groups = () => {
   const { jwt } = useMain();
   const { groups = [], isLoading, error } = useGetGroups(jwt);
   const [onlyFavourite, setOnlyFavourite] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
 
-  // Utilizza il tuo hook useLocalStorageState per gestire i preferiti
+  // Utilize the custom hook useLocalStorageState to manage favorites
   const [favourites, setFavourites] = useLocalStorageState(
-    {}, // Stato iniziale
-    "favourites" // Chiave per localStorage
+    {}, // Initial state
+    "favourites" // Key for localStorage
   );
 
-  // Funzione per gestire il click sul pulsante "Show All" / "Show Favourites"
-  const handleOnlyFavouriteClick = () => {
-    setOnlyFavourite(!onlyFavourite);
+  // Function to handle the dropdown menu change
+  const handleDropdownChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setOnlyFavourite(event.target.value === "favourites");
   };
 
-  // Funzione per aggiungere o rimuovere un gruppo dai preferiti
-  const toggleFavourite = (groupId: string) => {
-    setFavourites((prevFavourites) => ({
-      ...prevFavourites,
-      [groupId]: !prevFavourites[groupId],
-    }));
+  // Function to handle the search input change
+  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchTerm(event.target.value);
   };
 
-  // Filtraggio dei gruppi in base alla visualizzazione solo dei preferiti
-  const filteredGroups = onlyFavourite
-    ? groups.filter((group) => favourites[group.groupId])
-    : groups;
+  // Filter groups based on favorites and search term
+  const filteredGroups = groups.filter((group) => {
+    if (onlyFavourite && !favourites[group.groupId]) {
+      return false;
+    }
+    if (searchTerm && !group.title.toLowerCase().includes(searchTerm.toLowerCase())) {
+      return false;
+    }
+    return true;
+  });
 
-  // Funzioni per gestire i click sui bottoni "Stat", "Limit"
-
-  // // Funzioni per gestire i click sui bottoni "Stat", "Limit"
-  // const handleDonateClick = (groupId: string) => {
-  //   console.log(`Clicked "Stat" for group ${groupId}`);
-  //   // Implementa la logica desiderata per il pulsante "Stat"
-  // };
-
-  // Renderizzazione del componente principale dei gruppi
+  // Loading and error handling
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Error: {error.message}</div>;
 
@@ -60,24 +55,48 @@ const Groups = () => {
 
       <main className="relative flex flex-col items-center justify-center md:pt-0 pt-0">
         <h1 className="font-poppins text-3xl font-bold text-center bg-yellow-200 text-green-800 py-3 px-4 shadow-lg">
-          Groups
+          Pick a GoGreen CardGroup
         </h1>
 
-        <button
-          onClick={handleOnlyFavouriteClick}
-          className="my-4 bg-yellow-400 hover:bg-yellow-500 text-green-900 font-bold py-2 px-4 rounded"
-        >
-          {onlyFavourite ? "Show All" : "Show Favourites"}
-        </button>
+        <div className="my-4 flex flex-col items-center">
+          <select
+            onChange={handleDropdownChange}
+            className="mb-4 bg-yellow-400 hover:bg-yellow-500 text-green-900 font-bold py-2 px-4 rounded"
+          >
+            <option value="all">All Groups</option>
+            <option value="favourites">Only Favorites</option>
+          </select>
+
+          <input
+            type="text"
+            placeholder="Filter groups by name"
+            value={searchTerm}
+            onChange={handleSearchChange}
+            className="mb-4 bg-white border border-green-900 text-green-900 font-bold py-2 px-4 rounded"
+          />
+        </div>
 
         <div className="flex flex-col items-center space-y-3 w-full px-4 mb-8">
           {filteredGroups.map((group: Group) => (
-            <GroupCard
+            <div
               key={group.groupId}
-              group={group}
-              isFavourite={!!favourites[group.groupId]}
-              toggleFavourite={toggleFavourite}
-            />
+              className="bg-white rounded shadow p-4 w-full max-w-md"
+            >
+              <h2 className="font-poppins text-xl font-bold text-center text-green-800">
+                {group.title}
+              </h2>
+              <div className="flex justify-between mt-4">
+                <button className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded">
+                  Details
+                </button>
+                <button className="bg-green-700 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
+                  Donate
+                </button>
+                <button className="bg-green-700 hover:bg-red-600 text-white font-bold py-2 px-4 rounded">
+                  Limits
+                </button>
+              </div>
+            </div>
           ))}
         </div>
       </main>

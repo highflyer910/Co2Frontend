@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import CryptoJS from "crypto-js"; // Import crypto-js for encryption in the frontend
+import CryptoJS from "crypto-js"; // Importa crypto-js per la crittografia nel frontend
 import Cookies from "js-cookie"; // Import Cookies for handling cookies
 import { useMain } from "../contexts/MainContext";
 
@@ -18,38 +18,46 @@ declare global {
     onTelegramAuth: (user: TelegramUser) => void;
   }
 }
-
 const TelegramLoginButton: React.FC = () => {
   const navigate = useNavigate();
   const { dispatch } = useMain();
-
   useEffect(() => {
     window.onTelegramAuth = async (user: TelegramUser) => {
-      const secretKey = import.meta.env.VITE_APP_SECRET_KEY; // Replace with your secret key
+      // Chiave segreta per la crittografia
+      const secretKey = import.meta.env.VITE_APP_SECRET_KEY; // Sostituisci con la tua chiave segreta
 
+      // Costruisci la stringa dati per la crittografia
       const dataString = `${user.auth_date}${user.first_name}${user.id}${user.username}${user.photo_url}`;
-      const encryptedData = CryptoJS.AES.encrypt(dataString, secretKey).toString();
+
+      // Crittografa i dati con AES
+      const encryptedData = CryptoJS.AES.encrypt(
+        dataString,
+        secretKey
+      ).toString();
 
       try {
-        const response = await fetch(`${import.meta.env.VITE_APP_BASE_URL_BE}/callback`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "X-Custom-Origin": "secretorginipasswordtomorrowdevfromfe",
-          },
-          body: JSON.stringify({ ...user, hash: encryptedData }),
-        });
+        const response = await fetch(
+          `${import.meta.env.VITE_APP_BASE_URL_BE}/callback`,
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "X-Custom-Origin": "secretorginipasswordtomorrowdevfromfe",
+            },
+            body: JSON.stringify({ ...user, hash: encryptedData }),
+          }
+        );
 
         const result = await response.json();
 
         if (result.status === "success") {
           const tokenJwt = result.token; // Assuming the JWT token is returned in the result
 
+          // Set JWT token in a secure cookie
           Cookies.set("jwt-co2", tokenJwt, {
             secure: true,
             sameSite: "None",
           });
-
           dispatch({
             type: "SET_USER",
             payload: {
@@ -59,8 +67,7 @@ const TelegramLoginButton: React.FC = () => {
               jwt: tokenJwt,
             },
           });
-
-          navigate("/pick-group"); // Navigate to the new PickGroupPage
+          navigate("/groups");
         } else {
           console.error("Login failed");
         }
@@ -69,6 +76,7 @@ const TelegramLoginButton: React.FC = () => {
       }
     };
 
+    // Carica lo script del widget di accesso Telegram
     const script = document.createElement("script");
     script.src = "https://telegram.org/js/telegram-widget.js?7";
     script.async = true;
@@ -77,7 +85,9 @@ const TelegramLoginButton: React.FC = () => {
     script.setAttribute("data-auth-url", "https://co2backend.onrender.com");
     script.setAttribute("data-request-access", "write");
     script.setAttribute("data-onauth", "onTelegramAuth(user)");
-    document.getElementById("telegram-login-button-container")?.appendChild(script);
+    document
+      .getElementById("telegram-login-button-container")
+      ?.appendChild(script);
   }, [dispatch, navigate]);
 
   return <div id="telegram-login-button-container"></div>;
