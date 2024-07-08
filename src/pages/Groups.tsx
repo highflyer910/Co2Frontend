@@ -83,7 +83,7 @@ const Groups: React.FC = () => {
           {filteredGroups.map((group: Group) => (
             <div
               key={group.groupId}
-              className="bg-green-700 rounded shadow p-4 w-full max-w-md"
+              className="border-green-700 border-2 rounded-lg shadow p-4 w-full max-w-md"
             >
               <div className="flex justify-between items-center">
                 <h2 className="font-poppins text-xl font-bold text-green-800">
