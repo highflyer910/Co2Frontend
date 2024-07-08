@@ -2,6 +2,7 @@
 
 export interface Group {
   groupId: string;
+  title: string;
   groupName: string;
   participantsCount: number;
   totalMessages: number;
