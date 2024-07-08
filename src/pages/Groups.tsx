@@ -11,8 +11,8 @@ const Groups: React.FC = () => {
   const [onlyFavourite, setOnlyFavourite] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
 
-  // Update the type for favourites
-  const [favourites, setFavourites] = useLocalStorageState<Record<string, boolean>>(
+  // Remove the type argument from useLocalStorageState
+  const [favourites, setFavourites] = useLocalStorageState(
     {}, // Initial state
     "favourites" // Key for localStorage
   );
@@ -61,7 +61,23 @@ const Groups: React.FC = () => {
           Pick a GoGreen CardGroup
         </h1>
 
-        {/* ... (dropdown and search input remain the same) ... */}
+        <div className="my-4 flex flex-col items-center">
+          <select
+            onChange={handleDropdownChange}
+            className="mb-4 bg-yellow-400 hover:bg-yellow-500 text-green-900 font-bold py-2 px-4 rounded"
+          >
+            <option value="all">All Groups</option>
+            <option value="favourites">Only Favorites</option>
+          </select>
+
+          <input
+            type="text"
+            placeholder="Filter groups by name"
+            value={searchTerm}
+            onChange={handleSearchChange}
+            className="mb-4 bg-white border border-green-900 text-green-900 font-bold py-2 px-4 rounded"
+          />
+        </div>
 
         <div className="flex flex-col items-center space-y-3 w-full px-4 mb-8">
           {filteredGroups.map((group: Group) => (
@@ -81,7 +97,7 @@ const Groups: React.FC = () => {
                 </button>
               </div>
               <div className="flex justify-between mt-4">
-                <button className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded">
+                <button className="bg-green-700 hover:bg-green-600 text-white font-bold py-2 px-4 rounded">
                   Details
                 </button>
                 <button className="bg-green-700 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
