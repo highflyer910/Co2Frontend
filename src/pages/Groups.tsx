@@ -75,10 +75,10 @@ const Groups: React.FC = () => {
         <div className="my-4 flex flex-col items-center">
           <select
             onChange={handleDropdownChange}
-            className="mb-4 bg-yellow-400 hover:bg-yellow-500 text-green-900 font-bold py-2 px-4 rounded"
+            className="mb-2 border-green-700 text-green-700 font-bold py-2 px-4 rounded"
           >
-            <option value="all">All Groups</option>
-            <option value="favourites">Only Favorites</option>
+            <option value="all" className="bg-green-800 text-yellow-200">All Groups</option>
+            <option value="favourites" className="bg-green-700 text-yellow-200">Only Favorites</option>
           </select>
 
           <input
@@ -86,7 +86,7 @@ const Groups: React.FC = () => {
             placeholder="Filter groups by name"
             value={searchTerm}
             onChange={handleSearchChange}
-            className="mb-4 bg-white border border-green-900 text-green-900 font-bold py-2 px-4 rounded"
+            className="mb-4 border-green-700 text-green-700 font-bold py-2 px-4 rounded"
           />
         </div>
 
