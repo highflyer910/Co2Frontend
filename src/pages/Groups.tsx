@@ -72,24 +72,24 @@ const Groups: React.FC = () => {
         </div>
         <div className="my-4 flex flex-col items-center w-full max-w-md px-2">
         <div className="flex items-center justify-center w-full mb-4 flex-wrap">
-  <div className="w-full sm:w-auto mb-4 sm:mb-0">
-    <img src="/tree.png" alt="Tree" className="w-36 h-36 mx-auto" />
-  </div>
-  <div className="flex flex-col flex-grow space-y-2 sm:space-y-0 sm:space-x-2 sm:flex-row">
-    <select
-      onChange={handleDropdownChange}
-      className="bg-transparent border-2 border-green-700 text-green-700 font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-green-500 w-full sm:w-auto"
-    >
-      <option value="all" className="bg-green-700 text-yellow-200">All Groups</option>
-      <option value="favourites" className="bg-green-700 text-yellow-200">Only Favorites</option>
-    </select>
-    <input
-      type="text"
-      placeholder="Filter groups by name"
-      value={searchTerm}
-      onChange={handleSearchChange}
-      className="bg-transparent border-2 border-green-700 text-green-700 font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-green-500 w-full sm:w-auto"
-    />
+          <div className="w-full sm:w-auto mb-4 sm:mb-0">
+            <img src="/tree.png" alt="Tree" className="w-36 h-36 mx-auto" />
+          </div>
+        <div className="flex flex-col flex-grow space-y-2 sm:space-y-0 sm:space-x-2 sm:flex-row">
+        <select
+          onChange={handleDropdownChange}
+          className="bg-transparent border-2 border-green-700 text-green-700 font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-green-500 w-full sm:w-auto"
+          >
+          <option value="all" className="bg-green-700 text-yellow-200">All Groups</option>
+          <option value="favourites" className="bg-green-700 text-yellow-200">Only Favorites</option>
+        </select>
+        <input
+        type="text"
+        placeholder="Filter groups by name"
+        value={searchTerm}
+        onChange={handleSearchChange}
+        className="bg-transparent border-2 border-green-700 text-green-700 font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-green-500 w-full sm:w-auto"
+        />
   </div>
 </div>
         </div>

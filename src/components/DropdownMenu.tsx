@@ -56,7 +56,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
             onClick={handleLogoutClick}
             className="font-body text-green-900 hover:text-green-950"
           >
-            Log Off
+            Logout
           </button>
         </div>
       )}
