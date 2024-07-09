@@ -85,7 +85,7 @@ const Groups: React.FC = () => {
         </select>
         <input
         type="text"
-        placeholder="Filter groups by name"
+        placeholder="Search groups by name"
         value={searchTerm}
         onChange={handleSearchChange}
         className="bg-transparent border-2 border-green-700 text-green-700 font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-green-500 w-full sm:w-auto"
