@@ -70,26 +70,24 @@ const Groups: React.FC = () => {
           </h1>
         </div>
         <div className="my-4 flex flex-col items-center w-full max-w-md px-4">
-          <div className="flex items-center w-full mb-2 space-x-2">
-            <img src="/tree.png" alt="Tree" className="w-8 h-8" />
-            <select
-              onChange={handleDropdownChange}
-              className="flex-grow bg-transparent border-2 border-green-700 text-green-700 font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-green-500"
-            >
-              <option value="all" className="bg-green-700 text-yellow-200">All Groups</option>
-              <option value="favourites" className="bg-green-700 text-yellow-200">Only Favorites</option>
-            </select>
-          </div>
-
-          <div className="flex items-center w-full mb-4 space-x-2">
-            <img src="/tree.png" alt="Tree" className="w-8 h-8" />
-            <input
-              type="text"
-              placeholder="Filter groups by name"
-              value={searchTerm}
-              onChange={handleSearchChange}
-              className="flex-grow bg-transparent border-2 border-green-700 text-green-700 font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-green-500"
-            />
+          <div className="flex items-center w-full mb-4">
+            <img src="/tree.png" alt="Tree" className="w-16 h-16 mr-4" />
+            <div className="flex flex-col flex-grow space-y-2">
+              <select
+                onChange={handleDropdownChange}
+                className="bg-transparent border-2 border-green-700 text-green-700 font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-green-500"
+              >
+                <option value="all" className="bg-green-700 text-yellow-200">All Groups</option>
+                <option value="favourites" className="bg-green-700 text-yellow-200">Only Favorites</option>
+              </select>
+              <input
+                type="text"
+                placeholder="Filter groups by name"
+                value={searchTerm}
+                onChange={handleSearchChange}
+                className="bg-transparent border-2 border-green-700 text-green-700 font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-green-500"
+              />
+            </div>
           </div>
         </div>
 
