@@ -12,7 +12,7 @@ const Groups: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
   // Utilize the custom hook useLocalStorageState to manage favorites
-  const [favourites, setFavourites] = useLocalStorageState<Record<string, boolean>>(
+  const [favourites, setFavourites] = useLocalStorageState(
     {}, // Initial state
     "favourites" // Key for localStorage
   );
