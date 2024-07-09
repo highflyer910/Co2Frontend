@@ -98,7 +98,7 @@ const Groups: React.FC = () => {
               className="border-green-700 border-2 rounded-lg shadow p-4 w-full max-w-md"
             >
               <div className="flex justify-between items-center">
-                <h2 className="font-poppins text-xl font-bold text-green-800 text-center w-full">
+                <h2 className="font-poppins text-xl font-bold bg-green-700 p-1 text-yellow-300 text-center w-full">
                   {group.groupName}
                 </h2>
                 <button
