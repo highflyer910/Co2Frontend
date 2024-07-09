@@ -71,7 +71,7 @@ const Groups: React.FC = () => {
         </div>
         <div className="my-4 flex flex-col items-center w-full max-w-md px-4">
           <div className="flex items-center justify-center w-full mb-4 space-x-4">
-            <img src="/tree.png" alt="Tree" className="w-20 h-20" />
+            <img src="/tree.png" alt="Tree" className="w-24 h-24" />
             <div className="flex flex-col flex-grow space-y-2">
               <select
                 onChange={handleDropdownChange}
@@ -108,7 +108,7 @@ const Groups: React.FC = () => {
                   ★
                 </button>
               </div>
-              <div className="flex flex-wrap justify-between text-center mt-4 space-x-2">
+              <div className="flex flex-wrap justify-between text-center mt-4">
                 <button className="bg-green-700 hover:bg-green-800 text-white font-bold py-2 px-4 rounded">
                   Details
                 </button>
