@@ -106,7 +106,7 @@ const Groups: React.FC = () => {
                 </h2>
                 <button
                   onClick={() => toggleFavourite(group.groupId)}
-                  className={`text-2xl ${favourites[group.groupId] ? 'text-yellow-500' : 'text-gray-400'}`}
+                  className={`text-2xl ${favourites[group.groupId] ? 'text-green-700' : 'text-gray-400'}`}
                 >
                   ★
                 </button>
