@@ -70,9 +70,9 @@ const Groups: React.FC = () => {
             Pick a GoGreen CardGroup
           </h1>
         </div>
-        <div className="my-4 flex flex-col items-center w-full max-w-md px-4">
+        <div className="my-4 flex flex-col items-center w-full max-w-md px-2">
           <div className="flex items-center justify-center w-full mb-4">
-            <img src="/tree.png" alt="Tree" className="w-32 h-32" />
+            <img src="/tree.png" alt="Tree" className="w-36 h-36" />
             <div className="flex flex-col flex-grow space-y-2">
               <select
                 onChange={handleDropdownChange}
@@ -110,13 +110,13 @@ const Groups: React.FC = () => {
                 </button>
               </div>
               <div className="flex flex-wrap justify-center text-center mt-4">
-                <button className="bg-green-700 hover:bg-green-800 text-white font-bold py-2 px-4 mx-4 rounded">
+                <button className="bg-green-700 hover:bg-green-800 text-white font-bold py-2 px-6 mx-4 rounded">
                   Details
                 </button>
-                <button className="bg-green-700 hover:bg-green-800 text-white font-bold py-2 px-4 mx-4 rounded">
+                <button className="bg-green-700 hover:bg-green-800 text-white font-bold py-2 px-6 mx-4 rounded">
                   Donate
                 </button>
-                <button className="bg-green-700 hover:bg-green-800 text-white font-bold py-2 px-4 mx-4 rounded">
+                <button className="bg-green-700 hover:bg-green-800 text-white font-bold py-2 px-6 mx-4 rounded">
                   Limits
                 </button>
               </div>
