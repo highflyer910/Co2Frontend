@@ -129,7 +129,7 @@ const Groups: React.FC = () => {
             onClick={() => setShowVideo(true)}
             className="mt-4 bg-green-700 hover:bg-green-800 text-white font-bold py-2 px-4 rounded"
           >
-            CLICK HERE FOR INFO
+            CLICK HERE TO KNOW MORE
           </button>
 
           {showVideo && (
