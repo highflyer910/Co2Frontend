@@ -109,13 +109,13 @@ const Groups: React.FC = () => {
                 </button>
               </div>
               <div className="flex flex-wrap justify-between text-center mt-4">
-                <button className="bg-green-700 hover:bg-green-800 text-white font-bold py-2 px-4 rounded m-1">
+                <button className="bg-green-700 hover:bg-green-800 text-white font-bold py-2 px-4 rounded">
                   Details
                 </button>
-                <button className="bg-green-700 hover:bg-green-800 text-white font-bold py-2 px-4 rounded m-1">
+                <button className="bg-green-700 hover:bg-green-800 text-white font-bold py-2 px-4 rounded">
                   Donate
                 </button>
-                <button className="bg-green-700 hover:bg-green-800 text-white font-bold py-2 px-4 rounded m-1">
+                <button className="bg-green-700 hover:bg-green-800 text-white font-bold py-2 px-4 rounded">
                   Limits
                 </button>
               </div>
