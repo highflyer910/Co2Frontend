@@ -12,7 +12,7 @@ const Groups: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
   // Utilize the custom hook useLocalStorageState to manage favorites
-  const [favourites, setFavourites] = useLocalStorageState<{ [key: string]: boolean }>(
+  const [favourites, setFavourites] = useLocalStorageState(
     {}, // Initial state
     "favourites" // Key for localStorage
   );
@@ -72,10 +72,10 @@ const Groups: React.FC = () => {
             Pick a GoGreen CardGroup
           </h1>
         </div>
-        <div className="my-4 flex flex-col items-center">
+        <div className="my-4 flex flex-col items-center w-full max-w-md">
           <select
             onChange={handleDropdownChange}
-            className="mb-2 w-full bg-transparent border-2 border-green-700 text-green-700 font-bold py-2 px-4 rounded"
+            className="mb-2 w-full bg-transparent border-green-700 text-green-700 font-bold py-2 px-4 rounded"
           >
             <option value="all" className="bg-green-700 hover:bg-green-800 text-yellow-200">All Groups</option>
             <option value="favourites" className="bg-green-700 hover:bg-green-800 text-yellow-200">Only Favorites</option>
@@ -86,7 +86,7 @@ const Groups: React.FC = () => {
             placeholder="Filter groups by name"
             value={searchTerm}
             onChange={handleSearchChange}
-            className="mb-4 w-full bg-transparent border-2 border-green-700 text-green-700 font-bold py-2 px-4 rounded"
+            className="mb-4 w-full bg-transparent border-green-700 text-green-700 font-bold py-2 px-4 rounded"
           />
         </div>
 
@@ -102,12 +102,12 @@ const Groups: React.FC = () => {
                 </h2>
                 <button
                   onClick={() => toggleFavourite(group.groupId)}
-                  className={`text-2xl ${favourites[group.groupId] ? 'text-yellow-500' : 'text-gray-400'} ml-2`}
+                  className={`text-2xl ${favourites[group.groupId] ? 'text-yellow-500' : 'text-gray-400'} ml-4`}
                 >
                   ★
                 </button>
               </div>
-              <div className="flex justify-center space-x-2 mt-4">
+              <div className="flex justify-between mt-4">
                 <button className="bg-green-700 hover:bg-green-800 text-white font-bold py-2 px-4 rounded">
                   Details
                 </button>
