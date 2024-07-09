@@ -8,12 +8,11 @@ import { useMain } from "../contexts/MainContext";
 const Groups: React.FC = () => {
   const { jwt } = useMain();
   const { groups = [], isLoading, error } = useGetGroups(jwt);
-  console.log("Fetched groups:", groups);
   const [onlyFavourite, setOnlyFavourite] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
 
   // Utilize the custom hook useLocalStorageState to manage favorites
-  const [favourites, setFavourites] = useLocalStorageState<{ [key: string]: boolean }>(
+  const [favourites, setFavourites] = useLocalStorageState<Record<string, boolean>>(
     {}, // Initial state
     "favourites" // Key for localStorage
   );
@@ -42,7 +41,7 @@ const Groups: React.FC = () => {
     if (onlyFavourite && !favourites[group.groupId]) {
       return false;
     }
-    if (searchTerm && !group.title.toLowerCase().includes(searchTerm.toLowerCase())) {
+    if (searchTerm && !group.groupName.toLowerCase().includes(searchTerm.toLowerCase())) {
       return false;
     }
     return true;
@@ -98,7 +97,7 @@ const Groups: React.FC = () => {
             >
               <div className="flex justify-between items-center">
                 <h2 className="font-poppins text-xl font-bold text-green-800">
-                  {group.title}
+                  {group.groupName}
                 </h2>
                 <button
                   onClick={() => toggleFavourite(group.groupId)}
