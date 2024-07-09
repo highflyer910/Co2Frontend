@@ -10,6 +10,7 @@ const Groups: React.FC = () => {
   const { groups = [], isLoading, error } = useGetGroups(jwt);
   const [onlyFavourite, setOnlyFavourite] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
+  const [showVideo, setShowVideo] = useState(false);
 
   const [favourites, setFavourites] = useLocalStorageState(
     {}, // Initial state
@@ -98,7 +99,7 @@ const Groups: React.FC = () => {
               className="border-green-700 border-2 rounded-lg shadow p-4 w-full max-w-md"
             >
               <div className="flex justify-between items-center">
-                <h2 className="font-poppins text-xl font-bold bg-green-700 py-1 text-yellow-300 text-center w-full">
+                <h2 className="font-poppins text-xl font-bold text-green-700 text-center w-full">
                   {group.groupName}
                 </h2>
                 <button
@@ -121,6 +122,22 @@ const Groups: React.FC = () => {
               </div>
             </div>
           ))}
+
+          <button
+            onClick={() => setShowVideo(true)}
+            className="mt-4 bg-green-700 hover:bg-green-800 text-white font-bold py-2 px-4 rounded"
+          >
+            Show Video Instructions
+          </button>
+
+          {showVideo && (
+            <div className="mt-4 w-full max-w-md">
+              <video controls className="w-full">
+                <source src="/info.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          )}
         </div>
       </main>
     </div>
