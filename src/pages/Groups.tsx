@@ -11,13 +11,11 @@ const Groups: React.FC = () => {
   const [onlyFavourite, setOnlyFavourite] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
 
-  // Utilize the custom hook useLocalStorageState to manage favorites
   const [favourites, setFavourites] = useLocalStorageState(
     {}, // Initial state
     "favourites" // Key for localStorage
   );
 
-  // Log groups for debugging purposes
   useEffect(() => {
     console.log("Fetched groups:", groups);
   }, [groups]);
@@ -47,7 +45,6 @@ const Groups: React.FC = () => {
     return true;
   });
 
-  // Log filtered groups for debugging purposes
   useEffect(() => {
     console.log("Filtered groups:", filteredGroups);
   }, [filteredGroups]);
@@ -72,13 +69,13 @@ const Groups: React.FC = () => {
             Pick a GoGreen CardGroup
           </h1>
         </div>
-        <div className="my-4 flex flex-col items-center w-full max-w-md">
+        <div className="my-4 flex flex-col items-center w-full max-w-md px-4">
           <select
             onChange={handleDropdownChange}
-            className="mb-2 w-full bg-transparent border-green-700 text-green-700 font-bold py-2 px-4 rounded"
+            className="mb-2 bg-transparent border-2 border-green-700 text-green-700 font-bold py-2 px-4 rounded w-full focus:outline-none focus:ring-2 focus:ring-green-500"
           >
-            <option value="all" className="bg-green-700 hover:bg-green-800 text-yellow-200">All Groups</option>
-            <option value="favourites" className="bg-green-700 hover:bg-green-800 text-yellow-200">Only Favorites</option>
+            <option value="all" className="bg-green-700 text-yellow-200">All Groups</option>
+            <option value="favourites" className="bg-green-700 text-yellow-200">Only Favorites</option>
           </select>
 
           <input
@@ -86,7 +83,7 @@ const Groups: React.FC = () => {
             placeholder="Filter groups by name"
             value={searchTerm}
             onChange={handleSearchChange}
-            className="mb-4 w-full bg-transparent border-green-700 text-green-700 font-bold py-2 px-4 rounded"
+            className="mb-4 bg-transparent border-2 border-green-700 text-green-700 font-bold py-2 px-4 rounded w-full focus:outline-none focus:ring-2 focus:ring-green-500"
           />
         </div>
 
@@ -96,18 +93,18 @@ const Groups: React.FC = () => {
               key={group.groupId}
               className="border-green-700 border-2 rounded-lg shadow p-4 w-full max-w-md"
             >
-              <div className="flex justify-center items-center">
-                <h2 className="font-poppins text-xl font-bold text-green-800 text-center">
+              <div className="flex justify-between items-center">
+                <h2 className="font-poppins text-xl font-bold text-green-800 text-center w-full">
                   {group.groupName}
                 </h2>
                 <button
                   onClick={() => toggleFavourite(group.groupId)}
-                  className={`text-2xl ${favourites[group.groupId] ? 'text-yellow-500' : 'text-gray-400'} ml-4`}
+                  className={`text-2xl ${favourites[group.groupId] ? 'text-yellow-500' : 'text-gray-400'}`}
                 >
                   ★
                 </button>
               </div>
-              <div className="flex justify-between mt-4">
+              <div className="flex justify-between text-center mt-4">
                 <button className="bg-green-700 hover:bg-green-800 text-white font-bold py-2 px-4 rounded">
                   Details
                 </button>
