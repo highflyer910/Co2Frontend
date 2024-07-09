@@ -12,7 +12,7 @@ const Groups: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
   // Utilize the custom hook useLocalStorageState to manage favorites
-  const [favourites, setFavourites] = useLocalStorageState(
+  const [favourites, setFavourites] = useLocalStorageState<{ [key: string]: boolean }>(
     {}, // Initial state
     "favourites" // Key for localStorage
   );
@@ -67,15 +67,15 @@ const Groups: React.FC = () => {
       <Header />
 
       <main className="relative flex flex-col items-center justify-center md:pt-0 pt-0">
-      <div className="w-full bg-green-700 text-yellow-200 py-3 px-4 shadow-lg">
-        <h1 className="font-poppins text-3xl font-bold text-center">
-          Pick a GoGreen CardGroup
-        </h1>
-      </div>
+        <div className="w-full bg-green-700 text-yellow-200 py-3 px-4 shadow-lg">
+          <h1 className="font-poppins text-3xl font-bold text-center">
+            Pick a GoGreen CardGroup
+          </h1>
+        </div>
         <div className="my-4 flex flex-col items-center">
           <select
             onChange={handleDropdownChange}
-            className="mb-2 bg-transparent border-green-700 text-green-700 font-bold py-2 px-4 rounded"
+            className="mb-2 w-full bg-transparent border-2 border-green-700 text-green-700 font-bold py-2 px-4 rounded"
           >
             <option value="all" className="bg-green-700 hover:bg-green-800 text-yellow-200">All Groups</option>
             <option value="favourites" className="bg-green-700 hover:bg-green-800 text-yellow-200">Only Favorites</option>
@@ -86,7 +86,7 @@ const Groups: React.FC = () => {
             placeholder="Filter groups by name"
             value={searchTerm}
             onChange={handleSearchChange}
-            className="mb-4 bg-transparent border-green-700 text-green-700 font-bold py-2 px-4 rounded"
+            className="mb-4 w-full bg-transparent border-2 border-green-700 text-green-700 font-bold py-2 px-4 rounded"
           />
         </div>
 
@@ -96,18 +96,18 @@ const Groups: React.FC = () => {
               key={group.groupId}
               className="border-green-700 border-2 rounded-lg shadow p-4 w-full max-w-md"
             >
-              <div className="flex justify-between items-center">
-                <h2 className="font-poppins text-xl font-bold text-green-800">
+              <div className="flex justify-center items-center">
+                <h2 className="font-poppins text-xl font-bold text-green-800 text-center">
                   {group.groupName}
                 </h2>
                 <button
                   onClick={() => toggleFavourite(group.groupId)}
-                  className={`text-2xl ${favourites[group.groupId] ? 'text-yellow-500' : 'text-gray-400'}`}
+                  className={`text-2xl ${favourites[group.groupId] ? 'text-yellow-500' : 'text-gray-400'} ml-2`}
                 >
                   ★
                 </button>
               </div>
-              <div className="flex justify-between text-center mt-4">
+              <div className="flex justify-center space-x-2 mt-4">
                 <button className="bg-green-700 hover:bg-green-800 text-white font-bold py-2 px-4 rounded">
                   Details
                 </button>
