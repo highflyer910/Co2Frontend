@@ -108,7 +108,7 @@ const Groups: React.FC = () => {
                   ★
                 </button>
               </div>
-              <div className="flex flex-wrap justify-between text-center mt-4">
+              <div className="flex flex-wrap justify-between text-center mt-4 space-x-2">
                 <button className="bg-green-700 hover:bg-green-800 text-white font-bold py-2 px-4 rounded">
                   Details
                 </button>
