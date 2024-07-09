@@ -8,6 +8,7 @@ import { useMain } from "../contexts/MainContext";
 const Groups: React.FC = () => {
   const { jwt } = useMain();
   const { groups = [], isLoading, error } = useGetGroups(jwt);
+  console.log("Fetched groups:", groups);
   const [onlyFavourite, setOnlyFavourite] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
 
