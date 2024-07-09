@@ -66,11 +66,12 @@ const Groups: React.FC = () => {
 
       <Header />
 
-      <main className="relative w-full flex flex-col items-center justify-center md:pt-0 pt-0">
-        <h1 className="font-poppins text-3xl font-bold text-center bg-green-700 text-yellow-200 py-3 px-4 shadow-lg">
+      <main className="relative flex flex-col items-center justify-center md:pt-0 pt-0">
+      <div className="w-full bg-green-700 text-yellow-200 py-3 px-4 shadow-lg">
+        <h1 className="font-poppins text-3xl font-bold text-center">
           Pick a GoGreen CardGroup
         </h1>
-
+      </div>
         <div className="my-4 flex flex-col items-center">
           <select
             onChange={handleDropdownChange}
