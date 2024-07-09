@@ -99,7 +99,7 @@ const Groups: React.FC = () => {
               className="border-green-700 border-2 rounded-lg shadow p-4 w-full max-w-md"
             >
               <div className="flex justify-between items-center">
-                <h2 className="font-poppins text-xl font-bold text-green-700 text-center w-full">
+                <h2 className="font-poppins text-xl font-bold bg-green-700 text-yellow-300 text-center w-full">
                   {group.groupName}
                 </h2>
                 <button
@@ -131,11 +131,21 @@ const Groups: React.FC = () => {
           </button>
 
           {showVideo && (
-            <div className="mt-4 w-full max-w-md">
-              <video controls className="w-full">
-                <source src="/info.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
+            <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+              <div className="bg-yellow-200 p-4 rounded-lg shadow-lg w-full max-w-xl h-[80vh] flex flex-col">
+                <div className="flex-grow overflow-hidden rounded-lg">
+                  <video className="w-full h-full object-cover" controls autoPlay>
+                    <source src="/info.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <button
+                  onClick={() => setShowVideo(false)}
+                  className="mt-4 bg-green-700 hover:bg-green-800 text-yellow-200 font-bold py-2 px-4 rounded w-full"
+                >
+                  Close
+                </button>
+              </div>
             </div>
           )}
         </div>
