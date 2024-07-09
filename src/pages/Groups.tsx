@@ -70,8 +70,8 @@ const Groups: React.FC = () => {
           </h1>
         </div>
         <div className="my-4 flex flex-col items-center w-full max-w-md px-4">
-          <div className="flex items-center w-full mb-4">
-            <img src="/tree.png" alt="Tree" className="w-16 h-16 mr-4" />
+          <div className="flex items-center justify-center w-full mb-4 space-x-4">
+            <img src="/tree.png" alt="Tree" className="w-16 h-16" />
             <div className="flex flex-col flex-grow space-y-2">
               <select
                 onChange={handleDropdownChange}
