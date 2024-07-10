@@ -70,7 +70,7 @@ const GroupDetails: React.FC = () => {
 
       <Header />
 
-      <main className="relative flex flex-col items-center justify-center md:pt-0 pt-0">
+      <main className="relative flex flex-col items-center justify-center md:pt-0 pt-0 pb-16">
         <div className="w-full bg-green-700 text-yellow-200 py-3 px-4 shadow-lg">
           <h1 className="font-poppins text-3xl font-bold text-center w-full">
             GoGreen CardGroups
