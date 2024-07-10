@@ -70,7 +70,7 @@ const GroupDetails: React.FC = () => {
 
       <Header />
 
-      <main className="relative flex flex-col items-center justify-center md:pt-0 pt-0 px-4 pb-16">
+      <main className="relative flex flex-col items-center justify-center md:pt-0 pt-0">
         <div className="w-full bg-green-700 text-yellow-200 py-3 px-4 shadow-lg">
           <h1 className="font-poppins text-3xl font-bold text-center w-full">
             GoGreen CardGroups
@@ -89,7 +89,7 @@ const GroupDetails: React.FC = () => {
             <p key={index} className="mb-2"><strong>{detail.label}:</strong> {detail.value}</p>
           ))}
           <button 
-            className="absolute bottom-4 left-4 bg-green-700 hover:bg-green-800 text-yellow-200 font-bold py-2 px-4 rounded"
+            className="absolute bottom-4 right-4 bg-green-700 hover:bg-green-800 text-yellow-200 font-bold py-2 px-4 rounded"
             onClick={() => setShowAllDetails(!showAllDetails)}
           >
             {showAllDetails ? "See Less" : "See More"}
