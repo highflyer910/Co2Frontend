@@ -89,7 +89,7 @@ const GroupDetails: React.FC = () => {
             <p key={index} className="mb-2"><strong>{detail.label}:</strong> {detail.value}</p>
           ))}
           <button 
-            className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-green-700 hover:bg-green-800 text-yellow-200 font-bold py-2 px-4 rounded md:left-4 md:transform-none"
+            className="absolute bottom-4 right-1/2 transform -translate-x-1/2 bg-green-700 hover:bg-green-800 text-yellow-200 font-bold py-2 px-4 rounded md:left-4 md:transform-none"
             onClick={() => setShowAllDetails(!showAllDetails)}
           >
             {showAllDetails ? "See Less" : "See More"}
