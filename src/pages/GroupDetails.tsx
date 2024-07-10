@@ -78,7 +78,7 @@ const GroupDetails: React.FC = () => {
         </div>
 
         <div className="flex items-center mt-4">
-          <img src="/tree.png" alt="Tree" className="w-16 h-16 mr-2" />
+          <img src="/tree.png" alt="Tree" className="w-16 h-16 mr-2 md:w-24 md:h-24 md:mr-4" />
           <h2 className="font-poppins text-3xl font-bold text-green-800">
             {group.groupName}
           </h2>
@@ -89,7 +89,7 @@ const GroupDetails: React.FC = () => {
             <p key={index} className="mb-2"><strong>{detail.label}:</strong> {detail.value}</p>
           ))}
           <button 
-            className="absolute bottom-4 right-4 bg-green-700 hover:bg-green-800 text-yellow-200 font-bold py-2 px-4 rounded"
+            className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-green-700 hover:bg-green-800 text-yellow-200 font-bold py-2 px-4 rounded md:left-4 md:transform-none"
             onClick={() => setShowAllDetails(!showAllDetails)}
           >
             {showAllDetails ? "See Less" : "See More"}
