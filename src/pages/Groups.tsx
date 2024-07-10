@@ -4,8 +4,10 @@ import { useGetGroups } from "../hooks/useGetAllGroups";
 import { Group } from "../types/Group";
 import { useLocalStorageState } from "../hooks/useLocalStorage";
 import { useMain } from "../contexts/MainContext";
+import { useNavigate } from 'react-router-dom';
 
 const Groups: React.FC = () => {
+  const navigate = useNavigate();
   const { jwt } = useMain();
   const { groups = [], isLoading, error } = useGetGroups(jwt);
   const [onlyFavourite, setOnlyFavourite] = useState(false);
@@ -45,6 +47,10 @@ const Groups: React.FC = () => {
     }
     return true;
   });
+
+  const handleDetailsClick = (groupId: string) => {
+    navigate(`/group/${groupId}`);
+  };
 
   useEffect(() => {
     console.log("Filtered groups:", filteredGroups);
@@ -112,7 +118,8 @@ const Groups: React.FC = () => {
                 </button>
               </div>
               <div className="flex flex-wrap justify-center text-center mt-4 -mx-2">
-                <button className="bg-green-700 hover:bg-green-800 text-white font-bold py-2 px-6 mx-2 my-2 rounded w-full sm:w-auto">
+                <button onClick={() => handleDetailsClick(group.groupId)}
+                className="bg-green-700 hover:bg-green-800 text-white font-bold py-2 px-6 mx-2 my-2 rounded w-full sm:w-auto">
                   Details
                 </button>
                 <button className="bg-green-700 hover:bg-green-800 text-white font-bold py-2 px-6 mx-2 my-2 rounded w-full sm:w-auto">

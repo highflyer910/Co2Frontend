@@ -1,13 +1,13 @@
 import { useMain } from "./contexts/MainContext";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import EstimatedEmissions from "./pages/EstimatedEmissions";
-
 import Donate from "./pages/Donate";
 import PageNotFound from "./pages/PageNotFound";
 import LandingPage from "./pages/LandingPage";
 import DonationCallback from "./pages/DonationCallback";
 import Groups from "./pages/Groups";
 import Limit from "./pages/LimitPage";
+import GroupDetails from "./pages/GroupDetails"; // Import the new GroupDetails component
 
 function RouterCustom() {
   const { jwt } = useMain();
@@ -17,10 +17,14 @@ function RouterCustom() {
       <Routes>
         <Route index element={<Navigate replace to="landingPage" />} />
 
-        {/* Rotte protette per utenti autenticati */}
+        {/* Protected routes for authenticated users */}
         <Route
           path="/groups"
           element={jwt ? <Groups /> : <Navigate to="/landingPage" />}
+        />
+        <Route
+          path="/group/:groupId"
+          element={jwt ? <GroupDetails /> : <Navigate to="/landingPage" />}
         />
         <Route
           path="/estimatedemissions"
@@ -28,7 +32,6 @@ function RouterCustom() {
             jwt ? <EstimatedEmissions /> : <Navigate to="/landingPage" />
           }
         />
-
         <Route
           path="/limit/:groupId/:groupName/:groupLimits"
           element={jwt ? <Limit /> : <Navigate to="/landingPage" />}
@@ -42,7 +45,7 @@ function RouterCustom() {
           element={jwt ? <DonationCallback /> : <Navigate to="/landingPage" />}
         />
 
-        {/* Rotte pubbliche accessibili solo agli utenti non autenticati */}
+        {/* Public routes accessible only to non-authenticated users */}
         <Route
           path="/landingPage"
           element={!jwt ? <LandingPage /> : <Navigate to="/groups" />}
