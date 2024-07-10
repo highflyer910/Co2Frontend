@@ -34,13 +34,13 @@ const GroupDetails: React.FC = () => {
         </div>
 
         <div className="flex items-center mt-4">
-          <img src="/tree.png" alt="Tree" className="w-16 h-16 mr-4" />
-          <h2 className="font-poppins text-2xl font-bold text-green-800">
+          <img src="/tree.png" alt="Tree" className="w-36 h-36 mr-4" />
+          <h2 className="font-poppins text-xl font-bold text-green-800">
             {group.groupName}
           </h2>
         </div>
 
-        <div className="mt-8 bg-white text-green-800 font-body py-4 px-6 rounded border-2 border-green-800 shadow-md w-full max-w-3xl">
+        <div className="mt-8 bg-yellow-300 text-green-700 font-body py-4 px-6 rounded-lg border-2 border-green-800 shadow-md w-full max-w-xl">
           <p>Limit (KB): {group.groupLimits === "-1" ? "No limit" : group.groupLimits}</p>
           <p>Donations: {group.donations.join(', ')}</p>
           <p>Last Report TimeStamp: {group.lastReportTimestamp}</p>
