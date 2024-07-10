@@ -85,15 +85,15 @@ const GroupDetails: React.FC = () => {
         </div>
 
         <div className="mt-8 bg-yellow-200 text-green-700 font-body py-4 px-4 rounded-lg border-2 border-green-800 shadow-md w-full max-w-md relative">
-          {(showAllDetails ? allDetails : initialDetails).map((detail, index) => (
-            <p key={index} className="mb-2"><strong>{detail.label}:</strong> {detail.value}</p>
-          ))}
           <button 
-            className="absolute bottom-4 right-1/2 transform -translate-x-1/2 bg-green-700 hover:bg-green-800 text-yellow-200 font-bold py-2 px-4 rounded md:left-4 md:transform-none"
+            className="absolute top-4 right-4 bg-green-700 hover:bg-green-800 text-yellow-200 font-bold py-2 px-4 rounded"
             onClick={() => setShowAllDetails(!showAllDetails)}
           >
             {showAllDetails ? "See Less" : "See More"}
           </button>
+          {(showAllDetails ? allDetails : initialDetails).map((detail, index) => (
+            <p key={index} className="mb-2"><strong>{detail.label}:</strong> {detail.value}</p>
+          ))}
         </div>
 
         <button 
