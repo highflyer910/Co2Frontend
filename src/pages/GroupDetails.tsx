@@ -78,8 +78,8 @@ const GroupDetails: React.FC = () => {
         </div>
 
         <div className="flex items-center mt-4">
-          <img src="/tree.png" alt="Tree" className="w-24 h-24 mr-4" />
-          <h2 className="font-poppins text-xl font-bold text-green-800">
+          <img src="/tree.png" alt="Tree" className="w-16 h-16 mr-2" />
+          <h2 className="font-poppins text-3xl font-bold text-green-800">
             {group.groupName}
           </h2>
         </div>
