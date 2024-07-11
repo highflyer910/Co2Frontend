@@ -53,6 +53,10 @@ const Groups: React.FC = () => {
     navigate(`/group/${groupId}`);
   };
 
+  const handleDonateClick = (groupId: string, groupName: string) => {
+    navigate(`/donate/${groupId}/${encodeURIComponent(groupName)}`);
+  };
+
   useEffect(() => {
     console.log("Filtered groups:", filteredGroups);
   }, [filteredGroups]);
@@ -125,7 +129,10 @@ const Groups: React.FC = () => {
                 >
                   Details
                 </button>
-                <button className="bg-green-700 hover:bg-green-800 text-white font-bold py-2 px-6 mx-2 my-2 rounded w-full sm:w-auto">
+                <button 
+                  onClick={() => handleDonateClick(group.groupId, group.groupName)}
+                  className="bg-green-700 hover:bg-green-800 text-white font-bold py-2 px-6 mx-2 my-2 rounded w-full sm:w-auto"
+                >
                   Donate
                 </button>
                 <button className="bg-green-700 hover:bg-green-800 text-white font-bold py-2 px-6 mx-2 my-2 rounded w-full sm:w-auto">
