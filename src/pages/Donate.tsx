@@ -57,7 +57,7 @@ const Donate: React.FC = () => {
           </h1>
         </div>
         <div className="relative mb-8">
-          <img src="/tree.png" alt="Tree" className="w-32 h-20" />
+          <img src="/tree.png" alt="Tree" className="w-32 h-32" />
           <div className="absolute top-0 left-full ml-4 bg-yellow-200 text-green-800 p-3 rounded-lg shadow-md max-w-xs">
             <p className="text-sm">
               Help {groupName} grow their forest! Donate!
@@ -67,7 +67,7 @@ const Donate: React.FC = () => {
         <h2 className="text-2xl font-bold text-green-800 mb-4">
           Choose trees quantity
         </h2>
-        <img src="/tree1.png" alt="Tree" className="w-24 h-24 mb-4" />
+        <img src="/tree1.png" alt="Tree" className="w-24 h-16 mb-4" />
         <div className="mb-6">
           <input
             type="number"
