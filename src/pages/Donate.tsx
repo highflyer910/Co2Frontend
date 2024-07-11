@@ -57,7 +57,7 @@ const Donate: React.FC = () => {
           </h1>
         </div>
         <div className="relative mb-8">
-          <img src="/tree.png" alt="Tree" className="w-32 h-28" />
+          <img src="/tree.png" alt="Tree" className="w-32 h-20" />
           <div className="absolute top-0 left-full ml-4 bg-yellow-200 text-green-800 p-3 rounded-lg shadow-md max-w-xs">
             <p className="text-sm">
               Help {groupName} grow their forest! Donate!
