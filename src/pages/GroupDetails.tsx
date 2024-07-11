@@ -44,8 +44,9 @@ const GroupDetails: React.FC = () => {
         <div className="mt-8 bg-yellow-200 text-green-700 font-body py-4 px-4 md:px-6 rounded-2xl border-2 border-green-800 shadow-md w-full max-w-md relative mx-4 md:mx-0">
           <GroupCard 
             group={group} 
-            isFavourite={false} // or set as per your requirement
-            toggleFavourite={() => {}} // pass a no-op function or handle it as needed
+            isFavourite={false} 
+            toggleFavourite={() => {}} 
+            showButtons={false} 
           />
         </div>
 

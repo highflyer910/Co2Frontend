@@ -9,12 +9,14 @@ interface GroupCardProps {
   group: Group;
   isFavourite: boolean;
   toggleFavourite: (groupId: string) => void;
+  showButtons?: boolean; 
 }
 
 const GroupCard: React.FC<GroupCardProps> = ({
   group,
   isFavourite,
   toggleFavourite,
+  showButtons = true, // Default to true
 }) => {
   const navigate = useNavigate();
   const mainContext = useMain();
@@ -164,31 +166,33 @@ const GroupCard: React.FC<GroupCardProps> = ({
       )}
 
       {/* Pulsanti in fondo */}
-      <div className="flex justify-between w-full mt-auto">
-        <button
-          onClick={() => navigateToDonatePage(group.groupId, group.groupName)}
-          className="my-4 bg-yellow-400 hover:bg-yellow-500 text-green-900 font-bold py-2 px-4 rounded"
-        >
-          Donate
-        </button>
-        <button className="my-4 bg-yellow-400 hover:bg-yellow-500 text-green-900 font-bold py-2 px-4 rounded">
-          Stats
-        </button>
-        {isAdmin && (
+      {showButtons && (
+        <div className="flex justify-between w-full mt-auto">
           <button
-            onClick={() =>
-              navigateToLimitPage(
-                group.groupId,
-                group.groupName,
-                group.groupLimits
-              )
-            }
+            onClick={() => navigateToDonatePage(group.groupId, group.groupName)}
             className="my-4 bg-yellow-400 hover:bg-yellow-500 text-green-900 font-bold py-2 px-4 rounded"
           >
-            Limit
+            Donate
           </button>
-        )}
-      </div>
+          <button className="my-4 bg-yellow-400 hover:bg-yellow-500 text-green-900 font-bold py-2 px-4 rounded">
+            Stats
+          </button>
+          {isAdmin && (
+            <button
+              onClick={() =>
+                navigateToLimitPage(
+                  group.groupId,
+                  group.groupName,
+                  group.groupLimits
+                )
+              }
+              className="my-4 bg-yellow-400 hover:bg-yellow-500 text-green-900 font-bold py-2 px-4 rounded"
+            >
+              Limit
+            </button>
+          )}
+        </div>
+      )}
 
       {/* Modal per le donazioni */}
       {selectedDonationId && (
