@@ -62,7 +62,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
       )}
       <Modal
         isOpen={isModalOpen}
-        title="Log Off"
+        title="Logout"
         message="Please log out from the Telegram app to completely terminate your session."
         onConfirm={handleConfirmLogout}
         onCancel={handleCancelLogout}
