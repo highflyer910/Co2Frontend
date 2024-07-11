@@ -9,14 +9,12 @@ interface GroupCardProps {
   group: Group;
   isFavourite: boolean;
   toggleFavourite: (groupId: string) => void;
-  showButtons?: boolean; 
 }
 
 const GroupCard: React.FC<GroupCardProps> = ({
   group,
   isFavourite,
   toggleFavourite,
-  showButtons = true, // Default to true
 }) => {
   const navigate = useNavigate();
   const mainContext = useMain();
@@ -62,7 +60,7 @@ const GroupCard: React.FC<GroupCardProps> = ({
     group.groupLimits + "" === "-1" ? "No limit" : group.groupLimits + "";
 
   return (
-    <div className="mt-8 relative w-full max-w-xs text-green-800 font-body py-2 px-4 shadow-md hover:bg-gray-100 flex flex-col items-start">
+    <div className="mt-8 relative w-full max-w-xs bg-white text-green-800 font-body py-2 px-4 rounded border-2 border-green-800 shadow-md hover:bg-gray-100 flex flex-col items-start">
       {/* Prima riga */}
       <div className="flex items-center justify-between w-full">
         <div className="flex items-center">
@@ -166,33 +164,31 @@ const GroupCard: React.FC<GroupCardProps> = ({
       )}
 
       {/* Pulsanti in fondo */}
-      {showButtons && (
-        <div className="flex justify-between w-full mt-auto">
+      <div className="flex justify-between w-full mt-auto">
+        <button
+          onClick={() => navigateToDonatePage(group.groupId, group.groupName)}
+          className="my-4 bg-yellow-400 hover:bg-yellow-500 text-green-900 font-bold py-2 px-4 rounded"
+        >
+          Donate
+        </button>
+        <button className="my-4 bg-yellow-400 hover:bg-yellow-500 text-green-900 font-bold py-2 px-4 rounded">
+          Stats
+        </button>
+        {isAdmin && (
           <button
-            onClick={() => navigateToDonatePage(group.groupId, group.groupName)}
+            onClick={() =>
+              navigateToLimitPage(
+                group.groupId,
+                group.groupName,
+                group.groupLimits
+              )
+            }
             className="my-4 bg-yellow-400 hover:bg-yellow-500 text-green-900 font-bold py-2 px-4 rounded"
           >
-            Donate
+            Limit
           </button>
-          <button className="my-4 bg-yellow-400 hover:bg-yellow-500 text-green-900 font-bold py-2 px-4 rounded">
-            Stats
-          </button>
-          {isAdmin && (
-            <button
-              onClick={() =>
-                navigateToLimitPage(
-                  group.groupId,
-                  group.groupName,
-                  group.groupLimits
-                )
-              }
-              className="my-4 bg-yellow-400 hover:bg-yellow-500 text-green-900 font-bold py-2 px-4 rounded"
-            >
-              Limit
-            </button>
-          )}
-        </div>
-      )}
+        )}
+      </div>
 
       {/* Modal per le donazioni */}
       {selectedDonationId && (
