@@ -86,7 +86,7 @@ const GroupDetails: React.FC = () => {
 
         <div className="mt-8 bg-yellow-200 text-green-700 font-body py-4 px-4 rounded-2xl border-2 border-green-800 shadow-md w-full max-w-md relative">
           <button 
-            className="absolute top-4 right-4 bg-green-700 hover:bg-green-800 text-yellow-200 py-2 px-4 rounded"
+            className="absolute top-4 right-4 bg-green-700 hover:bg-green-800 text-yellow-200 py-1 px-2 rounded-lg"
             onClick={() => setShowAllDetails(!showAllDetails)}
           >
             {showAllDetails ? "See Less" : "See More"}
