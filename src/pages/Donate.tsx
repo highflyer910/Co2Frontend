@@ -53,7 +53,7 @@ const Donate: React.FC = () => {
       >
       <div className="w-full bg-green-700 text-yellow-200 py-3 px-4 shadow-lg">
           <h1 className="font-poppins text-3xl font-bold text-center">
-            Welcome to GoGreen
+            Let's GoGreen!
           </h1>
         </div>
         <div className="relative mb-8">
