@@ -39,12 +39,20 @@ const Donate: React.FC = () => {
   }, [groupId, groupName]);
 
   return (
-    <div className="flex flex-col min-h-screen bg-gray-100">
+    <div className="relative bg-gray-100 min-h-screen">
+      <img
+        src={`/background.webp`}
+        alt=""
+        className="absolute inset-0 w-full h-full object-cover z-0"
+        aria-hidden="true"
+      />
       <Header />
       <main className="flex-grow flex flex-col items-center justify-center px-4">
-        <h1 className="font-poppins text-4xl font-bold text-center text-green-800 mb-6">
-          Let's GoGreen!
-        </h1>
+      <div className="w-full bg-green-700 text-yellow-200 py-3 px-4 shadow-lg">
+          <h1 className="font-poppins text-3xl font-bold text-center">
+            Welcome to GoGreen
+          </h1>
+        </div>
         <div className="relative mb-8">
           <img src="/tree.png" alt="Tree" className="w-32 h-32" />
           <div className="absolute top-0 left-full ml-4 bg-yellow-200 text-green-800 p-3 rounded-lg shadow-md max-w-xs">
