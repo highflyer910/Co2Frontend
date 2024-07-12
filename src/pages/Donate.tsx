@@ -53,16 +53,16 @@ const Donate: React.FC = () => {
       />
       <Header />
       <main
-        className="relative flex flex-col items-center justify-start py-4 px-4"
+        className="relative flex flex-col items-center justify-center py-16 md:pt-0 pt-0"
         role="main"
       >
-        <div className="w-full bg-green-700 text-yellow-200 py-3 px-4 shadow-lg mb-4">
+        <div className="w-full bg-green-700 text-yellow-200 py-3 px-4 shadow-lg">
           <h1 className="font-poppins text-3xl font-bold text-center w-full">
             Let's GoGreen!
           </h1>
         </div>
-        <div className="w-full flex justify-between items-start mb-8">
-          <div className="flex items-start">
+        <div className="flex flex-col items-center mt-8 mb-12 px-4 w-full">
+          <div className="relative flex items-center">
             <img
               src="/tree.png"
               alt="Tree"
@@ -76,13 +76,13 @@ const Donate: React.FC = () => {
                 <div className="absolute top-1/4 -left-2 w-0 h-0 border-t-8 border-b-8 border-r-8 border-t-transparent border-b-transparent border-r-green-700"></div>
               </div>
             </div>
+            <button
+              onClick={toggleVideo}
+              className="ml-4 text-2xl font-bold text-green-700 focus:outline-none"
+            >
+              •••
+            </button>
           </div>
-          <button
-            onClick={toggleVideo}
-            className="text-2xl font-bold text-green-700 focus:outline-none"
-          >
-            •••
-          </button>
         </div>
         <div className="flex flex-row items-start justify-center w-full max-w-sm sm:max-w-md md:max-w-lg space-x-2">
           <div className="relative w-1/2 flex flex-col items-center">
