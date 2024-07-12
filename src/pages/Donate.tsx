@@ -74,7 +74,7 @@ const Donate: React.FC = () => {
           </div>
         </div>
         <div className="mt-8 flex flex-col md:flex-row items-center justify-center w-full max-w-4xl">
-          <div className="relative w-full md:w-1/2 flex flex-col items-center border-4 rounded-3xl border-green-700 p-4 bg-yellow-200 mb-4 md:mb-0 md:mr-4">
+          <div className="relative w-80 flex flex-col items-center border-4 rounded-3xl border-green-700 p-4 bg-yellow-200 mb-4 md:mb-0 md:mr-4">
             <h2 className="absolute -top-9 text-green-700 font-body text-2xl font-bold">Choose trees quantity</h2>
             <img src="/tree1.png" alt="Tree" className="w-32 h-24 mb-4" />
             <div className="mb-4">
@@ -91,13 +91,13 @@ const Donate: React.FC = () => {
           <div className="w-full md:w-1/2 flex flex-col items-center">
             <button
               onClick={handleDonateClick}
-              className="bg-green-700 hover:bg-green-800 text-yellow-200 font-bold py-2 px-4 rounded w-full max-w-xs mb-4"
+              className="bg-green-700 hover:bg-green-800 text-yellow-200 font-bold py-2 px-4 rounded w-full max-w-xs md:max-w-sm mb-4"
             >
               Plant!
             </button>
             <button
               onClick={handleCancelClick}
-              className="bg-red-400 hover:bg-red-500 text-yellow-200 font-bold py-2 px-4 rounded w-full max-w-xs"
+              className="bg-red-400 hover:bg-red-500 text-yellow-200 font-bold py-2 px-4 rounded w-full max-w-xs md:max-w-sm"
             >
               Go Back
             </button>
