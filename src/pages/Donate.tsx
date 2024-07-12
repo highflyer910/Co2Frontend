@@ -74,33 +74,35 @@ const Donate: React.FC = () => {
           </div>
         </div>
         <div className="mt-8 flex flex-col md:flex-row items-center justify-center w-full max-w-3xl">
-          <div className="relative w-60 flex flex-col items-center border-4 rounded-3xl border-green-700 p-4 bg-yellow-200 mb-4 md:mb-0 md:mr-4">
-            <h2 className="absolute -top-9 text-green-700 font-body text-xl font-bold">Choose trees quantity</h2>
-            <img src="/tree1.png" alt="Tree" className="w-24 h-18 mb-4" />
-            <div className="mb-4">
-              <input
-                type="number"
-                id="treeCount"
-                value={treeCount}
-                onChange={handleTreeCountChange}
-                className="bg-white text-green-800 font-body py-2 px-2 rounded border-2 border-green-800 shadow-md"
-                min="1"
-              />
+          <div className="flex flex-col md:flex-row items-center w-full md:w-auto">
+            <div className="relative w-full md:w-60 flex flex-col items-center border-4 rounded-3xl border-green-700 p-4 bg-yellow-200 mb-4 md:mb-0 md:mr-4">
+              <h2 className="absolute -top-9 text-green-700 font-body text-xl font-bold">Choose trees quantity</h2>
+              <img src="/tree1.png" alt="Tree" className="w-24 h-18 mb-4" />
+              <div className="mb-4">
+                <input
+                  type="number"
+                  id="treeCount"
+                  value={treeCount}
+                  onChange={handleTreeCountChange}
+                  className="bg-white text-green-800 font-body py-2 px-4 rounded border-2 border-green-800 shadow-md"
+                  min="1"
+                />
+              </div>
             </div>
-          </div>
-          <div className="flex flex-col items-center w-full md:w-auto">
-            <button
-              onClick={handleDonateClick}
-              className="bg-green-700 hover:bg-green-800 text-yellow-200 font-bold py-2 px-4 rounded w-40 mb-4"
-            >
-              Plant!
-            </button>
-            <button
-              onClick={handleCancelClick}
-              className="bg-red-400 hover:bg-red-500 text-yellow-200 font-bold py-2 px-4 rounded w-40"
-            >
-              Go Back
-            </button>
+            <div className="flex flex-col items-center md:items-start">
+              <button
+                onClick={handleDonateClick}
+                className="bg-green-700 hover:bg-green-800 text-yellow-200 font-bold py-2 px-4 rounded w-full mb-4 md:mb-0 md:mr-4"
+              >
+                Plant!
+              </button>
+              <button
+                onClick={handleCancelClick}
+                className="bg-red-400 hover:bg-red-500 text-yellow-200 font-bold py-2 px-4 rounded w-full"
+              >
+                Go Back
+              </button>
+            </div>
           </div>
         </div>
       </main>
