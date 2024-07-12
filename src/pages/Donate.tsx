@@ -39,67 +39,47 @@ const Donate: React.FC = () => {
   }, [groupId, groupName]);
 
   return (
-    <div className="relative bg-gray-100 min-h-screen">
-      <img
-        src={`/background.webp`}
-        alt=""
-        className="absolute inset-0 w-full h-full object-cover z-0"
-        aria-hidden="true"
-      />
+    <div className="min-h-screen bg-gradient-to-b from-yellow-200 to-yellow-400">
       <Header />
-      <main
-        className="relative flex flex-col items-center justify-center py-16 md:pt-0 pt-0"
-        role="main"
-      >
-        <div className="w-full bg-green-700 text-yellow-200 py-3 px-4 shadow-lg">
-          <h1 className="font-poppins text-3xl font-bold text-center">
-            Let's GoGreen!
-          </h1>
-        </div>
-        <div className="flex flex-col items-center mt-8">
-          <div className="relative flex items-center">
-            <img
-              src="/tree.png"
-              alt="Tree"
-              className="w-32 h-32 md:w-48 md:h-48"
-            />
-            <div className="-ml-2 md:-ml-4 w-48 md:w-64">
-              <div className="relative flex justify-center items-center border-4 rounded-lg border-green-700 p-2 shadow-lg bg-yellow-200">
-                <p className="font-body text-lg md:text-xl text-shadow text-bold text-green-900 text-center">
-                  Help {groupName} grow their forest! Donate!
-                </p>
-                <div className="absolute top-1/4 -left-2 w-0 h-0 border-t-8 border-b-8 border-r-8 border-t-transparent border-b-transparent border-r-green-700"></div>
-              </div>
+      <main className="container mx-auto px-4 py-8">
+        <h1 className="text-3xl font-bold text-center text-green-800 mb-8">Let's GoGreen!</h1>
+        
+        <div className="flex flex-col items-center mb-8">
+          <div className="relative bg-white rounded-lg p-4 shadow-lg">
+            <div className="absolute -left-4 top-1/2 transform -translate-y-1/2">
+              <img src="/small-tree-icon.png" alt="Small tree" className="w-8 h-8" />
             </div>
+            <p className="text-lg font-semibold text-green-800">
+              Help {groupName} grow their forest! DONATE!
+            </p>
           </div>
         </div>
-        <div className="mt-8 flex flex-col md:flex-row items-center justify-center w-full max-w-4xl">
-          <div className="w-full md:w-1/2 flex flex-col items-center border-4 rounded-3xl border-green-700 p-4 bg-yellow-200 mb-4 md:mb-0 md:mr-4">
-            <h2 className="text-2xl font-bold text-green-800 mb-4">
-              Choose trees quantity
-            </h2>
-            <img src="/tree1.png" alt="Tree" className="w-32 h-24 mb-4" />
-            <div className="mb-4">
+
+        <div className="flex flex-col md:flex-row justify-center items-start gap-8">
+          <div className="border-4 border-green-500 rounded-lg p-4 bg-white">
+            <h2 className="text-xl font-bold text-green-800 mb-4">Choose trees quantity</h2>
+            <div className="flex items-center gap-4">
+              <img src="/large-tree-icon.png" alt="Tree" className="w-20 h-20" />
               <input
                 type="number"
-                id="treeCount"
                 value={treeCount}
                 onChange={handleTreeCountChange}
-                className="bg-white text-green-800 font-body py-2 px-4 rounded border-2 border-green-800 shadow-md"
+                className="w-20 h-12 text-2xl text-center border-2 border-green-500 rounded"
                 min="1"
               />
             </div>
           </div>
-          <div className="w-full md:w-1/2 flex flex-col items-center">
+
+          <div className="flex flex-col gap-4">
             <button
               onClick={handleDonateClick}
-              className="bg-green-700 hover:bg-green-800 text-yellow-200 font-bold py-2 px-4 rounded w-full max-w-xs mb-4"
+              className="bg-green-700 hover:bg-green-800 text-white font-bold py-3 px-6 rounded"
             >
               Plant!
             </button>
             <button
               onClick={handleCancelClick}
-              className="bg-red-400 hover:bg-red-500 text-yellow-200 font-bold py-2 px-4 rounded w-full max-w-xs"
+              className="bg-red-500 hover:bg-red-600 text-white font-bold py-3 px-6 rounded"
             >
               Go Back
             </button>
