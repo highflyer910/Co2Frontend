@@ -3,7 +3,45 @@ import { useParams, useNavigate } from "react-router-dom";
 import Header from "../components/Header";
 
 const Donate: React.FC = () => {
-  // ... (previous code remains the same)
+  const { groupId, groupName } = useParams<{
+    groupId: string;
+    groupName: string;
+  }>();
+  localStorage.setItem("groupId", groupId ?? "");
+
+  const [treeCount, setTreeCount] = useState(1);
+  const [showVideo, setShowVideo] = useState(false);
+  const navigate = useNavigate();
+
+  const frequency = "once";
+  const callbackUrl = `${import.meta.env.VITE_APP_BASE_URL_FE}/donate/callback`;
+  const callbackMethod = "api";
+
+  const handleTreeCountChange = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    setTreeCount(Number(event.target.value));
+  };
+
+  const handleDonateClick = () => {
+    const donationUrl = `https://donate.plant-for-the-planet.org/?units=${treeCount}&frequency=${frequency}&callback_url=${encodeURIComponent(
+      callbackUrl
+    )}&callback_method=${callbackMethod}`;
+    window.open(donationUrl, "_self");
+    navigate(-1);
+  };
+
+  const handleCancelClick = () => {
+    navigate(-1);
+  };
+
+  const toggleVideo = () => {
+    setShowVideo(!showVideo);
+  };
+
+  useEffect(() => {
+    console.log(`Group ID: ${groupId}, Group Name: ${groupName}`);
+  }, [groupId, groupName]);
 
   return (
     <div className="relative bg-gray-100 min-h-screen">
@@ -79,7 +117,24 @@ const Donate: React.FC = () => {
           </div>
         </div>
       </main>
-      {/* Video modal remains the same */}
+      {showVideo && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+          <div className="bg-yellow-200 p-4 rounded-lg shadow-lg w-full max-w-xl h-[80vh] flex flex-col">
+            <div className="flex-grow overflow-hidden rounded-lg">
+              <video className="w-full h-full object-cover" controls autoPlay>
+                <source src="/emissions.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <button
+              onClick={toggleVideo}
+              className="mt-4 bg-green-700 hover:bg-green-800 text-yellow-200 font-bold py-2 px-4 rounded w-full"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
