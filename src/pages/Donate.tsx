@@ -10,6 +10,7 @@ const Donate: React.FC = () => {
   localStorage.setItem("groupId", groupId ?? "");
 
   const [treeCount, setTreeCount] = useState(1);
+  const [showVideo, setShowVideo] = useState(false);
   const navigate = useNavigate();
 
   const frequency = "once";
@@ -32,6 +33,10 @@ const Donate: React.FC = () => {
 
   const handleCancelClick = () => {
     navigate(-1);
+  };
+
+  const handleVideoClick = () => {
+    setShowVideo(true);
   };
 
   useEffect(() => {
@@ -71,6 +76,12 @@ const Donate: React.FC = () => {
                 <div className="absolute top-1/4 -left-2 w-0 h-0 border-t-8 border-b-8 border-r-8 border-t-transparent border-b-transparent border-r-green-700"></div>
               </div>
             </div>
+            <button
+              onClick={handleVideoClick}
+              className="ml-2 text-2xl font-bold text-green-700 focus:outline-none"
+            >
+              •••
+            </button>
           </div>
         </div>
         <div className="flex flex-row items-start justify-center w-full max-w-sm sm:max-w-md md:max-w-lg space-x-2">
@@ -106,6 +117,23 @@ const Donate: React.FC = () => {
           </div>
         </div>
       </main>
+      {showVideo && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white p-4 rounded-lg">
+            <video
+              src="/emissions.mp4"
+              controls
+              className="w-full max-w-3xl"
+            />
+            <button
+              onClick={() => setShowVideo(false)}
+              className="mt-4 bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded"
+            >
+              Close Video
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
