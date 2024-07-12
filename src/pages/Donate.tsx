@@ -73,33 +73,37 @@ const Donate: React.FC = () => {
             </div>
           </div>
         </div>
-        <h2 className="text-2xl font-bold text-green-800 mb-4 mt-8">
-          Choose trees quantity
-        </h2>
-        <img src="/tree1.png" alt="Tree" className="w-32 h-24 mb-4" />
-        <div className="mb-6">
-          <input
-            type="number"
-            id="treeCount"
-            value={treeCount}
-            onChange={handleTreeCountChange}
-            className="bg-yellow-200 text-green-800 font-body py-2 px-4 rounded border-2 border-green-800 shadow-md"
-            min="1"
-          />
-        </div>
-        <div className="flex space-x-4">
-          <button
-            onClick={handleDonateClick}
-            className="bg-green-700 hover:bg-green-800 text-yellow-200 font-bold py-2 px-4 rounded"
-          >
-            Plant!
-          </button>
-          <button
-            onClick={handleCancelClick}
-            className="bg-red-400 hover:bg-red-500 text-yellow-200 font-bold py-2 px-4 rounded"
-          >
-            Go Back
-          </button>
+        <div className="mt-8 flex flex-col md:flex-row items-center justify-center w-full max-w-4xl">
+          <div className="w-full md:w-1/2 flex flex-col items-center border-4 rounded-lg border-green-700 p-4 bg-yellow-200 mb-4 md:mb-0 md:mr-4">
+            <h2 className="text-2xl font-bold text-green-800 mb-4">
+              Choose trees quantity
+            </h2>
+            <img src="/tree1.png" alt="Tree" className="w-32 h-24 mb-4" />
+            <div className="mb-4">
+              <input
+                type="number"
+                id="treeCount"
+                value={treeCount}
+                onChange={handleTreeCountChange}
+                className="bg-white text-green-800 font-body py-2 px-4 rounded border-2 border-green-800 shadow-md"
+                min="1"
+              />
+            </div>
+          </div>
+          <div className="w-full md:w-1/2 flex flex-col items-center">
+            <button
+              onClick={handleDonateClick}
+              className="bg-green-700 hover:bg-green-800 text-yellow-200 font-bold py-2 px-4 rounded w-full max-w-xs mb-4"
+            >
+              Plant!
+            </button>
+            <button
+              onClick={handleCancelClick}
+              className="bg-red-400 hover:bg-red-500 text-yellow-200 font-bold py-2 px-4 rounded w-full max-w-xs"
+            >
+              Go Back
+            </button>
+          </div>
         </div>
       </main>
     </div>
