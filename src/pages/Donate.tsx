@@ -89,18 +89,20 @@ const Donate: React.FC = () => {
             </div>
           </div>
           <div className="w-full md:w-auto flex flex-col items-center">
-            <button
-              onClick={handleDonateClick}
-              className="bg-green-700 hover:bg-green-800 text-yellow-200 font-bold py-2 px-4 rounded w-24 md:w-auto mb-4"
-            >
-              Plant!
-            </button>
-            <button
-              onClick={handleCancelClick}
-              className="bg-red-400 hover:bg-red-500 text-yellow-200 font-bold py-2 px-4 rounded w-24 md:w-auto"
-            >
-              Go Back
-            </button>
+            <div className="flex flex-col w-full md:w-auto items-center md:flex-row md:space-x-4">
+              <button
+                onClick={handleDonateClick}
+                className="bg-green-700 hover:bg-green-800 text-yellow-200 font-bold py-2 px-4 rounded mb-4 md:mb-0 md:w-32 w-full"
+              >
+                Plant!
+              </button>
+              <button
+                onClick={handleCancelClick}
+                className="bg-red-400 hover:bg-red-500 text-yellow-200 font-bold py-2 px-4 rounded w-full md:w-32"
+              >
+                Go Back
+              </button>
+            </div>
           </div>
         </div>
       </main>
