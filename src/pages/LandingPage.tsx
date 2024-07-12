@@ -54,7 +54,7 @@ const LandingPage: React.FC = () => {
             onClick={toggleVideo}
             className="mt-1 bg-green-700 hover:bg-green-800 text-yellow-200 font-bold py-2 px-4 rounded-lg"
           >
-            CLICK HERE
+            How GoGreen works
           </button>
         </div>
       </main>
