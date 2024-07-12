@@ -51,8 +51,8 @@ const Donate: React.FC = () => {
         className="relative flex flex-col items-center justify-center py-16 px-4"
         role="main"
       >
-        <div className="w-full bg-green-700 text-yellow-200 py-3 px-4 shadow-lg mb-8">
-          <h1 className="font-poppins text-2xl sm:text-3xl font-bold text-center">
+        <div className="w-full bg-green-700 text-yellow-200 py-3 px-4 shadow-lg">
+          <h1 className="font-poppins text-3xl font-bold text-center">
             Let's GoGreen!
           </h1>
         </div>
