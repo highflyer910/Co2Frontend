@@ -76,7 +76,7 @@ const Donate: React.FC = () => {
         <h2 className="text-2xl font-bold text-green-800 mb-4 mt-8">
           Choose trees quantity
         </h2>
-        <img src="/tree1.png" alt="Tree" className="w-24 h-16 mb-4" />
+        <img src="/tree1.png" alt="Tree" className="w-32 h-24 mb-4" />
         <div className="mb-6">
           <input
             type="number"
