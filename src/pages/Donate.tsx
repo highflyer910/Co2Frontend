@@ -96,7 +96,7 @@ const Donate: React.FC = () => {
           </button>
           <button
             onClick={handleCancelClick}
-            className="bg-red-400 hover:bg-red-500 text-white font-bold py-2 px-4 rounded"
+            className="bg-red-400 hover:bg-red-500 text-yellow-200 font-bold py-2 px-4 rounded"
           >
             Go Back
           </button>
