@@ -74,10 +74,10 @@ const Donate: React.FC = () => {
           </div>
         </div>
         <div className="mt-8 flex flex-col md:flex-row items-center justify-center w-full max-w-4xl">
-          <div className="w-full md:w-1/2 flex flex-col items-center border-4 rounded-3xl border-green-700 p-4 bg-yellow-200 mb-4 md:mb-0 md:mr-4">
             <h2 className="text-2xl font-bold text-green-800 mb-4">
               Choose trees quantity
             </h2>
+          <div className="w-full md:w-1/2 flex flex-col items-center border-4 rounded-3xl border-green-700 p-4 bg-yellow-200 mb-4 md:mb-0 md:mr-4">
             <img src="/tree1.png" alt="Tree" className="w-32 h-24 mb-4" />
             <div className="mb-4">
               <input
