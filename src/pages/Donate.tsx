@@ -48,7 +48,7 @@ const Donate: React.FC = () => {
       />
       <Header />
       <main
-        className="relative flex flex-col items-center justify-center py-16 px-4 md:pt-0 pt-0"
+        className="relative flex flex-col items-center justify-center py-16 md:pt-0 pt-0"
         role="main"
       >
         <div className="w-full bg-green-700 text-yellow-200 py-3 px-4 shadow-lg">
@@ -56,7 +56,7 @@ const Donate: React.FC = () => {
             Let's GoGreen!
           </h1>
         </div>
-        <div className="flex flex-col items-center mb-8">
+        <div className="flex flex-col items-center mt-8 px-4 w-full">
           <div className="relative flex items-center">
             <img
               src="/tree.png"
