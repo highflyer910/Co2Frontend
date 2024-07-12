@@ -48,7 +48,7 @@ const Donate: React.FC = () => {
       />
       <Header />
       <main
-        className="relative flex flex-col items-center justify-center py-16 px-4"
+        className="relative flex flex-col items-center justify-center py-16 px-4 md:pt-0 pt-0"
         role="main"
       >
         <div className="w-full bg-green-700 text-yellow-200 py-3 px-4 shadow-lg">
