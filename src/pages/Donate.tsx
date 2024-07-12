@@ -75,7 +75,7 @@ const Donate: React.FC = () => {
         </div>
         <div className="flex flex-row items-start justify-center w-full max-w-sm sm:max-w-md md:max-w-lg space-x-2">
           <div className="relative w-1/2 flex flex-col items-center">
-            <h2 className="absolute -top-7 text-green-700 font-body text-sm sm:text-base md:text-lg font-bold">Choose trees quantity</h2>
+            <h2 className="absolute -top-8 text-green-700 font-body text-sm sm:text-base md:text-lg font-bold">Choose trees quantity</h2>
             <div className="w-full border-4 rounded-3xl border-green-700 p-3 bg-yellow-200">
               <img src="/tree1.png" alt="Tree" className="w-16 h-12 sm:w-20 sm:h-16 mx-auto mb-2" />
               <div className="flex justify-center">
