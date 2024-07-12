@@ -75,7 +75,7 @@ const Donate: React.FC = () => {
         </div>
         <div className="mt-8 flex flex-col md:flex-row items-center justify-center w-full max-w-3xl">
           <div className="relative w-60 flex flex-col items-center border-4 rounded-3xl border-green-700 p-4 bg-yellow-200 mb-4 md:mb-0 md:mr-4">
-            <h2 className="absolute -top-9 text-green-700 font-body text-2xl font-bold">Choose trees quantity</h2>
+            <h2 className="absolute -top-9 text-green-700 font-body text-xl font-bold">Choose trees quantity</h2>
             <img src="/tree1.png" alt="Tree" className="w-24 h-18 mb-4" />
             <div className="mb-4">
               <input
