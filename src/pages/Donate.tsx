@@ -56,7 +56,7 @@ const Donate: React.FC = () => {
             Let's GoGreen!
           </h1>
         </div>
-        <div className="flex flex-col items-center mt-8 px-4 w-full">
+        <div className="flex flex-col items-center my-8 px-4 w-full">
           <div className="relative flex items-center">
             <img
               src="/tree.png"
