@@ -56,31 +56,48 @@ const Donate: React.FC = () => {
             Let's GoGreen!
           </h1>
         </div>
-        <div className="flex items-center justify-center w-full max-w-3xl">
-          <div className="flex items-center">
-            <div className="w-60 flex flex-col items-center border-4 rounded-3xl border-green-700 p-4 bg-yellow-200 m-4">
-              <h2 className="text-green-700 font-body text-xl font-bold mb-4">Choose trees quantity</h2>
-              <img src="/tree1.png" alt="Tree" className="w-24 h-18 mb-2" />
+        <div className="flex flex-col items-center mb-8">
+          <div className="relative flex items-center">
+            <img
+              src="/tree.png"
+              alt="Tree"
+              className="w-24 h-24 sm:w-32 sm:h-32"
+            />
+            <div className="-ml-2 w-48 sm:w-56">
+              <div className="relative flex justify-center items-center border-4 rounded-lg border-green-700 p-2 shadow-lg bg-yellow-200">
+                <p className="font-body text-sm sm:text-base text-shadow text-bold text-green-900 text-center">
+                  Help {groupName} grow their forest! Donate!
+                </p>
+                <div className="absolute top-1/4 -left-2 w-0 h-0 border-t-8 border-b-8 border-r-8 border-t-transparent border-b-transparent border-r-green-700"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="mt-8 flex flex-col md:flex-row items-center justify-center w-full max-w-3xl">
+          <div className="relative w-60 flex flex-col items-center border-4 rounded-3xl border-green-700 p-4 bg-yellow-200 mb-4 md:mb-0 md:mr-4">
+            <h2 className="absolute -top-9 text-green-700 font-body text-xl font-bold">Choose trees quantity</h2>
+            <img src="/tree1.png" alt="Tree" className="w-24 h-18 mb-4" />
+            <div className="mb-4">
               <input
                 type="number"
                 id="treeCount"
                 value={treeCount}
                 onChange={handleTreeCountChange}
-                className="bg-white text-green-800 font-body py-2 px-2 rounded border-2 border-green-800 shadow-md mb-4"
+                className="bg-white text-green-800 font-body py-2 px-2 rounded border-2 border-green-800 shadow-md"
                 min="1"
               />
             </div>
           </div>
-          <div className="flex flex-col items-center">
+          <div className="flex flex-col items-center w-full md:w-auto">
             <button
               onClick={handleDonateClick}
-              className="bg-green-700 hover:bg-green-800 text-yellow-200 font-bold py-2 px-4 rounded w-40 m-4"
+              className="bg-green-700 hover:bg-green-800 text-yellow-200 font-bold py-2 px-4 rounded w-40 mb-4"
             >
               Plant!
             </button>
             <button
               onClick={handleCancelClick}
-              className="bg-red-400 hover:bg-red-500 text-yellow-200 font-bold py-2 px-4 rounded w-40 m-4"
+              className="bg-red-400 hover:bg-red-500 text-yellow-200 font-bold py-2 px-4 rounded w-40"
             >
               Go Back
             </button>
