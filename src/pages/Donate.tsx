@@ -83,7 +83,7 @@ const Donate: React.FC = () => {
                 id="treeCount"
                 value={treeCount}
                 onChange={handleTreeCountChange}
-                className="bg-white text-green-800 font-body py-2 px-4 rounded border-2 border-green-800 shadow-md"
+                className="bg-white text-green-800 font-body py-2 px-2 rounded border-2 border-green-800 shadow-md"
                 min="1"
               />
             </div>
