@@ -35,8 +35,8 @@ const Donate: React.FC = () => {
     navigate(-1);
   };
 
-  const handleVideoClick = () => {
-    setShowVideo(true);
+  const toggleVideo = () => {
+    setShowVideo(!showVideo);
   };
 
   useEffect(() => {
@@ -77,8 +77,8 @@ const Donate: React.FC = () => {
               </div>
             </div>
             <button
-              onClick={handleVideoClick}
-              className="ml-2 text-2xl font-bold text-green-700 focus:outline-none"
+              onClick={toggleVideo}
+              className="ml-4 text-2xl font-bold text-green-700 focus:outline-none"
             >
               •••
             </button>
@@ -118,18 +118,19 @@ const Donate: React.FC = () => {
         </div>
       </main>
       {showVideo && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white p-4 rounded-lg">
-            <video
-              src="/emissions.mp4"
-              controls
-              className="w-full max-w-3xl"
-            />
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+          <div className="bg-yellow-200 p-4 rounded-lg shadow-lg w-full max-w-xl h-[80vh] flex flex-col">
+            <div className="flex-grow overflow-hidden rounded-lg">
+              <video className="w-full h-full object-cover" controls autoPlay>
+                <source src="/emissions.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
             <button
-              onClick={() => setShowVideo(false)}
-              className="mt-4 bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded"
+              onClick={toggleVideo}
+              className="mt-4 bg-green-700 hover:bg-green-800 text-yellow-200 font-bold py-2 px-4 rounded w-full"
             >
-              Close Video
+              Close
             </button>
           </div>
         </div>
