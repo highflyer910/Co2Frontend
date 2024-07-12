@@ -48,11 +48,11 @@ const Donate: React.FC = () => {
       />
       <Header />
       <main
-        className="relative flex flex-col items-center justify-center py-8 px-4"
+        className="relative flex flex-col items-center justify-center py-16 md:pt-0 pt-0"
         role="main"
       >
-        <div className="w-full bg-green-700 text-yellow-200 py-3 px-4 shadow-lg mb-8">
-          <h1 className="font-poppins text-2xl sm:text-3xl font-bold text-center">
+        <div className="w-full bg-green-700 text-yellow-200 py-3 px-4 shadow-lg">
+          <h1 className="font-poppins text-3xl font-bold text-center">
             Let's GoGreen!
           </h1>
         </div>
@@ -73,24 +73,24 @@ const Donate: React.FC = () => {
             </div>
           </div>
         </div>
-        <h2 className="text-xl sm:text-2xl font-bold text-green-800 mb-4">
-          Choose trees quantity
-        </h2>
-        <div className="flex flex-col sm:flex-row items-center justify-center w-full max-w-3xl">
-          <div className="w-full sm:w-1/2 flex flex-col items-center border-4 rounded-3xl border-green-700 p-4 bg-yellow-200 mb-4 sm:mb-0 sm:mr-4">
-            <img src="/tree1.png" alt="Tree" className="w-24 h-20 mb-4" />
+        <div className="mt-8 flex flex-col md:flex-row items-center justify-center w-full max-w-4xl">
+          <div className="w-full md:w-1/2 flex flex-col items-center border-4 rounded-3xl border-green-700 p-4 bg-yellow-200 mb-4 md:mb-0 md:mr-4">
+            <h2 className="text-2xl font-bold text-green-800 mb-4">
+              Choose trees quantity
+            </h2>
+            <img src="/tree1.png" alt="Tree" className="w-32 h-24 mb-4" />
             <div className="mb-4">
               <input
                 type="number"
                 id="treeCount"
                 value={treeCount}
                 onChange={handleTreeCountChange}
-                className="bg-white text-green-800 font-body py-2 px-4 rounded border-2 border-green-800 shadow-md w-24"
+                className="bg-white text-green-800 font-body py-2 px-4 rounded border-2 border-green-800 shadow-md"
                 min="1"
               />
             </div>
           </div>
-          <div className="w-full sm:w-1/2 flex flex-col items-center">
+          <div className="w-full md:w-1/2 flex flex-col items-center">
             <button
               onClick={handleDonateClick}
               className="bg-green-700 hover:bg-green-800 text-yellow-200 font-bold py-2 px-4 rounded w-full max-w-xs mb-4"
