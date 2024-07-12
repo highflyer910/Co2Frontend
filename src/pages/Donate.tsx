@@ -90,7 +90,7 @@ const Donate: React.FC = () => {
         <div className="flex space-x-4">
           <button
             onClick={handleDonateClick}
-            className="bg-yellow-400 hover:bg-yellow-500 text-green-900 font-bold py-2 px-4 rounded"
+            className="bg-green-700 hover:bg-green-800 text-yellow-200 font-bold py-2 px-4 rounded"
           >
             Plant!
           </button>
