@@ -83,9 +83,6 @@ const Groups: React.FC = () => {
         </div>
         <div className="my-4 flex flex-col items-center w-full max-w-md px-2">
           <div className="flex items-center justify-center w-full mb-4 flex-wrap">
-            <div className="w-full sm:w-auto mb-4 sm:mb-0">
-              <img src="/tree.png" alt="Tree" className="w-36 h-36 mx-auto" />
-            </div>
             <div className="flex flex-col flex-grow space-y-2 sm:space-y-0 sm:space-x-2 sm:flex-row items-center">
             <img src="/tree.png" alt="Tree" className="w-36 h-36 mx-auto" />
               <select
