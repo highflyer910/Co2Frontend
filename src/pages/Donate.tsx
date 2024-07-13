@@ -22,33 +22,38 @@ const Donate: React.FC = () => {
 
   const handleDonateClick = async () => {
     const context = "don_1iou8Ct9dJe4hElBTymASeHM"; // Simulated context ID
-    const donStatus = "success"; // You can change this to simulate different statuses (e.g., "error")
+    const donStatus: "success" | "error" = "error"; // Explicitly declare donStatus type
 
-    // Simulate fetching donation details
-    const response = await fetch(
-      `https://app.plant-for-the-planet.org/app/donations/${context}`
-    );
-    const data = await response.json();
+    try {
+      // Simulate fetching donation details
+      const response = await fetch(
+        `https://app.plant-for-the-planet.org/app/donations/${context}`
+      );
+      const data = await response.json();
 
-    const donationDetails = {
-      userId: "user_1",
-      groupId: groupId ?? "",
-      units: data.units,
-      donationId: context,
-      paymentDate: data.paymentDate,
-      amount: data.amount,
-      currency: data.currency,
-      unitType: data.unitType,
-      locationProject: data.project.country,
-      idProject: data.project.id,
-      nameProject: data.project.name,
-    };
+      const donationDetails = {
+        userId: "user_1",
+        groupId: groupId ?? "",
+        units: data.units,
+        donationId: context,
+        paymentDate: data.paymentDate,
+        amount: data.amount,
+        currency: data.currency,
+        unitType: data.unitType,
+        locationProject: data.project.country,
+        idProject: data.project.id,
+        nameProject: data.project.name,
+      };
 
-    setDonationData((prevData) => [...prevData, donationDetails]);
+      setDonationData((prevData) => [...prevData, donationDetails]);
 
-    if (donStatus === "success") {
-      navigate("/donate/success");
-    } else {
+      if (donStatus === "success") {
+        navigate("/donate/success");
+      } else {
+        navigate("/donate/error");
+      }
+    } catch (error) {
+      console.error("Error fetching donation details:", error);
       navigate("/donate/error");
     }
   };
@@ -75,7 +80,7 @@ const Donate: React.FC = () => {
       />
       <Header />
       <main
-        className="relative flex flex-col items-center justify-center py-16 md:pt-0 pt-0"
+        className="relative flex flex-col items-center justify-center py-16 md:pt-0 pt-0 min-h-screen"
         role="main"
       >
         <div className="w-full bg-green-700 text-yellow-200 py-3 px-4 shadow-lg">
@@ -100,12 +105,12 @@ const Donate: React.FC = () => {
                 </div>
               </div>
             </div>
-            <button
+            <img
+              src="/speech_bubble.svg"
+              alt="Open Video"
+              className="w-12 h-12 cursor-pointer absolute top-0 right-4 md:right-24"
               onClick={toggleVideo}
-              className="text-3xl font-bold text-green-700 focus:outline-none absolute top-0 right-4 md:right-24"
-            >
-              •••
-            </button>
+            />
           </div>
         </div>
         <div className="flex flex-col items-center w-full max-w-sm sm:max-w-md md:max-w-lg">
