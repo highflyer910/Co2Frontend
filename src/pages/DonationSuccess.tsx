@@ -46,6 +46,13 @@ const DonationSuccess: React.FC = () => {
             •••
           </button>
         </div>
+        <div className="w-full max-w-2xl text-center px-4 mb-8">
+          <div className="border-4 border-green-700 rounded-lg p-4 bg-yellow-200">
+            <p className="font-body text-base sm:text-lg text-green-800">
+              We appreciate your wish to engage in the process of taking steps to offset the greenhouse gas emissions caused by using your Telegram team services!
+            </p>
+          </div>
+        </div>
       </main>
       {showVideo && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
