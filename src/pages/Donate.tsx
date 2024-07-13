@@ -62,7 +62,7 @@ const Donate: React.FC = () => {
           </h1>
         </div>
         <div className="flex flex-col items-center mt-8 mb-12 px-4 w-full">
-          <div className="relative flex items-center justify-between w-full">
+          <div className="relative flex items-center justify-between w-full max-w-xl">
             <div className="flex items-center mr-8">
               <img
                 src="/tree.png"
