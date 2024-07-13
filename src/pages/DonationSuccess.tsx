@@ -46,7 +46,7 @@ const DonationSuccess: React.FC = () => {
             </div>
           </div>
         </div>
-        <div className="w-full max-w-xl text-center px-4 mt-8">
+        <div className="w-full max-w-md text-center px-4 mt-8">
           <div className="border-4 border-green-700 rounded-lg p-4 bg-yellow-200">
             <p className="font-body text-base sm:text-lg text-green-800">
               We appreciate your wish to engage in the process of taking steps to offset the greenhouse gas emissions caused by using your Telegram team services!
