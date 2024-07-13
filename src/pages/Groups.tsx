@@ -83,9 +83,24 @@ const Groups: React.FC = () => {
         </div>
         <div className="my-4 flex flex-col items-center w-full max-w-md px-2">
           <div className="flex items-center justify-center w-full mb-4 flex-wrap">
-            <div className="w-full sm:w-auto mb-4 sm:mb-0">
-              <img src="/tree.png" alt="Tree" className="w-36 h-36 mx-auto" />
+          <div className="flex flex-col items-center mt-4 mb-12 px-4 w-full">
+          <div className="relative flex items-center justify-between w-full max-w-xl">
+            <div className="flex items-center mr-4">
+              <img
+                src="/tree.png"
+                alt="Tree"
+                className="w-20 h-20 sm:w-24 sm:h-24"
+              />
+              
             </div>
+            <button
+              onClick={toggleVideo}
+              className="text-3xl font-bold text-green-700 focus:outline-none absolute top-0 right-4 md:right-24"
+            >
+              •••
+            </button>
+          </div>
+        </div>
             <div className="flex flex-col flex-grow space-y-2 sm:space-y-0 sm:space-x-2 sm:flex-row">
               <select
                 onChange={handleDropdownChange}
