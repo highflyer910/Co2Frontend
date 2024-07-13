@@ -1,6 +1,10 @@
 import React from "react";
 import Header from "../components/Header";
 
+const [showVideo, setShowVideo] = useState(false);
+const toggleVideo = () => {
+    setShowVideo(!showVideo);
+  };
 const DonationSuccess: React.FC = () => {
   return (
     <div className="relative bg-gray-100 min-h-screen">
@@ -42,6 +46,24 @@ const DonationSuccess: React.FC = () => {
             </div>
         
       </main>
+      {showVideo && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+          <div className="bg-yellow-200 p-4 rounded-lg shadow-lg w-full max-w-xl h-[80vh] flex flex-col">
+            <div className="flex-grow overflow-hidden rounded-lg">
+              <video className="w-full h-full object-cover" controls autoPlay>
+                <source src="/emissions.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <button
+              onClick={toggleVideo}
+              className="mt-4 bg-green-700 hover:bg-green-800 text-yellow-200 font-bold py-2 px-4 rounded w-full"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
