@@ -12,6 +12,7 @@ const Donate: React.FC = () => {
   const [treeCount, setTreeCount] = useState(1);
   const [showVideo, setShowVideo] = useState(false);
   const [donationDetails, setDonationDetails] = useState<any>(null);
+  const [donationData, setDonationData] = useState<any[]>([]);
   const navigate = useNavigate();
 
   const handleTreeCountChange = (
@@ -46,6 +47,7 @@ const Donate: React.FC = () => {
     };
 
     setDonationDetails(donationDetails);
+    setDonationData((prevData) => [...prevData, donationDetails]);
     navigate(callbackUrl);
   };
 
@@ -137,15 +139,24 @@ const Donate: React.FC = () => {
               </button>
             </div>
           </div>
-        </div>
-        {donationDetails && (
-          <div className="border border-gray-300 p-4 mt-4 max-w-lg w-full">
-            <h3 className="font-poppins text-2xl font-bold text-green-800 mb-2">Donations Details</h3>
-            <pre className="bg-white text-green-800 font-body py-2 px-4 rounded border-2 border-green-800 shadow-md">
-              {JSON.stringify(donationDetails, null, 2)}
-            </pre>
+          {/* Donations details section */}
+          <h3 className="font-poppins text-2xl font-bold text-green-700 mt-8">Donations Details</h3>
+          <div className="w-full mt-2 border-4 rounded-lg border-green-700 p-4 bg-yellow-200 shadow-lg">
+            {donationData.length > 0 ? (
+              donationData.map((donation) => (
+                <div key={donation.donationId} className="mb-4">
+                  <p className="font-body text-green-900"><strong>Donation ID:</strong> {donation.donationId}</p>
+                  <p className="font-body text-green-900"><strong>Units:</strong> {donation.units}</p>
+                  <p className="font-body text-green-900"><strong>Amount:</strong> {donation.amount} {donation.currency}</p>
+                  <p className="font-body text-green-900"><strong>Project:</strong> {donation.nameProject} ({donation.locationProject})</p>
+                  <p className="font-body text-green-900"><strong>Date:</strong> {donation.paymentDate}</p>
+                </div>
+              ))
+            ) : (
+              <p className="font-body text-green-900">No donations yet.</p>
+            )}
           </div>
-        )}
+        </div>
       </main>
       {showVideo && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
