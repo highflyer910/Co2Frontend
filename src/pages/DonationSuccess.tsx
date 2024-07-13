@@ -24,7 +24,7 @@ const DonationSuccess: React.FC = () => {
         <div className="relative flex items-center justify-between w-full max-w-xl">
         <div className="relative flex items-center">
             <img
-              src="/tree.png"
+              src="/tree_success.png"
               alt="Tree"
               className="w-32 h-32 md:w-48 md:h-48"
             />
