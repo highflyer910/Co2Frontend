@@ -2,20 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import Header from "../components/Header";
 
-interface DonationDetailsOut {
-  userId: string;
-  groupId: string;
-  units: number;
-  donationId: string;
-  paymentDate: string;
-  amount: string;
-  currency: string;
-  unitType: string;
-  locationProject: string;
-  nameProject: string;
-  idProject: string;
-}
-
 const Donate: React.FC = () => {
   const { groupId, groupName } = useParams<{
     groupId: string;
@@ -25,12 +11,8 @@ const Donate: React.FC = () => {
 
   const [treeCount, setTreeCount] = useState(1);
   const [showVideo, setShowVideo] = useState(false);
-  const [donationData, setDonationData] = useState<DonationDetailsOut[]>([]);
+  const [donationDetails, setDonationDetails] = useState<any>(null);
   const navigate = useNavigate();
-
-  const frequency = "once";
-  const callbackUrl = `${import.meta.env.VITE_APP_BASE_URL_FE}/donate/callback`;
-  const callbackMethod = "api";
 
   const handleTreeCountChange = (
     event: React.ChangeEvent<HTMLInputElement>
@@ -38,12 +20,33 @@ const Donate: React.FC = () => {
     setTreeCount(Number(event.target.value));
   };
 
-  const handleDonateClick = () => {
-    const donationUrl = `https://donate.plant-for-the-planet.org/?units=${treeCount}&frequency=${frequency}&callback_url=${encodeURIComponent(
-      callbackUrl
-    )}&callback_method=${callbackMethod}`;
-    window.open(donationUrl, "_self");
-    navigate(-1);
+  const handleDonateClick = async () => {
+    const context = "don_1iou8Ct9dJe4hElBTymASeHM"; // Simulated context ID
+    const donStatus = "success"; // You can change this to simulate different statuses (e.g., "error")
+    const callbackUrl = `/donate/callback?context=${context}&don_status=${donStatus}`;
+
+    // Simulate fetching donation details
+    const response = await fetch(
+      `https://app.plant-for-the-planet.org/app/donations/${context}`
+    );
+    const data = await response.json();
+
+    const donationDetails = {
+      userId: "user_1",
+      groupId: groupId ?? "",
+      units: data.units,
+      donationId: context,
+      paymentDate: data.paymentDate,
+      amount: data.amount,
+      currency: data.currency,
+      unitType: data.unitType,
+      locationProject: data.project.country,
+      idProject: data.project.id,
+      nameProject: data.project.name,
+    };
+
+    setDonationDetails(donationDetails);
+    navigate(callbackUrl);
   };
 
   const handleCancelClick = () => {
@@ -56,19 +59,6 @@ const Donate: React.FC = () => {
 
   useEffect(() => {
     console.log(`Group ID: ${groupId}, Group Name: ${groupName}`);
-
-    // Fetch donation data
-    const fetchDonationData = async () => {
-      try {
-        const response = await fetch(`${import.meta.env.VITE_APP_BASE_URL_BE}/donation?groupId=${groupId}`);
-        const data = await response.json();
-        setDonationData(data);
-      } catch (error) {
-        console.error("Error fetching donation data:", error);
-      }
-    };
-
-    fetchDonationData();
   }, [groupId, groupName]);
 
   return (
@@ -147,24 +137,15 @@ const Donate: React.FC = () => {
               </button>
             </div>
           </div>
-          {/* Donations details section */}
-          <div className="w-full mt-8 border-4 rounded-lg border-green-700 p-4 bg-yellow-200 shadow-lg">
-            <h3 className="font-poppins text-2xl font-bold text-green-700 mb-4">Donations Details</h3>
-            {donationData.length > 0 ? (
-              donationData.map((donation) => (
-                <div key={donation.donationId} className="mb-4">
-                  <p className="font-body text-green-900"><strong>Donation ID:</strong> {donation.donationId}</p>
-                  <p className="font-body text-green-900"><strong>Units:</strong> {donation.units}</p>
-                  <p className="font-body text-green-900"><strong>Amount:</strong> {donation.amount} {donation.currency}</p>
-                  <p className="font-body text-green-900"><strong>Project:</strong> {donation.nameProject} ({donation.locationProject})</p>
-                  <p className="font-body text-green-900"><strong>Date:</strong> {donation.paymentDate}</p>
-                </div>
-              ))
-            ) : (
-              <p className="font-body text-green-900">No donations yet.</p>
-            )}
-          </div>
         </div>
+        {donationDetails && (
+          <div className="border border-gray-300 p-4 mt-4 max-w-lg w-full">
+            <h3 className="font-poppins text-2xl font-bold text-green-800 mb-2">Donations Details</h3>
+            <pre className="bg-white text-green-800 font-body py-2 px-4 rounded border-2 border-green-800 shadow-md">
+              {JSON.stringify(donationDetails, null, 2)}
+            </pre>
+          </div>
+        )}
       </main>
       {showVideo && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
