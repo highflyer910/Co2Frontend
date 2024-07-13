@@ -63,7 +63,7 @@ const Donate: React.FC = () => {
         </div>
         <div className="flex flex-col items-center mt-8 mb-12 px-4 w-full">
           <div className="relative flex items-center justify-between w-full max-w-xs">
-            <div className="flex items-center">
+            <div className="flex items-center mr-4">
               <img
                 src="/tree.png"
                 alt="Tree"
@@ -81,7 +81,7 @@ const Donate: React.FC = () => {
             <button
               onClick={toggleVideo}
               className="text-3xl font-bold text-green-700 focus:outline-none"
-              style={{ marginTop: '-2rem' }}
+              style={{ marginTop: '-4rem' }}
             >
               •••
             </button>
