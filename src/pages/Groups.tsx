@@ -159,7 +159,7 @@ const Groups: React.FC = () => {
               <div className="bg-yellow-200 p-4 rounded-lg shadow-lg w-full max-w-xl h-[80vh] flex flex-col">
                 <div className="flex-grow overflow-hidden rounded-lg">
                   <video className="w-full h-full object-cover" controls autoPlay>
-                    <source src="/emissions.mp4" type="video/mp4" />
+                    <source src="/info.mp4" type="video/mp4" />
                     Your browser does not support the video tag.
                   </video>
                 </div>
