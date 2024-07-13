@@ -62,7 +62,7 @@ const Donate: React.FC = () => {
           </h1>
         </div>
         <div className="flex flex-col items-center mt-8 mb-12 px-4 w-full">
-          <div className="relative flex items-center justify-between">
+          <div className="relative flex items-center space-x-4">
             <img
               src="/tree.png"
               alt="Tree"
@@ -76,9 +76,11 @@ const Donate: React.FC = () => {
                 <div className="absolute top-1/4 -left-2 w-0 h-0 border-t-8 border-b-8 border-r-8 border-t-transparent border-b-transparent border-r-green-700"></div>
               </div>
             </div>
+          </div>
+          <div className="flex justify-center mt-4">
             <button
               onClick={toggleVideo}
-              className="ml-10 -mt-4 text-2xl font-bold text-green-700 focus:outline-none"
+              className="text-3xl font-bold text-green-700 focus:outline-none"
             >
               •••
             </button>
