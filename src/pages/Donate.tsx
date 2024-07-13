@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import Header from "../components/Header";
-import DonationModal from "../components/DonationModal";
-import { useMain } from "../contexts/MainContext";
 
 const Donate: React.FC = () => {
   const { groupId, groupName } = useParams<{
@@ -13,10 +11,7 @@ const Donate: React.FC = () => {
 
   const [treeCount, setTreeCount] = useState(1);
   const [showVideo, setShowVideo] = useState(false);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [donationId, setDonationId] = useState("");
   const navigate = useNavigate();
-  const { userId } = useMain();
 
   const frequency = "once";
   const callbackUrl = `${import.meta.env.VITE_APP_BASE_URL_FE}/donate/callback`;
@@ -28,34 +23,12 @@ const Donate: React.FC = () => {
     setTreeCount(Number(event.target.value));
   };
 
-  const handleDonateClick = async () => {
+  const handleDonateClick = () => {
     const donationUrl = `https://donate.plant-for-the-planet.org/?units=${treeCount}&frequency=${frequency}&callback_url=${encodeURIComponent(
       callbackUrl
     )}&callback_method=${callbackMethod}`;
-    
-    const donationWindow = window.open(donationUrl, "_blank");
-    
-    const checkDonationCompletion = setInterval(async () => {
-      if (donationWindow?.closed) {
-        clearInterval(checkDonationCompletion);
-        
-        try {
-          const response = await fetch(`${import.meta.env.VITE_APP_BASE_URL_BE}/donation/latest/${userId}`, {
-            headers: {
-              Authorization: `Bearer ${localStorage.getItem("jwt")}`,
-            },
-          });
-          const data = await response.json();
-          
-          if (data.success && data.data.doc) {
-            setDonationId(data.data.doc.donationId);
-            setIsModalOpen(true);
-          }
-        } catch (error) {
-          console.error("Error fetching latest donation:", error);
-        }
-      }
-    }, 1000);
+    window.open(donationUrl, "_self");
+    navigate(-1);
   };
 
   const handleCancelClick = () => {
@@ -147,14 +120,6 @@ const Donate: React.FC = () => {
             </div>
           </div>
         </div>
-        <div className="mt-4 w-full max-w-sm sm:max-w-md md:max-w-lg">
-          <button
-            onClick={() => setIsModalOpen(true)}
-            className="bg-green-700 hover:bg-green-800 text-yellow-200 font-bold py-2 px-4 rounded w-full"
-          >
-            View Latest Donation Details
-          </button>
-        </div>
       </main>
       {showVideo && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
@@ -174,11 +139,6 @@ const Donate: React.FC = () => {
           </div>
         </div>
       )}
-      <DonationModal
-        donationId={donationId}
-        isOpen={isModalOpen}
-        onRequestClose={() => setIsModalOpen(false)}
-      />
     </div>
   );
 };
