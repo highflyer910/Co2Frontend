@@ -54,7 +54,7 @@ const DonationSuccess: React.FC = () => {
           </div>
         </div>
       </main>
-      <footer className="relative w-full py-4 px-10 flex justify-between items-center">
+      <footer className="relative w-full py-4 px-10 flex justify-center items-center">
         <button onClick={handleBack} className="focus:outline-none">
           <img src="/back.svg" alt="Back" className="w-12 h-12" />
         </button>
