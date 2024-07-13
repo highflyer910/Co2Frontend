@@ -82,33 +82,39 @@ const Groups: React.FC = () => {
           </h1>
         </div>
         <div className="my-4 flex flex-col items-center w-full max-w-md px-2">
-          <div className="flex items-center justify-center w-full mb-4 flex-wrap">
-            <div className="flex flex-col flex-grow space-y-2 sm:space-y-0 sm:space-x-2 sm:flex-row items-center">
-            <img src="/tree.png" alt="Tree" className="w-36 h-36 mx-auto" />
-              <select
-                onChange={handleDropdownChange}
-                className="bg-transparent border-2 border-green-700 text-green-700 font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-green-500 w-full sm:w-auto"
-              >
-                <option value="all" className="bg-green-700 text-yellow-200">All Groups</option>
-                <option value="favourites" className="bg-green-700 text-yellow-200">Only Favorites</option>
-              </select>
-              <input
-                type="text"
-                placeholder="Search groups by name"
-                value={searchTerm}
-                onChange={handleSearchChange}
-                className="bg-transparent border-2 border-green-700 text-green-700 font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-green-500 w-full sm:w-auto"
-              />
-              <button
-                onClick={() => setShowVideo(true)}
-                className="text-green-700 text-3xl font-bold focus:outline-none"
-                aria-label="More options"
-              >
-                •••
-              </button>
-            </div>
-          </div>
-        </div>
+  <div className="flex items-center justify-center w-full mb-4 flex-wrap">
+    <div className="flex flex-col flex-grow space-y-2 sm:space-y-0 sm:space-x-2 sm:flex-row items-center">
+
+      <img src="/tree.png" alt="Tree" className="w-36 h-36 mx-auto" />
+
+      <select
+        onChange={handleDropdownChange}
+        className="bg-transparent border-2 border-green-700 text-green-700 font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-green-500 w-full sm:w-auto"
+      >
+        <option value="all" className="bg-green-700 text-yellow-200">All Groups</option>
+        <option value="favourites" className="bg-green-700 text-yellow-200">Only Favorites</option>
+      </select>
+
+      <input
+        type="text"
+        placeholder="Search groups by name"
+        value={searchTerm}
+        onChange={handleSearchChange}
+        className="bg-transparent border-2 border-green-700 text-green-700 font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-green-500 w-full sm:w-auto"
+      />
+
+      <button
+        onClick={() => setShowVideo(true)}
+        className="text-green-700 text-3xl font-bold focus:outline-none"
+        aria-label="More options"
+        style="flex-shrink: 0;"
+      >
+        •••
+      </button>
+
+    </div>
+  </div>
+</div>
 
         <div className="flex flex-col items-center space-y-3 w-full px-2 mb-8">
           {filteredGroups.map((group: Group) => (
