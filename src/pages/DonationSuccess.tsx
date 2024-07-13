@@ -31,14 +31,9 @@ const DonationSuccess: React.FC = () => {
               className="w-32 h-32 md:w-48 md:h-48"
             />
             <div className="-ml-2 md:-ml-4 w-48 md:w-64">
-              <div className="relative flex flex-col justify-center items-center border-4 rounded-lg border-green-700 p-4 shadow-lg bg-yellow-200">
-                <p className="font-body text-lg md:text-xl text-green-900 text-center mb-4">
+              <div className="relative flex justify-center items-center border-4 rounded-lg border-green-700 p-2 shadow-lg">
+                <p className="font-body text-lg md:text-xl text-shadow text-bold text-green-900 text-center">
                   Donation successfully made!
-                </p>
-                <p className="font-body text-base md:text-lg text-green-900 text-center">
-                  We appreciate your wish to engage in the process of taking
-                  steps to offset the greenhouse gas emissions caused by using
-                  your Telegram team services!
                 </p>
                 <div className="absolute top-1/4 -left-2 w-0 h-0 border-t-8 border-b-8 border-r-8 border-t-transparent border-b-transparent border-r-green-700"></div>
               </div>
