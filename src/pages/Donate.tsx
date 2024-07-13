@@ -2,6 +2,20 @@ import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import Header from "../components/Header";
 
+interface DonationDetailsOut {
+  userId: string;
+  groupId: string;
+  units: number;
+  donationId: string;
+  paymentDate: string;
+  amount: string;
+  currency: string;
+  unitType: string;
+  locationProject: string;
+  nameProject: string;
+  idProject: string;
+}
+
 const Donate: React.FC = () => {
   const { groupId, groupName } = useParams<{
     groupId: string;
@@ -11,6 +25,7 @@ const Donate: React.FC = () => {
 
   const [treeCount, setTreeCount] = useState(1);
   const [showVideo, setShowVideo] = useState(false);
+  const [donationData, setDonationData] = useState<DonationDetailsOut[]>([]);
   const navigate = useNavigate();
 
   const frequency = "once";
@@ -41,6 +56,19 @@ const Donate: React.FC = () => {
 
   useEffect(() => {
     console.log(`Group ID: ${groupId}, Group Name: ${groupName}`);
+
+    // Fetch donation data
+    const fetchDonationData = async () => {
+      try {
+        const response = await fetch(`${import.meta.env.VITE_APP_BASE_URL_BE}/donation?groupId=${groupId}`);
+        const data = await response.json();
+        setDonationData(data);
+      } catch (error) {
+        console.error("Error fetching donation data:", error);
+      }
+    };
+
+    fetchDonationData();
   }, [groupId, groupName]);
 
   return (
@@ -118,6 +146,23 @@ const Donate: React.FC = () => {
                 Go Back
               </button>
             </div>
+          </div>
+          {/* Donations details section */}
+          <div className="w-full mt-8 border-4 rounded-lg border-green-700 p-4 bg-yellow-200 shadow-lg">
+            <h3 className="font-poppins text-2xl font-bold text-green-700 mb-4">Donations Details</h3>
+            {donationData.length > 0 ? (
+              donationData.map((donation) => (
+                <div key={donation.donationId} className="mb-4">
+                  <p className="font-body text-green-900"><strong>Donation ID:</strong> {donation.donationId}</p>
+                  <p className="font-body text-green-900"><strong>Units:</strong> {donation.units}</p>
+                  <p className="font-body text-green-900"><strong>Amount:</strong> {donation.amount} {donation.currency}</p>
+                  <p className="font-body text-green-900"><strong>Project:</strong> {donation.nameProject} ({donation.locationProject})</p>
+                  <p className="font-body text-green-900"><strong>Date:</strong> {donation.paymentDate}</p>
+                </div>
+              ))
+            ) : (
+              <p className="font-body text-green-900">No donations yet.</p>
+            )}
           </div>
         </div>
       </main>
