@@ -80,7 +80,7 @@ const Donate: React.FC = () => {
             </div>
             <button
               onClick={toggleVideo}
-              className="text-3xl font-bold text-green-700 focus:outline-none absolute top-0 right-24 sm:right-32"
+              className="text-3xl font-bold text-green-700 focus:outline-none absolute top-0 right-16 md:right-20"
             >
               •••
             </button>
