@@ -11,7 +11,6 @@ const Donate: React.FC = () => {
 
   const [treeCount, setTreeCount] = useState(1);
   const [showVideo, setShowVideo] = useState(false);
-  const [donationDetails, setDonationDetails] = useState<any>(null);
   const [donationData, setDonationData] = useState<any[]>([]);
   const navigate = useNavigate();
 
@@ -46,7 +45,6 @@ const Donate: React.FC = () => {
       nameProject: data.project.name,
     };
 
-    setDonationDetails(donationDetails);
     setDonationData((prevData) => [...prevData, donationDetails]);
     navigate(callbackUrl);
   };
