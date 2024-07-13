@@ -61,7 +61,7 @@ const Donate: React.FC = () => {
             Let's GoGreen!
           </h1>
         </div>
-        <div className="flex flex-col items-center mt-8 mb-12 px-4 w-full">
+        <div className="flex flex-col items-center mt-4 mb-12 px-4 w-full">
           <div className="relative flex items-center justify-between w-full max-w-xl">
             <div className="flex items-center mr-4">
               <img
@@ -80,7 +80,7 @@ const Donate: React.FC = () => {
             </div>
             <button
               onClick={toggleVideo}
-              className="text-3xl font-bold text-green-700 focus:outline-none absolute top-0 right-8 md:right-24"
+              className="text-3xl font-bold text-green-700 focus:outline-none absolute top-0 right-6 md:right-24"
             >
               •••
             </button>
