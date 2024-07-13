@@ -80,43 +80,44 @@ const Donate: React.FC = () => {
             </div>
             <button
               onClick={toggleVideo}
-              className="text-3xl font-bold text-green-700 focus:outline-none"
-              style={{ marginTop: '-5rem' }}
+              className="text-3xl font-bold text-green-700 focus:outline-none absolute top-0 right-0"
             >
               •••
             </button>
           </div>
         </div>
-        <div className="flex flex-row items-start justify-center w-full max-w-sm sm:max-w-md md:max-w-lg space-x-2">
-          <div className="relative w-1/2 flex flex-col items-center">
-            <h2 className="absolute -top-8 text-green-700 font-body text-sm sm:text-base md:text-lg font-bold">Choose trees quantity</h2>
-            <div className="w-full border-4 rounded-3xl border-green-700 p-3 bg-yellow-200">
-              <img src="/tree1.png" alt="Tree" className="w-16 h-12 sm:w-20 sm:h-16 mx-auto mb-2" />
-              <div className="flex justify-center">
-                <input
-                  type="number"
-                  id="treeCount"
-                  value={treeCount}
-                  onChange={handleTreeCountChange}
-                  className="bg-white text-green-800 font-body py-1 px-2 rounded border-2 border-green-800 shadow-md w-16 sm:w-20 text-center"
-                  min="1"
-                />
+        <div className="flex flex-col items-center w-full max-w-sm sm:max-w-md md:max-w-lg">
+          <div className="flex flex-row items-start justify-center w-full space-x-2">
+            <div className="relative w-1/2 flex flex-col items-center">
+              <h2 className="absolute -top-8 text-green-700 font-body text-sm sm:text-base md:text-lg font-bold">Choose trees quantity</h2>
+              <div className="w-full border-4 rounded-3xl border-green-700 p-3 bg-yellow-200">
+                <img src="/tree1.png" alt="Tree" className="w-16 h-12 sm:w-20 sm:h-16 mx-auto mb-2" />
+                <div className="flex justify-center">
+                  <input
+                    type="number"
+                    id="treeCount"
+                    value={treeCount}
+                    onChange={handleTreeCountChange}
+                    className="bg-white text-green-800 font-body py-1 px-2 rounded border-2 border-green-800 shadow-md w-16 sm:w-20 text-center"
+                    min="1"
+                  />
+                </div>
               </div>
             </div>
-          </div>
-          <div className="flex flex-col items-center w-1/2">
-            <button
-              onClick={handleDonateClick}
-              className="bg-green-700 hover:bg-green-800 text-yellow-200 font-bold py-2 px-4 rounded w-full sm:w-32 md:w-36 text-xs sm:text-sm mb-2"
-            >
-              Plant!
-            </button>
-            <button
-              onClick={handleCancelClick}
-              className="bg-red-400 hover:bg-red-500 text-yellow-200 font-bold py-2 px-4 rounded w-full sm:w-32 md:w-36 text-xs sm:text-sm"
-            >
-              Go Back
-            </button>
+            <div className="flex flex-col items-center w-1/2">
+              <button
+                onClick={handleDonateClick}
+                className="bg-green-700 hover:bg-green-800 text-yellow-200 font-bold py-2 px-4 rounded w-full sm:w-32 md:w-36 text-xs sm:text-sm mb-2"
+              >
+                Plant!
+              </button>
+              <button
+                onClick={handleCancelClick}
+                className="bg-red-400 hover:bg-red-500 text-yellow-200 font-bold py-2 px-4 rounded w-full sm:w-32 md:w-36 text-xs sm:text-sm"
+              >
+                Go Back
+              </button>
+            </div>
           </div>
         </div>
       </main>
