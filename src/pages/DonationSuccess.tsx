@@ -23,7 +23,9 @@ const DonationSuccess: React.FC = () => {
         aria-hidden="true"
       />
       <Header />
-      <main className="relative flex flex-col items-center justify-center flex-grow py-16 md:pt-0 pt-0">
+      <main
+        className="relative flex flex-col items-center justify-center py-16 md:pt-0 pt-0"
+        role="main">
         <div className="w-full bg-green-700 text-yellow-200 py-3 px-4 shadow-lg">
           <h1 className="font-poppins text-3xl font-bold text-center w-full">
             GoGreen Donations
