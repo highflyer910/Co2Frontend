@@ -82,17 +82,11 @@ const Groups: React.FC = () => {
           </h1>
         </div>
         <div className="my-4 flex flex-col items-center w-full max-w-md px-2">
-          <div className="flex items-center justify-center w-full mb-4 flex-wrap relative">
+          <div className="flex items-center justify-center w-full mb-4 flex-wrap">
             <div className="w-full sm:w-auto mb-4 sm:mb-0">
               <img src="/tree.png" alt="Tree" className="w-36 h-36 mx-auto" />
             </div>
-            <button
-              onClick={() => setShowVideo(true)}
-              className="absolute top-2 right-2 bg-green-700 hover:bg-green-800 text-white font-bold py-2 px-4 rounded"
-            >
-              ...
-            </button>
-            <div className="flex flex-col flex-grow space-y-2 sm:space-y-0 sm:space-x-2 sm:flex-row">
+            <div className="flex flex-col flex-grow space-y-2 sm:space-y-0 sm:space-x-2 sm:flex-row items-center">
               <select
                 onChange={handleDropdownChange}
                 className="bg-transparent border-2 border-green-700 text-green-700 font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-green-500 w-full sm:w-auto"
@@ -107,6 +101,13 @@ const Groups: React.FC = () => {
                 onChange={handleSearchChange}
                 className="bg-transparent border-2 border-green-700 text-green-700 font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-green-500 w-full sm:w-auto"
               />
+              <button
+                onClick={() => setShowVideo(true)}
+                className="text-green-700 text-3xl focus:outline-none"
+                aria-label="More options"
+              >
+                &#8230;
+              </button>
             </div>
           </div>
         </div>
