@@ -78,7 +78,7 @@ const Donate: React.FC = () => {
             </div>
             <button
               onClick={toggleVideo}
-              className="ml-4 text-2xl font-bold text-green-700 focus:outline-none"
+              className="flex items-start ml-4 mt-2 text-2xl font-bold text-green-700 focus:outline-none"
             >
               •••
             </button>
