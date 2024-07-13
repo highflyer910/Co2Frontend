@@ -82,10 +82,16 @@ const Groups: React.FC = () => {
           </h1>
         </div>
         <div className="my-4 flex flex-col items-center w-full max-w-md px-2">
-          <div className="flex items-center justify-center w-full mb-4 flex-wrap">
+          <div className="flex items-center justify-center w-full mb-4 flex-wrap relative">
             <div className="w-full sm:w-auto mb-4 sm:mb-0">
               <img src="/tree.png" alt="Tree" className="w-36 h-36 mx-auto" />
             </div>
+            <button
+              onClick={() => setShowVideo(true)}
+              className="absolute top-2 right-2 bg-green-700 hover:bg-green-800 text-white font-bold py-2 px-4 rounded"
+            >
+              ...
+            </button>
             <div className="flex flex-col flex-grow space-y-2 sm:space-y-0 sm:space-x-2 sm:flex-row">
               <select
                 onChange={handleDropdownChange}
@@ -154,7 +160,7 @@ const Groups: React.FC = () => {
               <div className="bg-yellow-200 p-4 rounded-lg shadow-lg w-full max-w-xl h-[80vh] flex flex-col">
                 <div className="flex-grow overflow-hidden rounded-lg">
                   <video className="w-full h-full object-cover" controls autoPlay>
-                    <source src="/info.mp4" type="video/mp4" />
+                    <source src="/emissions.mp4" type="video/mp4" />
                     Your browser does not support the video tag.
                   </video>
                 </div>
