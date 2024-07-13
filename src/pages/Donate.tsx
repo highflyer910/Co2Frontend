@@ -62,7 +62,7 @@ const Donate: React.FC = () => {
           </h1>
         </div>
         <div className="flex flex-col items-center mt-8 mb-12 px-4 w-full">
-          <div className="relative flex items-center justify-between w-full max-w-xs">
+          <div className="relative flex items-center justify-between w-full">
             <div className="flex items-center mr-8">
               <img
                 src="/tree.png"
@@ -87,7 +87,7 @@ const Donate: React.FC = () => {
             </button>
           </div>
         </div>
-        <div className="flex items-start justify-center w-full max-w-sm sm:max-w-md md:max-w-lg space-x-2">
+        <div className="flex flex-row items-start justify-center w-full max-w-sm sm:max-w-md md:max-w-lg space-x-2">
           <div className="relative w-1/2 flex flex-col items-center">
             <h2 className="absolute -top-8 text-green-700 font-body text-sm sm:text-base md:text-lg font-bold">Choose trees quantity</h2>
             <div className="w-full border-4 rounded-3xl border-green-700 p-3 bg-yellow-200">
