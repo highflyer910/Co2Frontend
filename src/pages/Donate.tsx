@@ -22,7 +22,7 @@ const Donate: React.FC = () => {
 
   const handleDonateClick = async () => {
     const context = "don_1iou8Ct9dJe4hElBTymASeHM"; // Simulated context ID
-    const donStatus = "error"; // Changed to "error" to navigate to DonationError page
+    const donStatus = "success"; // You can change this to simulate different statuses (e.g., "error")
 
     // Simulate fetching donation details
     const response = await fetch(
@@ -75,7 +75,7 @@ const Donate: React.FC = () => {
       />
       <Header />
       <main
-        className="relative flex flex-col items-center justify-center py-16 md:pt-0 pt-0 min-h-screen"
+        className="relative flex flex-col items-center justify-center py-16 md:pt-0 pt-0"
         role="main"
       >
         <div className="w-full bg-green-700 text-yellow-200 py-3 px-4 shadow-lg">
@@ -100,12 +100,12 @@ const Donate: React.FC = () => {
                 </div>
               </div>
             </div>
-            <img
-              src="/speech_bubble.svg"
-              alt="Open Video"
-              className="w-12 h-12 cursor-pointer absolute top-0 right-4 md:right-24"
+            <button
               onClick={toggleVideo}
-            />
+              className="text-3xl font-bold text-green-700 focus:outline-none absolute top-0 right-4 md:right-24"
+            >
+              •••
+            </button>
           </div>
         </div>
         <div className="flex flex-col items-center w-full max-w-sm sm:max-w-md md:max-w-lg">
