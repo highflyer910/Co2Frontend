@@ -87,6 +87,7 @@ const Groups: React.FC = () => {
               <img src="/tree.png" alt="Tree" className="w-36 h-36 mx-auto" />
             </div>
             <div className="flex flex-col flex-grow space-y-2 sm:space-y-0 sm:space-x-2 sm:flex-row items-center">
+            <img src="/tree.png" alt="Tree" className="w-36 h-36 mx-auto" />
               <select
                 onChange={handleDropdownChange}
                 className="bg-transparent border-2 border-green-700 text-green-700 font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-green-500 w-full sm:w-auto"
