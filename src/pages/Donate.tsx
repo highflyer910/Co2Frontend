@@ -23,7 +23,6 @@ const Donate: React.FC = () => {
   const handleDonateClick = async () => {
     const context = "don_1iou8Ct9dJe4hElBTymASeHM"; // Simulated context ID
     const donStatus = "success"; // You can change this to simulate different statuses (e.g., "error")
-    const callbackUrl = `/donate/callback?context=${context}&don_status=${donStatus}`;
 
     // Simulate fetching donation details
     const response = await fetch(
@@ -46,7 +45,12 @@ const Donate: React.FC = () => {
     };
 
     setDonationData((prevData) => [...prevData, donationDetails]);
-    navigate(callbackUrl);
+
+    if (donStatus === "success") {
+      navigate("/donate/success");
+    } else {
+      navigate("/donate/error");
+    }
   };
 
   const handleCancelClick = () => {

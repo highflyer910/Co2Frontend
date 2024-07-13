@@ -8,6 +8,8 @@ import DonationCallback from "./pages/DonationCallback";
 import Groups from "./pages/Groups";
 import Limit from "./pages/LimitPage";
 import GroupDetails from "./pages/GroupDetails"; // Import the new GroupDetails component
+import DonationSuccess from "./pages/DonationSuccess"; // Import the DonationSuccess component
+import DonationError from "./pages/DonationError"; // Import the DonationError component
 
 function RouterCustom() {
   const { jwt } = useMain();
@@ -43,6 +45,15 @@ function RouterCustom() {
         <Route
           path="/donate/callback"
           element={jwt ? <DonationCallback /> : <Navigate to="/landingPage" />}
+        />
+
+        <Route
+          path="/donate/success"
+          element={jwt ? <DonationSuccess /> : <Navigate to="/landingPage" />}
+        />
+        <Route
+          path="/donate/error"
+          element={jwt ? <DonationError /> : <Navigate to="/landingPage" />}
         />
 
         {/* Public routes accessible only to non-authenticated users */}
