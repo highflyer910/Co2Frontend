@@ -106,7 +106,7 @@ const Groups: React.FC = () => {
                 className="text-green-700 text-5xl focus:outline-none"
                 aria-label="More options"
               >
-                &#8230;
+                •••
               </button>
             </div>
           </div>
