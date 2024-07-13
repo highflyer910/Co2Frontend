@@ -46,7 +46,7 @@ const DonationSuccess: React.FC = () => {
             </div>
           </div>
         </div>
-        <div className="w-full max-w-2xl text-center px-4 mt-8">
+        <div className="w-full max-w-xl text-center px-4 mt-8">
           <div className="border-4 border-green-700 rounded-lg p-4 bg-yellow-200">
             <p className="font-body text-base sm:text-lg text-green-800">
               We appreciate your wish to engage in the process of taking steps to offset the greenhouse gas emissions caused by using your Telegram team services!
@@ -54,7 +54,7 @@ const DonationSuccess: React.FC = () => {
           </div>
         </div>
       </main>
-      <footer className="relative w-full py-4 px-8 flex justify-between items-center">
+      <footer className="relative w-full py-4 px-10 flex justify-between items-center">
         <button onClick={handleBack} className="focus:outline-none">
           <img src="/back.svg" alt="Back" className="w-12 h-12" />
         </button>
