@@ -103,7 +103,7 @@ const Groups: React.FC = () => {
               />
               <button
                 onClick={() => setShowVideo(true)}
-                className="text-green-700 text-3xl focus:outline-none"
+                className="text-green-700 text-5xl focus:outline-none"
                 aria-label="More options"
               >
                 &#8230;
