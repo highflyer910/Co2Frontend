@@ -61,24 +61,26 @@ const Donate: React.FC = () => {
             Let's GoGreen!
           </h1>
         </div>
-        <div className="flex flex-col items-center mt-8 mb-12 px-4 w-full">
-          <div className="relative flex items-center justify-between">
-            <img
-              src="/tree.png"
-              alt="Tree"
-              className="w-20 h-20 sm:w-24 sm:h-24"
-            />
-            <div className="-ml-2 w-40 sm:w-48">
-              <div className="relative flex justify-center items-center border-4 rounded-lg border-green-700 p-2 shadow-lg bg-yellow-200">
-                <p className="font-body text-xs sm:text-sm text-shadow text-bold text-green-900 text-center">
-                  Help {groupName} grow their forest! Donate!
-                </p>
-                <div className="absolute top-1/4 -left-2 w-0 h-0 border-t-8 border-b-8 border-r-8 border-t-transparent border-b-transparent border-r-green-700"></div>
+        <div className="flex flex-col items-center mt-4 mb-12 px-4 w-full">
+          <div className="relative flex items-center justify-between w-full">
+            <div className="flex items-center space-x-4">
+              <img
+                src="/tree.png"
+                alt="Tree"
+                className="w-20 h-20 sm:w-24 sm:h-24"
+              />
+              <div className="-ml-2 w-40 sm:w-48">
+                <div className="relative flex justify-center items-center border-4 rounded-lg border-green-700 p-2 shadow-lg bg-yellow-200">
+                  <p className="font-body text-xs sm:text-sm text-shadow text-bold text-green-900 text-center">
+                    Help {groupName} grow their forest! Donate!
+                  </p>
+                  <div className="absolute top-1/4 -left-2 w-0 h-0 border-t-8 border-b-8 border-r-8 border-t-transparent border-b-transparent border-r-green-700"></div>
+                </div>
               </div>
             </div>
             <button
               onClick={toggleVideo}
-              className="ml-4 text-2xl font-bold text-green-700 focus:outline-none"
+              className="text-2xl font-bold text-green-700 focus:outline-none mt-1"
             >
               •••
             </button>
