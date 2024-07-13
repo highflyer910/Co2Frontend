@@ -17,6 +17,7 @@ const DonationSuccess: React.FC = () => {
             GoGreen Donations
           </h1>
         </div>
+        <div className="relative flex items-center justify-between w-full max-w-xl">
         <div className="relative flex items-center">
             <img
               src="/tree.png"
@@ -26,12 +27,19 @@ const DonationSuccess: React.FC = () => {
             <div className="-ml-2 md:-ml-4 w-48 md:w-64">
               <div className="relative flex justify-center items-center border-4 rounded-lg border-green-700 p-2 shadow-lg">
                 <p className="font-body text-lg md:text-xl text-shadow text-bold text-green-900 text-center">
-                  Start making a difference today!
+                  Donation successfully made!
                 </p>
                 <div className="absolute top-1/4 -left-2 w-0 h-0 border-t-8 border-b-8 border-r-8 border-t-transparent border-b-transparent border-r-green-700"></div>
               </div>
             </div>
           </div>
+          <button
+              onClick={toggleVideo}
+              className="text-3xl font-bold text-green-700 focus:outline-none absolute top-0 right-4 md:right-24"
+            >
+              •••
+            </button>
+            </div>
         
       </main>
     </div>
