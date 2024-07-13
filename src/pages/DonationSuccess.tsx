@@ -48,7 +48,7 @@ const DonationSuccess: React.FC = () => {
           </div>
         </div>
       </main>
-      <footer className="flex justify-between w-full max-w-xl mx-auto mb-8 px-4">
+      <footer className="flex justify-between w-full max-w-xl mx-auto mb-8 px-4 z-10 relative">
         <img
           src="/back.svg"
           alt="Back"
