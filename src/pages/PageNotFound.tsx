@@ -26,7 +26,7 @@ const PageNotFound: React.FC = () => {
             <img
               src="/fail.png"
               alt="Tree"
-              className="w-32 h-32 md:w-48 md:h-48"
+              className="w-32 h-36 md:w-48 md:h-48"
             />
             <div className="-ml-2 md:-ml-4 w-48 md:w-64">
               <div className="relative flex justify-center items-center border-4 rounded-lg border-green-700 p-2 shadow-lg bg-yellow-200">
