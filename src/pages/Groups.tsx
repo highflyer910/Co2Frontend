@@ -13,6 +13,7 @@ const Groups: React.FC = () => {
   const [onlyFavourite, setOnlyFavourite] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const [showVideo, setShowVideo] = useState(false);
+  const [videoSource, setVideoSource] = useState("");
 
   const [favourites, setFavourites] = useLocalStorageState(
     {}, // Initial state
@@ -61,6 +62,11 @@ const Groups: React.FC = () => {
     console.log("Filtered groups:", filteredGroups);
   }, [filteredGroups]);
 
+  const handleShowVideo = (source: string) => {
+    setVideoSource(source);
+    setShowVideo(true);
+  };
+
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Error: {error.message}</div>;
 
@@ -100,7 +106,7 @@ const Groups: React.FC = () => {
                 className="bg-transparent border-2 border-green-700 text-green-700 font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-green-500 flex-grow min-w-[120px]"
               />
               <button
-                onClick={() => setShowVideo(true)}
+                onClick={() => handleShowVideo("/emissions.mp4")}
                 className="text-green-700 text-3xl font-bold focus:outline-none flex-shrink-0"
                 aria-label="More options"
               >
@@ -148,7 +154,7 @@ const Groups: React.FC = () => {
           ))}
 
           <button
-            onClick={() => setShowVideo(true)}
+            onClick={() => handleShowVideo("/info.mp4")}
             className="mt-4 bg-green-700 hover:bg-green-800 text-white font-bold py-2 px-4 rounded"
           >
             CLICK HERE TO KNOW MORE
@@ -159,7 +165,7 @@ const Groups: React.FC = () => {
               <div className="bg-yellow-200 p-4 rounded-lg shadow-lg w-full max-w-xl h-[80vh] flex flex-col">
                 <div className="flex-grow overflow-hidden rounded-lg">
                   <video className="w-full h-full object-cover" controls autoPlay>
-                    <source src="/info.mp4" type="video/mp4" />
+                    <source src={videoSource} type="video/mp4" />
                     Your browser does not support the video tag.
                   </video>
                 </div>
