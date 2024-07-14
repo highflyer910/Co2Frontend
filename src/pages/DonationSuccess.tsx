@@ -59,10 +59,10 @@ const DonationSuccess: React.FC = () => {
       <footer className="relative w-full py-4 px-4 sm:px-8">
         <div className="max-w-md mx-auto flex justify-between items-center">
             <button onClick={handleBack} className="focus:outline-none">
-            <img src="/back.svg" alt="Back" className="w-12 h-12" />
+            <img src="/back.svg" alt="Back" className="w-10 h-10" />
             </button>
             <button onClick={toggleVideo} className="focus:outline-none">
-             <img src="/speech_bubble.svg" alt="Open Video" className="w-12 h-12" />
+             <img src="/speech_bubble.svg" alt="Open Video" className="w-10 h-10" />
             </button>
         </div>
       </footer>
