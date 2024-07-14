@@ -40,7 +40,7 @@ const PageNotFound: React.FC = () => {
         </div>
         <Link 
           to="/" 
-          className="mt-4 mb-8 bg-green-700 hover:bg-green-800 text-white font-bold py-2 px-4 rounded"
+          className="mt-4 mb-10 bg-green-700 hover:bg-green-800 text-white font-bold py-2 px-4 rounded"
         >
           Go back to Home!
         </Link>
