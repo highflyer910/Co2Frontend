@@ -21,11 +21,20 @@ const PageNotFound: React.FC = () => {
       </div>
 
       <div className="relative z-10 flex flex-col items-center justify-center mt-8">
-        <div className="text-center mb-4">
-          <img src="/fail.png" alt="Fail" className="w-36 h-36 mx-auto mb-4" />
-          <div className="relative inline-block">
-            <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-yellow-200 border border-green-700 rounded-lg p-4 shadow-lg">
-              <p className="text-xl font-bold text-green-900">Ops! Page not found!</p>
+      <div className="relative flex items-center justify-center w-full max-w-xl mt-8">
+          <div className="relative flex items-center">
+            <img
+              src="/fail.png"
+              alt="Tree"
+              className="w-32 h-32 md:w-48 md:h-48"
+            />
+            <div className="-ml-2 md:-ml-4 w-48 md:w-64">
+              <div className="relative flex justify-center items-center border-4 rounded-lg border-green-700 p-2 shadow-lg bg-yellow-200">
+                <p className="font-body text-lg md:text-xl text-shadow text-bold text-green-900 text-center">
+                  Ops! Page not found!
+                </p>
+                <div className="absolute top-1/4 -left-2 w-0 h-0 border-t-8 border-b-8 border-r-8 border-t-transparent border-b-transparent border-r-green-700"></div>
+              </div>
             </div>
           </div>
         </div>
