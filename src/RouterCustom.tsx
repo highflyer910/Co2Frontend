@@ -7,9 +7,9 @@ import LandingPage from "./pages/LandingPage";
 import DonationCallback from "./pages/DonationCallback";
 import Groups from "./pages/Groups";
 import Limit from "./pages/LimitPage";
-import GroupDetails from "./pages/GroupDetails"; // Import the new GroupDetails component
-import DonationSuccess from "./pages/DonationSuccess"; // Import the DonationSuccess component
-import DonationError from "./pages/DonationError"; // Import the DonationError component
+import GroupDetails from "./pages/GroupDetails";
+import DonationSuccess from "./pages/DonationSuccess";
+import DonationError from "./pages/DonationError";
 
 function RouterCustom() {
   const { jwt } = useMain();
@@ -30,9 +30,7 @@ function RouterCustom() {
         />
         <Route
           path="/estimatedemissions"
-          element={
-            jwt ? <EstimatedEmissions /> : <Navigate to="/landingPage" />
-          }
+          element={jwt ? <EstimatedEmissions /> : <Navigate to="/landingPage" />}
         />
         <Route
           path="/limit/:groupId/:groupName/:groupLimits"
@@ -46,7 +44,6 @@ function RouterCustom() {
           path="/donate/callback"
           element={jwt ? <DonationCallback /> : <Navigate to="/landingPage" />}
         />
-
         <Route
           path="/donate/success"
           element={jwt ? <DonationSuccess /> : <Navigate to="/landingPage" />}
