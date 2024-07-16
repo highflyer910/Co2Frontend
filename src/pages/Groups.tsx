@@ -103,7 +103,7 @@ const Groups: React.FC = () => {
                 placeholder="Search groups"
                 value={searchTerm}
                 onChange={handleSearchChange}
-                className="bg-transparent border-2 border-green-700 text-green-700 font-bold py-2 px-2 rounded focus:outline-none focus:ring-2 focus:ring-green-500 flex-grow min-w-[120px]"
+                className="bg-transparent border-2 border-green-700 text-green-700 font-bold py-2 px-2 rounded focus:outline-none focus:ring-2 focus:ring-green-500 flex-grow min-w-[100px]"
               />
               <button
                 onClick={() => handleShowVideo("/emissions.mp4")}
