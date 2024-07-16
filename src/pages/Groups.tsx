@@ -88,33 +88,33 @@ const Groups: React.FC = () => {
           </h1>
         </div>
         <div className="my-4 w-full max-w-xl px-2">
-  <div className="flex items-center justify-center w-full mb-4">
-    <div className="flex items-center justify-between w-full space-x-2">
-      <img src="/tree.png" alt="Tree" className="w-10 h-10 flex-shrink-0" />
-      <select
-        onChange={handleDropdownChange}
-        className="bg-transparent border-2 border-green-700 text-green-700 font-bold py-2 px-2 rounded focus:outline-none focus:ring-2 focus:ring-green-500 flex-grow min-w-[100px] max-w-[130px] text-sm"
-      >
-        <option value="all" className="bg-green-700 text-yellow-200">All Groups</option>
-        <option value="favourites" className="bg-green-700 text-yellow-200">Only Favorites</option>
-      </select>
-      <input
-        type="text"
-        placeholder="Search groups"
-        value={searchTerm}
-        onChange={handleSearchChange}
-        className="bg-transparent border-2 border-green-700 text-green-700 font-bold py-2 px-2 rounded focus:outline-none focus:ring-2 focus:ring-green-500 flex-grow min-w-[80px] max-w-[120px] text-sm"
-      />
-      <button
-        onClick={() => handleShowVideo("/emissions.mp4")}
-        className="text-green-700 text-3xl font-bold focus:outline-none flex-shrink-0"
-        aria-label="More options"
-      >
-        <img src="/speech_bubble.svg" alt="Open Video" className="w-6 h-6" />
-      </button>
-    </div>
-  </div>
-</div>
+          <div className="flex items-center justify-center w-full mb-4">
+            <div className="flex items-center justify-between w-full space-x-2">
+              <img src="/tree.png" alt="Tree" className="w-12 h-12 flex-shrink-0" />
+              <select
+              onChange={handleDropdownChange}
+              className="bg-transparent border-2 border-green-700 text-green-700 font-bold py-2 px-2 rounded focus:outline-none focus:ring-2 focus:ring-green-500 flex-grow min-w-[100px] max-w-[130px] text-sm"
+              >
+                <option value="all" className="bg-green-700 text-yellow-200">All Groups</option>
+                <option value="favourites" className="bg-green-700 text-yellow-200">Only Favorites</option>
+              </select>
+              <input
+              type="text"
+              placeholder="Search groups"
+              value={searchTerm}
+              onChange={handleSearchChange}
+              className="bg-transparent border-2 border-green-700 text-green-700 font-bold py-2 px-2 rounded focus:outline-none focus:ring-2 focus:ring-green-500 flex-grow min-w-[80px] max-w-[120px] text-sm"
+              />
+              <button
+              onClick={() => handleShowVideo("/emissions.mp4")}
+              className="text-green-700 text-3xl font-bold focus:outline-none flex-shrink-0"
+              aria-label="More options"
+              >
+              <img src="/speech_bubble.svg" alt="Open Video" className="w-6 h-6" />
+              </button>
+            </div>
+          </div>
+        </div>
 
         <div className="flex flex-col items-center space-y-3 w-full px-2 mb-8">
           {filteredGroups.map((group: Group) => (
