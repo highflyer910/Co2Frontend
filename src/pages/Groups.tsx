@@ -110,7 +110,7 @@ const Groups: React.FC = () => {
                 className="text-green-700 text-3xl font-bold focus:outline-none flex-shrink-0"
                 aria-label="More options"
               >
-                •••
+                <img src="/speech_bubble.svg" alt="Open Video" className="w-4 h-4" />
               </button>
             </div>
           </div>
