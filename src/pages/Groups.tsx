@@ -103,14 +103,14 @@ const Groups: React.FC = () => {
                 placeholder="Search groups"
                 value={searchTerm}
                 onChange={handleSearchChange}
-                className="bg-transparent border-2 border-green-700 text-green-700 font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-green-500 flex-grow min-w-[120px]"
+                className="bg-transparent border-2 border-green-700 text-green-700 font-bold py-2 px-2 rounded focus:outline-none focus:ring-2 focus:ring-green-500 flex-grow min-w-[120px]"
               />
               <button
                 onClick={() => handleShowVideo("/emissions.mp4")}
                 className="text-green-700 text-3xl font-bold focus:outline-none flex-shrink-0"
                 aria-label="More options"
               >
-                <img src="/speech_bubble.svg" alt="Open Video" className="w-4 h-4" />
+                <img src="/speech_bubble.svg" alt="Open Video" className="w-6 h-6" />
               </button>
             </div>
           </div>
