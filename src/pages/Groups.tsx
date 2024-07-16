@@ -93,7 +93,7 @@ const Groups: React.FC = () => {
               <img src="/tree.png" alt="Tree" className="w-12 h-12 flex-shrink-0" />
               <select
                 onChange={handleDropdownChange}
-                className="bg-transparent border-2 border-green-700 text-green-700 font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-green-500 flex-grow min-w-[120px]"
+                className="bg-transparent border-2 border-green-700 text-green-700 font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-green-500 flex-grow min-w-[80px] max-w-[150px]"
               >
                 <option value="all" className="bg-green-700 text-yellow-200">All Groups</option>
                 <option value="favourites" className="bg-green-700 text-yellow-200">Only Favorites</option>
