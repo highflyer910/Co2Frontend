@@ -104,7 +104,7 @@ const Donate: React.FC = () => {
               onClick={toggleVideo}
               className="text-3xl font-bold text-green-700 focus:outline-none absolute top-0 right-4 md:right-24"
             >
-              •••
+              <img src="/speech_bubble.svg" alt="Open Video" className="w-10 h-10" />
             </button>
           </div>
         </div>
