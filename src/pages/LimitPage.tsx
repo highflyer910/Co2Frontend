@@ -110,10 +110,20 @@ const Limit: React.FC = () => {
 
         <div className="my-4">
           <div className="flex items-center mb-4">
+            <div className="relative">
+              <img
+                src="/tree.png"
+                alt="Tree"
+                className="h-16 w-16"
+              />
+              <div className="absolute top-0 left-20 bg-white text-black p-2 rounded shadow">
+                Set CO2 cap
+              </div>
+            </div>
             <input
               type="number"
-              className="rounded-l-lg p-2 border-t mr-0 border-b border-l text-gray-800 border-gray-200 bg-white"
-              placeholder="Enter limit value in KB"
+              className="rounded-l-lg p-2 border-t mr-0 border-b border-l text-gray-800 border-gray-200 bg-white ml-4"
+              placeholder="CO2"
               value={
                 limitValue !== null && limitValue !== -1
                   ? limitValue.toString()
