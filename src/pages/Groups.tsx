@@ -58,6 +58,10 @@ const Groups: React.FC = () => {
     navigate(`/donate/${groupId}/${encodeURIComponent(groupName)}`);
   };
 
+  const handleLimitClick = (groupId: string, groupName: string, groupLimits: string) => {
+    navigate(`/limit/${groupId}/${encodeURIComponent(groupName)}/${encodeURIComponent(groupLimits)}`);
+  };
+
   useEffect(() => {
     console.log("Filtered groups:", filteredGroups);
   }, [filteredGroups]);
@@ -146,7 +150,10 @@ const Groups: React.FC = () => {
                 >
                   Donate
                 </button>
-                <button className="bg-green-700 hover:bg-green-800 text-white font-bold py-2 px-6 mx-2 my-2 rounded w-full sm:w-auto">
+                <button
+                  onClick={() => handleLimitClick(group.groupId, group.groupName, "SomeGroupLimits")}
+                  className="bg-green-700 hover:bg-green-800 text-white font-bold py-2 px-6 mx-2 my-2 rounded w-full sm:w-auto"
+                >
                   Limits
                 </button>
               </div>
