@@ -108,16 +108,21 @@ const Limit: React.FC = () => {
           </h1>
         </div>
 
-        <div className="my-8">
-          <div className="flex items-center mb-4 relative">
-            <div className="relative">
+        <div className="flex flex-col items-center mt-16 mb-12 px-4 w-full">
+          <div className="relative flex items-center justify-between w-full max-w-xl">
+            <div className="flex items-center mr-4">
               <img
                 src="/tree.png"
                 alt="Tree"
-                className="h-16 w-16"
+                className="w-20 h-20 sm:w-24 sm:h-24"
               />
-              <div className="absolute top-[-2.5rem] left-[2.5rem] bg-white text-black p-2 rounded shadow">
-                Set CO2 cap
+              <div className="-ml-2 w-40 sm:w-48">
+                <div className="relative flex justify-center items-center border-4 rounded-lg border-green-700 p-2 shadow-lg bg-yellow-200">
+                  <p className="font-body text-xs sm:text-sm text-shadow text-bold text-green-900 text-center">
+                    Set CO2 cap
+                  </p>
+                  <div className="absolute top-1/4 -left-2 w-0 h-0 border-t-8 border-b-8 border-r-8 border-t-transparent border-b-transparent border-r-green-700"></div>
+                </div>
               </div>
             </div>
             <input
@@ -140,13 +145,13 @@ const Limit: React.FC = () => {
           </div>
           <button
             onClick={handleDeleteLimit}
-            className="bg-red-400 hover:bg-red-500 text-white font-bold py-2 px-4 rounded"
+            className="bg-red-400 hover:bg-red-500 text-white font-bold py-2 px-4 rounded mt-4"
           >
             Delete Limit
           </button>
           <button
             onClick={() => navigate(-1)}
-            className="bg-gray-400 hover:bg-gray-500 text-white font-bold py-2 px-4 rounded ml-2"
+            className="bg-gray-400 hover:bg-gray-500 text-white font-bold py-2 px-4 rounded ml-2 mt-4"
           >
             Go Back
           </button>
