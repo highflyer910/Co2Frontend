@@ -112,8 +112,8 @@ const Limit: React.FC = () => {
           <div className="relative flex items-center justify-between w-full max-w-xl">
             <div className="flex items-center">
               <div className="relative mr-4">
-                <div className="absolute -top-12 left-0 w-32">
-                  <div className="relative flex justify-center items-center border-4 rounded-md border-green-700 p-2 shadow-lg bg-yellow-200">
+                <div className="absolute -top-12 left-0 w-40">
+                  <div className="relative flex justify-center w-10 items-center border-4 rounded-md border-green-700 p-2 shadow-lg bg-yellow-200">
                     <p className="font-body text-xs sm:text-sm text-shadow text-bold text-green-900 text-center">
                       Set CO2 cap
                     </p>
