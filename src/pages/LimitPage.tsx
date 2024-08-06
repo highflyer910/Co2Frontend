@@ -110,36 +110,40 @@ const Limit: React.FC = () => {
 
         <div className="flex flex-col items-center mt-16 mb-12 px-4 w-full">
           <div className="relative flex items-center justify-between w-full max-w-xl">
-            <div className="flex items-center mr-4 relative">
-              <img
-                src="/tree.png"
-                alt="Tree"
-                className="w-20 h-20 sm:w-24 sm:h-24"
-              />
-              <div className="absolute -top-16 left-0 w-16 h-16 flex justify-center items-center border-4 rounded-lg border-green-700 p-2 shadow-lg bg-yellow-200">
-                <p className="font-body text-xs sm:text-sm text-shadow text-bold text-green-900 text-center">
-                  Set CO2 cap
-                </p>
-                <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-t-8 border-b-8 border-l-8 border-t-transparent border-b-transparent border-l-green-700"></div>
+            <div className="flex items-center">
+              <div className="relative mr-4">
+                <div className="absolute -top-12 left-0 w-48">
+                  <div className="relative flex justify-center items-center border-4 rounded-md border-green-700 p-2 shadow-lg bg-yellow-200">
+                    <p className="font-body text-xs sm:text-sm text-shadow text-bold text-green-900 text-center">
+                      Set CO2 cap
+                    </p>
+                    <div className="absolute -bottom-2 left-4 w-0 h-0 border-l-8 border-r-8 border-t-8 border-l-transparent border-r-transparent border-t-green-700"></div>
+                  </div>
+                </div>
+                <img
+                  src="/tree.png"
+                  alt="Tree"
+                  className="w-20 h-20 sm:w-24 sm:h-24"
+                />
               </div>
+              <input
+                type="number"
+                className="rounded-l-lg p-2 border-t mr-0 border-b border-l text-gray-800 border-gray-200 bg-white"
+                placeholder="CO2"
+                value={
+                  limitValue !== null && limitValue !== -1
+                    ? limitValue.toString()
+                    : ""
+                }
+                onChange={(e) => setLimitValue(Number(e.target.value))}
+              />
+              <button
+                onClick={handleSetLimit}
+                className={`px-4 p-2 rounded-r-lg text-white border border-r-0 bg-blue-500 hover:bg-blue-400`}
+              >
+                Set Limit
+              </button>
             </div>
-            <input
-              type="number"
-              className="rounded-l-lg p-2 border-t mr-0 border-b border-l text-gray-800 border-gray-200 bg-white ml-4"
-              placeholder="CO2"
-              value={
-                limitValue !== null && limitValue !== -1
-                  ? limitValue.toString()
-                  : ""
-              }
-              onChange={(e) => setLimitValue(Number(e.target.value))}
-            />
-            <button
-              onClick={handleSetLimit}
-              className={`px-4 p-2 rounded-r-lg text-white border border-r-0 bg-blue-500 hover:bg-blue-400`}
-            >
-              Set Limit
-            </button>
           </div>
           <button
             onClick={handleDeleteLimit}
