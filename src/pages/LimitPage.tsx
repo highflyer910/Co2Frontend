@@ -108,15 +108,15 @@ const Limit: React.FC = () => {
           </h1>
         </div>
 
-        <div className="my-4">
-          <div className="flex items-center mb-4">
+        <div className="my-8">
+          <div className="flex items-center mb-4 relative">
             <div className="relative">
               <img
                 src="/tree.png"
                 alt="Tree"
                 className="h-16 w-16"
               />
-              <div className="absolute top-0 left-20 bg-white text-black p-2 rounded shadow">
+              <div className="absolute top-[-2.5rem] left-[2.5rem] bg-white text-black p-2 rounded shadow">
                 Set CO2 cap
               </div>
             </div>
