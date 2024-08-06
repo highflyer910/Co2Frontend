@@ -110,19 +110,17 @@ const Limit: React.FC = () => {
 
         <div className="flex flex-col items-center mt-16 mb-12 px-4 w-full">
           <div className="relative flex items-center justify-between w-full max-w-xl">
-            <div className="flex items-center mr-4">
+            <div className="flex items-center mr-4 relative">
               <img
                 src="/tree.png"
                 alt="Tree"
                 className="w-20 h-20 sm:w-24 sm:h-24"
               />
-              <div className="-ml-2 w-40 sm:w-48">
-                <div className="relative flex justify-center items-center border-4 rounded-lg border-green-700 p-2 shadow-lg bg-yellow-200">
-                  <p className="font-body text-xs sm:text-sm text-shadow text-bold text-green-900 text-center">
-                    Set CO2 cap
-                  </p>
-                  <div className="absolute top-1/4 -left-2 w-0 h-0 border-t-8 border-b-8 border-r-8 border-t-transparent border-b-transparent border-r-green-700"></div>
-                </div>
+              <div className="absolute -top-16 left-0 w-16 h-16 flex justify-center items-center border-4 rounded-lg border-green-700 p-2 shadow-lg bg-yellow-200">
+                <p className="font-body text-xs sm:text-sm text-shadow text-bold text-green-900 text-center">
+                  Set CO2 cap
+                </p>
+                <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-t-8 border-b-8 border-l-8 border-t-transparent border-b-transparent border-l-green-700"></div>
               </div>
             </div>
             <input
