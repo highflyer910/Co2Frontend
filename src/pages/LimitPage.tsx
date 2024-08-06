@@ -104,7 +104,7 @@ const Limit: React.FC = () => {
       <main className="relative flex flex-col items-center justify-center md:pt-0 pt-0">
         <div className="w-full bg-green-700 text-yellow-200 py-3 px-4 shadow-lg">
           <h1 className="font-poppins text-3xl font-bold text-center">
-            Limit Group Name: {groupName}
+            GoGreen Caps
           </h1>
         </div>
 
@@ -123,7 +123,7 @@ const Limit: React.FC = () => {
             />
             <button
               onClick={handleSetLimit}
-              className={`px-4 p-2 rounded-r-lg text-white border border-r-0  bg-blue-500 hover:bg-blue-400`}
+              className={`px-4 p-2 rounded-r-lg text-white border border-r-0 bg-blue-500 hover:bg-blue-400`}
             >
               Set Limit
             </button>
