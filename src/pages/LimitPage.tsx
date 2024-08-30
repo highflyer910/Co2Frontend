@@ -172,7 +172,7 @@ const Limit: React.FC = () => {
           <img
             src="/co2.png"
             alt="CO2"
-            className="mt-6 mx-auto w-52 h-52"
+            className="mt-6 mx-auto w-52 h-51"
           />
         </div>
         {responseMessage && (
