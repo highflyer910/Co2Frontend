@@ -114,9 +114,9 @@ const Limit: React.FC = () => {
           </h1>
         </div>
 
-        <div className="flex flex-col items-center mt-16 mb-12 px-4 w-full">
-          <div className="relative flex flex-col items-center justify-between w-full max-w-xl">
-            <div className="flex items-center">
+        <div className="flex flex-col items-center mt-16 mb-12 px-4 w-full max-w-md mx-auto">
+          <div className="relative flex flex-col items-center justify-between w-full">
+            <div className="flex items-center mb-4">
               <div className="relative mr-4">
                 <div className="absolute -top-12 left-16 w-40">
                   <div className="relative flex justify-center w-24 items-center border-4 rounded-md border-green-700 p-2 shadow-lg bg-yellow-200">
@@ -144,10 +144,9 @@ const Limit: React.FC = () => {
                 onChange={(e) => setLimitValue(Number(e.target.value))}
                 onKeyPress={handleKeyPress}
               />
-              
             </div>
 
-            <div className="bg-green-700 text-yellow-200 w-full mt-4 p-2 rounded text-center">
+            <div className="bg-white text-green-700 w-full mt-4 p-2 rounded text-center border-2 border-green-700">
               <p className="font-bold">
                 Current {groupName || "Channel"} Caps
               </p>
@@ -155,18 +154,21 @@ const Limit: React.FC = () => {
             </div>
           </div>
 
-          <button
-            onClick={handleDeleteLimit}
-            className="bg-red-400 hover:bg-red-500 text-white font-bold py-2 px-4 rounded mt-4 w-full"
-          >
-            Delete Limit
-          </button>
-          <button
-            onClick={() => navigate(-1)}
-            className="bg-gray-400 hover:bg-gray-500 text-white font-bold py-2 px-4 rounded mt-4 w-full"
-          >
-            Go Back
-          </button>
+          <div className="w-full mt-4 space-y-4">
+            <button
+              onClick={handleDeleteLimit}
+              className="bg-red-400 hover:bg-red-500 text-white font-bold py-2 px-4 rounded w-full"
+            >
+              Delete Limit
+            </button>
+            <button
+              onClick={() => navigate(-1)}
+              className="bg-gray-400 hover:bg-gray-500 text-white font-bold py-2 px-4 rounded w-full"
+            >
+              Go Back
+            </button>
+          </div>
+
           <img
             src="/co2.png"
             alt="CO2"
@@ -184,7 +186,6 @@ const Limit: React.FC = () => {
             {responseMessage}
           </div>
         )}
-
       </main>
     </div>
   );
