@@ -144,7 +144,11 @@ const Limit: React.FC = () => {
                 onChange={(e) => setLimitValue(Number(e.target.value))}
                 onKeyPress={handleKeyPress}
               />
+              <p className="text-center text-gray-600 mt-2">
+                  Please enter the limit value in kilobytes (KB).
+              </p>
             </div>
+
 
             <div className="bg-green-700 text-yellow-200 w-full mt-4 p-2 rounded text-center">
               <p className="font-bold">
@@ -179,9 +183,6 @@ const Limit: React.FC = () => {
           </div>
         )}
 
-        <p className="text-center text-gray-600 mt-2">
-          Please enter the limit value in kilobytes (KB).
-        </p>
       </main>
     </div>
   );
