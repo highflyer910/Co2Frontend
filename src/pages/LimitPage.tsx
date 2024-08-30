@@ -86,12 +86,6 @@ const Limit: React.FC = () => {
     }
   };
 
-  const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
-    if (event.key === "Enter") {
-      handleSetLimit();
-    }
-  };
-
   useEffect(() => {
     console.log(`Group ID: ${groupId}, Group Name: ${groupName}`);
   }, [groupId, groupName]);
@@ -115,8 +109,8 @@ const Limit: React.FC = () => {
         </div>
 
         <div className="flex flex-col items-center mt-16 mb-12 px-4 w-full">
-          <div className="relative flex flex-col items-center justify-between w-full max-w-xl">
-            <div className="flex items-center">
+          <div className="relative flex items-center justify-between w-full max-w-xl">
+            <div className="flex flex-col items-center">
               <div className="relative mr-4">
                 <div className="absolute -top-12 left-16 w-40">
                   <div className="relative flex justify-center w-24 items-center border-4 rounded-md border-green-700 p-2 shadow-lg bg-yellow-200">
@@ -134,7 +128,7 @@ const Limit: React.FC = () => {
               </div>
               <input
                 type="number"
-                className="rounded-lg p-2 border border-gray-200 bg-white text-gray-800"
+                className="rounded-l-lg p-2 border-t mr-0 border-b border-l text-gray-800 border-gray-200 bg-white"
                 placeholder="CO2"
                 value={
                   limitValue !== null && limitValue !== -1
@@ -142,34 +136,40 @@ const Limit: React.FC = () => {
                     : ""
                 }
                 onChange={(e) => setLimitValue(Number(e.target.value))}
-                onKeyPress={handleKeyPress}
+                onKeyPress={(e) => {
+                  if (e.key === "Enter") {
+                    handleSetLimit();
+                  }
+                }}
               />
-              <p className="text-center text-gray-600 mt-2">
-                  Please enter the limit value in kilobytes (KB).
-              </p>
             </div>
+          </div>
 
-
-            <div className="bg-green-700 text-yellow-200 w-full mt-4 p-2 rounded text-center">
-              <p className="font-bold">
-                Current {groupName || "Channel"} Caps
-              </p>
-              <p className="font-bold">CO2 CAPS: {limitValue}</p>
-            </div>
+          <div className="mt-4 text-center text-yellow-200 bg-green-700 p-2 rounded">
+            Current {groupName} Caps
+          </div>
+          <div className="text-center text-yellow-200 bg-green-700 p-2 rounded">
+            CO2 CAPS: {limitValue !== null && limitValue !== -1 ? limitValue : "N/A"} KB
           </div>
 
           <button
             onClick={handleDeleteLimit}
-            className="bg-red-400 hover:bg-red-500 text-white font-bold py-2 px-4 rounded mt-4 w-full"
+            className="bg-red-400 hover:bg-red-500 text-white font-bold py-2 px-4 rounded mt-4 md:w-auto w-3/4"
           >
             Delete Limit
           </button>
           <button
             onClick={() => navigate(-1)}
-            className="bg-gray-400 hover:bg-gray-500 text-white font-bold py-2 px-4 rounded mt-4 w-full"
+            className="bg-gray-400 hover:bg-gray-500 text-white font-bold py-2 px-4 rounded ml-2 mt-4 md:w-auto w-3/4"
           >
             Go Back
           </button>
+
+          <img
+            src="/co2.png"
+            alt="CO2"
+            className="mt-6 mx-auto w-32 h-32"
+          />
         </div>
         {responseMessage && (
           <div
@@ -183,6 +183,9 @@ const Limit: React.FC = () => {
           </div>
         )}
 
+        <p className="text-center text-gray-600 mt-2">
+          Please enter the limit value in kilobytes (KB).
+        </p>
       </main>
     </div>
   );
