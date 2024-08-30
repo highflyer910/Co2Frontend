@@ -146,7 +146,7 @@ const Limit: React.FC = () => {
               />
             </div>
 
-            <div className="bg-white text-green-700 w-full mt-4 p-2 rounded text-center border-2 border-green-700">
+            <div className="bg-green-700 text-yellow-200 w-full mt-4 p-2 rounded text-center border-2 border-green-700">
               <p className="font-bold">
                 Current {groupName || "Channel"} Caps
               </p>
