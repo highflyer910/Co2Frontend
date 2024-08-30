@@ -86,6 +86,12 @@ const Limit: React.FC = () => {
     }
   };
 
+  const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === "Enter") {
+      handleSetLimit();
+    }
+  };
+
   useEffect(() => {
     console.log(`Group ID: ${groupId}, Group Name: ${groupName}`);
   }, [groupId, groupName]);
@@ -109,7 +115,7 @@ const Limit: React.FC = () => {
         </div>
 
         <div className="flex flex-col items-center mt-16 mb-12 px-4 w-full">
-          <div className="relative flex items-center justify-between w-full max-w-xl">
+          <div className="relative flex items-center justify-center w-full max-w-xl">
             <div className="flex items-center">
               <div className="relative mr-4">
                 <div className="absolute -top-12 left-16 w-40">
@@ -128,7 +134,7 @@ const Limit: React.FC = () => {
               </div>
               <input
                 type="number"
-                className="rounded-l-lg p-2 border-t mr-0 border-b border-l text-gray-800 border-gray-200 bg-white"
+                className="rounded-lg p-2 border text-gray-800 border-gray-200 bg-white"
                 placeholder="CO2"
                 value={
                   limitValue !== null && limitValue !== -1
@@ -136,28 +142,27 @@ const Limit: React.FC = () => {
                     : ""
                 }
                 onChange={(e) => setLimitValue(Number(e.target.value))}
+                onKeyDown={handleKeyPress}
               />
-              <button
-                onClick={handleSetLimit}
-                className={`px-4 p-2 rounded-r-lg text-white border border-r-0 bg-blue-500 hover:bg-blue-400`}
-              >
-                Set Limit
-              </button>
             </div>
           </div>
-          <button
-            onClick={handleDeleteLimit}
-            className="bg-red-400 hover:bg-red-500 text-white font-bold py-2 px-4 rounded mt-4"
-          >
-            Delete Limit
-          </button>
-          <button
-            onClick={() => navigate(-1)}
-            className="bg-gray-400 hover:bg-gray-500 text-white font-bold py-2 px-4 rounded ml-2 mt-4"
-          >
-            Go Back
-          </button>
+
+          <div className="flex flex-col items-center mt-4">
+            <button
+              onClick={handleDeleteLimit}
+              className="bg-red-400 hover:bg-red-500 text-white font-bold py-2 px-4 rounded mb-2"
+            >
+              Delete Limit
+            </button>
+            <button
+              onClick={() => navigate(-1)}
+              className="bg-gray-400 hover:bg-gray-500 text-white font-bold py-2 px-4 rounded"
+            >
+              Go Back
+            </button>
+          </div>
         </div>
+
         {responseMessage && (
           <div
             className={`my-4 text-center font-bold ${
